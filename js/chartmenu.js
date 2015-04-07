@@ -334,11 +334,9 @@ $(document).ready(function(){
 	  
 	  
 	$("#3DBarChartMenu").click(function(){
-		
+	  $("#line1").empty();
 	  $(".chartDetails").hide();
 	  $(".3DBarChartMenu").show();
-	  
-		$("#3DBarChart").find("#line1").empty();
 		$("#3DBarChart").show();
 		
 		var barData = [15, 80, 120, 280, 50, 65, 900, 40, 23, 98];
