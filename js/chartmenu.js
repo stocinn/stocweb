@@ -1,13 +1,65 @@
 
 var selectedChartIndex=1;
 
+var jsFiddleLinkMap={
+"1" : "http://jsfiddle.net/PAXCEL/ycevhobo/1/",
+"2" : "http://jsfiddle.net/PAXCEL/vk04sohw/1/",
+"3" : "http://jsfiddle.net/PAXCEL/Lj2bsdnr/1/",
+"4" : "http://jsfiddle.net/PAXCEL/ogy6uoco/1/",
+"5" : "http://jsfiddle.net/PAXCEL/75331cub/1/",
+"6" : "http://jsfiddle.net/PAXCEL/1o2d6yxj/1/",
+"7" : "http://jsfiddle.net/PAXCEL/ndgww2n3/1/",
+"8" : "http://jsfiddle.net/PAXCEL/fbLdbgdw/1/",
+"9" : "http://jsfiddle.net/PAXCEL/g7sujqLr/1/",
+"10" : "http://jsfiddle.net/PAXCEL/3fwtgp6h/1/",
+"11" : "http://jsfiddle.net/PAXCEL/4nb73yvx/1/",
+"12" : "http://jsfiddle.net/PAXCEL/6xke3jct/1/",
+"13" : "http://jsfiddle.net/PAXCEL/ns715wcv/1/",
+"14" : "http://jsfiddle.net/PAXCEL/5xnj5e9v/1/",
+"15" : "http://jsfiddle.net/PAXCEL/6degx86y/1/",
+"16" : "http://jsfiddle.net/PAXCEL/tgLh5t6w/2/",
+"17" : "http://jsfiddle.net/PAXCEL/2kLky6t0/1/",
+"18" : "http://jsfiddle.net/PAXCEL/uo9oL6v1/1/",
+"19" : "http://jsfiddle.net/PAXCEL/3whv97g8/1/",
+"20" : "http://jsfiddle.net/PAXCEL/nh2yfehp/1/",
+"21" : "http://jsfiddle.net/PAXCEL/u62v8k9m/1/",
+"22" : "http://jsfiddle.net/PAXCEL/9qy6jbj9/1/",
+"23" : "http://jsfiddle.net/PAXCEL/f4pez9be/1/",
+"24" : "http://jsfiddle.net/PAXCEL/Lob2myog/1/",
+"25" : "http://jsfiddle.net/PAXCEL/udghncaq/1/",
+"26" : "http://jsfiddle.net/PAXCEL/6r1kjkgo/2/",
+"27" : "http://jsfiddle.net/PAXCEL/fdjuyu3o/2/",
+"28" : "http://jsfiddle.net/PAXCEL/e0acaxm9/1/",
+"29" : "http://jsfiddle.net/PAXCEL/g2us9n5n/2/",
+"30" : "http://jsfiddle.net/PAXCEL/q0zbeoh4/2/",
+"31" : "http://jsfiddle.net/PAXCEL/u9oohepu/2/",
+"32" : "http://jsfiddle.net/PAXCEL/jcw3ubvx/1/",
+"33" : "http://jsfiddle.net/PAXCEL/81ewp9ty/1/",
+"34" : "http://jsfiddle.net/PAXCEL/108apo8f/1/",
+"35" : "http://jsfiddle.net/PAXCEL/ub2620sx/2/",
+"36" : "http://jsfiddle.net/PAXCEL/th2rfsrk/1/",
+"37" : "http://jsfiddle.net/PAXCEL/w0qkv82g/1/",
+"38" : "http://jsfiddle.net/PAXCEL/fzp00bg3/1/",
+"39" : "http://jsfiddle.net/PAXCEL/6njfewoy/1/",
+"40" : "http://jsfiddle.net/PAXCEL/4o9cku73/2/",
+"41" :"http://jsfiddle.net/PAXCEL/d7nvk1ub/1/"
+
+}
+
+function updateJsfiddleLink(index){
+	var linkPath=jsFiddleLinkMap[index];
+	var jsfiddleBtn=$("#jsFiddle-share-btn");
+	$(jsfiddleBtn).attr("href",linkPath);
+}
+
 
 $(document).ready(function(){
   
  var textStyleConfg={"font-family":"'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":300,"xLabelColor":"#a7a7a7","yLabelColor":"white","chartTitleColor":"white"};
   $("#basicLineChartMenu").click(function(){
 	
-	 selectedChartIndex=$(this).attr("index");	
+	 selectedChartIndex=$(this).attr("index");
+	 updateJsfiddleLink(selectedChartIndex);
 	  //doc detail	
 	  $(".chartDetails").hide();
 	  $(".basicLineChartMenu").show();
@@ -66,6 +118,7 @@ $(document).ready(function(){
 	//$(".chartBigOuter").hide();
 	
 	selectedChartIndex=$(this).attr("index");
+	updateJsfiddleLink(selectedChartIndex);
 	$(".chartDetails").hide();
 	  $(".scatterPlotChartMenu").show();
 	  
@@ -120,6 +173,7 @@ $(document).ready(function(){
 		$("#line1").empty();
 		
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".drillDownChartMenu").show();
 		
@@ -165,6 +219,7 @@ $(document).ready(function(){
 	  $(".heatmapMenu").show();
 	
 	selectedChartIndex=$(this).attr("index");
+	updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();
 	
 	/*
@@ -233,6 +288,7 @@ $(document).ready(function(){
     $("#transitPieMenu").click(function(){
 		$("#line1").empty();
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".transitPieMenu").show();
 		
@@ -256,6 +312,7 @@ $(document).ready(function(){
   
     $("#radarChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".radarChartMenu").show();
 		$("#line1").empty();
@@ -297,6 +354,7 @@ $(document).ready(function(){
     $("#multiAxisMenu").click(function(){
 	
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		
 		$(".chartDetails").hide();
 	  $(".multiAxisMenu").show();
@@ -317,6 +375,7 @@ $(document).ready(function(){
   
     $("#groupedBarMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();
 	$(".chartDetails").hide();
 	  $(".groupedBarMenu").show();
@@ -345,7 +404,8 @@ $(document).ready(function(){
 	  
 	$("#3DBarChartMenu").click(function(){
 		
-	  selectedChartIndex=$(this).attr("index");	
+	  selectedChartIndex=$(this).attr("index");
+	  updateJsfiddleLink(selectedChartIndex);
 	  $("#line1").empty();
 	  $(".chartDetails").hide();
 	  $(".3DBarChartMenu").show();
@@ -374,6 +434,7 @@ $(document).ready(function(){
 	
 	$("#3DGroupedBarChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
         $("#line1").empty();
 		$("#3DGroupedBarChart").show();
 		
@@ -405,6 +466,7 @@ $(document).ready(function(){
 	
 	 $("#3DStackedBarChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		 $(".chartDetails").hide();
 	  $(".3DStackedBarChartMenu").show();
 	  
@@ -461,6 +523,7 @@ $(document).ready(function(){
 	  
 	$("#stackedAreaChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".stackedAreaChartMenu").show();
 		$("#line1").empty();
@@ -501,6 +564,7 @@ $(document).ready(function(){
 	  
 	$("#stackedBarChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".stackedBarChartMenu").show();
 		$("#line1").empty();
@@ -529,6 +593,7 @@ $(document).ready(function(){
 	  
     $("#funnelChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".funnelChartMenu").show();
 		$("#line1").empty();
@@ -551,6 +616,7 @@ $(document).ready(function(){
 	  
     $("#guageGraphMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".guageGraphMenu").show();
 	$("#line1").empty();
@@ -564,6 +630,7 @@ $(document).ready(function(){
 	  
 	$("#areaChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".Zoomable").show();
 		$("#line1").empty();	
@@ -581,6 +648,7 @@ $(document).ready(function(){
 	 
 	$("#pyramidChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		console.log("clicked");	
 		
 		$("#line1").empty();
@@ -621,6 +689,7 @@ $(document).ready(function(){
 	  
 	$("#invertPyramidMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();	
 		$('#invertPyramid').show();
 		
@@ -662,6 +731,7 @@ $(document).ready(function(){
 	  
 	$("#meterChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$('#meterChart').show();
 		
@@ -685,6 +755,7 @@ $(document).ready(function(){
 	$("#groupedBar2DMenu").click(function(){
 		
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
        $("#line1").empty();
 	   $(".chartDetails").hide();
 	  $(".groupedBar2DMenu").show();
@@ -713,6 +784,7 @@ $(document).ready(function(){
 	
 	$("#3DPyramidChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#3DPyramidChart").show();
 		
@@ -732,6 +804,7 @@ $(document).ready(function(){
 	
 	$("#3DPyramidSliceChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#3DPyramidSliceChart").show();
 		$(".chartDetails").hide();
@@ -749,6 +822,7 @@ $(document).ready(function(){
 	
 	$("#dountChartWithLegendMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$(".chartDetails").hide();
 	  $(".dountChartWithLegendMenu").show();
@@ -771,6 +845,7 @@ $(document).ready(function(){
 	//data consideration
 	$("#dountWithBarChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$(".chartDetails").hide();
 	  $(".dountWithBarChartMenu").show();
@@ -803,6 +878,7 @@ $(document).ready(function(){
 	
 	$("#BulletBarChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();
 	$(".chartDetails").hide();
 	  $(".BulletBarChartMenu").show();
@@ -823,6 +899,7 @@ $(document).ready(function(){
 	
 	$("#CricketAnalChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$(".chartDetails").hide();
 	  $(".CricketAnalChartMenu").show();
 $("#line1").empty();
@@ -865,6 +942,7 @@ $("#line1").empty();
 	
 	$("#CombinationalChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#CombinationalChart").show();
 		
@@ -905,6 +983,7 @@ $("#line1").empty();
 	
 	$("#variationChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#variationChart").show();
 		
@@ -941,6 +1020,7 @@ $("#line1").empty();
 	
 	$("#globChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();
 		$("#globChart").show();
 		$(".chartDetails").hide();
@@ -1010,6 +1090,7 @@ $("#line1").empty();
 	
 	$("#barWithLogoMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#barWithLogo").show();
 		
@@ -1048,6 +1129,7 @@ $("#line1").empty();
 	
 	$("#detailChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#detailChart").show();
 		
@@ -1084,6 +1166,7 @@ $("#line1").empty();
 
 	$("#3DbubbleChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();
 	$("#3DBubbleChart").show();
 	
@@ -1138,6 +1221,7 @@ $("#line1").empty();
 	
 	$("#treeChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 	 $("#treeChartMenu").show();
 	 $(".chartDetails").hide();
@@ -1253,6 +1337,7 @@ $("#line1").empty();
 	
 	$("#areaChartWithVaryColorMenu").click(function(){	
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#areaChartWithVaryColor").show();
 		
@@ -1280,6 +1365,7 @@ $("#line1").empty();
 	
 	$("#areaChartWithNegativeValueMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#areaChartWithNegativeValue").show();
 		
@@ -1308,6 +1394,7 @@ $("#line1").empty();
 	
 	$("#musicSpikesMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 	$("#line1").empty();
 		$("#musicSpikes").show();
 		
@@ -1332,6 +1419,7 @@ $("#line1").empty();
 
 	$("#comparisonChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#comparisonChart").show();
 		
@@ -1359,6 +1447,7 @@ $("#line1").empty();
 	
 	$("#multipleDountChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#multipleDountChart").show();
 		
@@ -1445,6 +1534,7 @@ $("#line1").empty();
 	
 	$("#barWithLabelChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#barWithLabelChartMenu").show();
 		
@@ -1471,6 +1561,7 @@ $("#line1").empty();
 	
 	$("#logoChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#logoChart").show();
 		
@@ -1516,6 +1607,7 @@ $("#line1").empty();
 	
 	$("#multiAxisChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
 		$("#multiAxisChart").show();
 		

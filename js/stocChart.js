@@ -4523,9 +4523,9 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				.duration(1000)
 				.style("left",function(d,i){
 					if(i==0)			
-						return marginCrickedAnalChart.left+'px';
+						return (marginCrickedAnalChart.left+4)+'px';
 					else
-						return (marginCrickedAnalChart.left)+xScale(i)+'px'
+						return (marginCrickedAnalChart.left+4)+xScale(d["timeIndex"])+'px'
 				});
 				
 				xScaleGrouping.append("div")
@@ -4536,7 +4536,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 									if(i==0)	
 									return marginCrickedAnalChart.left;
 									else
-									return (marginCrickedAnalChart.left)+xScale(i);
+									return (marginCrickedAnalChart.left)+xScale(d["timeIndex"]);
 							})
 							.style('color','#a7a7a7')
 							.html(function(d,i){
@@ -6741,7 +6741,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 		.style('float','right')
 		.style('margin-top','-10px')
 		.style('margin-right','-10px')							
-		.attr("src",'./img/cross.png').on('click',function(){message.style("visibility",'hidden')});	
+		.attr("src",'http://stocinn.github.io/stocweb/img/cross.png').on('click',function(){message.style("visibility",'hidden')});	
 		message.append('div').attr('id','innerDiv').style('padding','5px 10px 5px 10px').style("font-size",12).style("color",'black').style('background',"#fff").text('inner box');	
 		//show data of line1 and line2
 		   showLineData();
@@ -7347,9 +7347,9 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 															d3.select('.resetDrillDownBtn').style("fill",'#7F7FFF');
 														  })
 														  .on("mouseout",function(){
-															d3.select(this).style("fill",'blue');
+															d3.select(this).style("fill",'#19a586');
 														  })
-														  .style('fill','blue')
+														  .style('fill','#19a586')
 														  .style('display','inline-block')
 														  .style("cursor","pointer")
 														  ;
@@ -11352,7 +11352,7 @@ for(var index = 0;index<funnelData.length;index++)
 									  })
 									  .style("width",resetBtnWidth+"px")
 									  .style("height",resetBtnHeight+"px")
-									  .style('background','blue')
+									  .style('background','#19a586')
 									  .style('display','inline-block')
 									  .style("z-index","999")
 									  .style("position","absolute")

@@ -321,7 +321,7 @@ font-size: 28px; padding:0 0 10px 0; margin:0px; }
 
 
 
-
+.capitalMarketDashboardBtn:hover{background-color: #2aa2d3;}
 
 .featuresList{ }
 
@@ -966,9 +966,45 @@ ul.nextPreBtnList li a:hover{ color:#fff; background:none; outline:none; }
 ul.nextPreBtnList li a:focus{background:none;  outline:none; }
 
 ul.chartBtn{ margin:0px; padding:0px; float:right;}
-ul.chartBtn li{ display:inline; margin:0px 0 0 10px; padding:0px; float:left; }
+ul.chartBtn li{ display:inline; margin:10px 0 0 10px; padding:0px; float:left; }
 ul.chartBtn li a{padding:5px 10px; border-radius:3px; background-color: #3d3d3d;    border: 1px solid #555555;}
 ul.chartBtn li a:hover{  text-decoration:none;  border: 1px solid #ffffff;}
+
+
+ul.chartBtn li a.none{ border:none;}
+.capitalMarketDashboardBtn
+ {
+  -webkit-animation: color_change 1s infinite alternate;
+  -moz-animation: color_change 1s infinite alternate;
+  -ms-animation: color_change 1s infinite alternate;
+  -o-animation: color_change 1s infinite alternate;
+  animation: color_change 1s infinite alternate; padding:5px 15px;
+  color:#FFF;
+}
+
+@-webkit-keyframes color_change {
+  from { background-color: #19a586; }
+  to { background-color: #2aa2d3; }
+}
+@-moz-keyframes color_change {
+  from { background-color: #19a586; }
+  to { background-color: #2aa2d3; }
+}
+@-ms-keyframes color_change {
+  from { background-color: #19a586; }
+  to { background-color: #2aa2d3; }
+}
+@-o-keyframes color_change {
+  from { background-color: #19a586; }
+  to { background-color: #2aa2d3; }
+}
+@keyframes color_change {
+  from { background-color: #19a586; }
+  to { background-color: #2aa2d3; }
+}
+
+
+
 
 .chartOuter{ height:500px; margin:20px 0 0 0; background-image:url(../img/chart-deshboardbg.png); box-shadow:  0 0 10px #333;}
 .chartDocumation{ position:relative; height:500px; background-color:#222222;   margin:20px 0 0 0; box-shadow:  0 0 10px #333;}
@@ -976,6 +1012,8 @@ ul.minMaxBtn{ float:right; margin:0 10px 0 0;      }
 ul.minMaxBtn li{   display:inline; float:left;  margin:0px 0 0 5px; padding:0px; }
 ul.minMaxBtn li a{ font-size:20px; color:#CCC;}
 ul.minMaxBtn li a:hover{ background:none; font-size:20px; color:#fff;}
+
+
 
 .chartDocumation  .documationContent{ height:450px; margin-top:40px;  clear:both; word-wrap:break-word;  color:#999;  }
 
