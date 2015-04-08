@@ -4233,7 +4233,7 @@ stockChart.circleChart({'color':"blue",'r':3,'data':data});</p>
   </div>
 </div>
 
-<div class="chartDetails Zoomable">
+<div class="chartDetails globChartMenu">
 <h2>Network Chart</h2>
 <p><strong>Introduction:</strong><br>
 
@@ -4301,6 +4301,102 @@ stockChart.circleChart({'color':"blue",'r':3,'data':data});</p>
 
 </p>
   </div>
+</div>
+
+
+<div class="chartDetails multiAxisChartMenu">
+<h2>Multiple Axis Chart</h2>
+<p><strong>Introduction:</strong><br>
+
+
+
+
+</p>
+ <h3><strong>Steps of making Multiple Axis Chart:
+
+
+
+</strong><br><br>
+ 1) Data format to be used: Json Array
+
+
+
+
+</h3>
+ <div class="chartCode">
+  <p class="padding-xs">
+yAxisData:- y axis data<br>
+
+yAixsAvgData:- y axis average data<br>
+
+yAxisColor:- y axis color<br>
+
+xAxisData:- x axis data<br>
+
+unit:- label unit<br>
+
+legend:- array of legends<br>
+
+legendColor:- array of legend color<br>
+
+
+			
+
+
+</p> 
+
+<p class="padding-sm">eg) </p> 
+
+<p class="padding-md">var data =  
+			{
+			yObject:
+			 [</p>
+             <p class="padding-lg">{
+							yAxisData : [210,280,270,320,350,260,325],<br>
+
+							yAixsAvgData : [80,37,40,100,75,45,30],<br>
+
+							yAxisColor : "orange"<br>
+
+				},<br>
+<br>
+
+				{
+						
+							yAxisData : [240,250,160,295,160,180,170],<br>
+
+							yAixsAvgData : [35,25,20,45,30,20,55],<br>
+
+							yAxisColor : "blue"<br>
+
+				},<br>
+<br>
+
+				{
+						
+							yAxisData : [100,150,50,200,125,75,230],<br>
+
+							yAixsAvgData : [135,125,120,150,130,120,155],<br>
+
+							yAxisColor : "green"<br>
+
+				}
+			],</p>
+            
+            <p class="padding-md">xAxisData : ["Jan","Feb","Mar","Apr","May","June","July"],<br>
+
+			unit:"Student's",<br>
+
+			legend : ["Student Login","Class Avg.Login","Student Interaction","Class.Avg Interaction","Student Time Spent","Class Time Spent"],<br>
+
+			legendColor: ['orange','orange','blue','blue','green','green']
+			}</p>
+      
+ </div>
+
+
+
+ 
 </div>
 
 </div>

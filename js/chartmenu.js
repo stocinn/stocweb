@@ -565,7 +565,7 @@ $(document).ready(function(){
 	$("#areaChartMenu").click(function(){
 		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
-	  $(".areaChartMenu").show();
+	  $(".Zoomable").show();
 		$("#line1").empty();	
 		$("#areaChart1").show();
 		
@@ -943,7 +943,8 @@ $("#line1").empty();
 		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 		$("#globChart").show();
-		
+		$(".chartDetails").hide();
+	  $(".globChartMenu").show();
 		var globData = {
 						'title' : 'Connected Airlines',
 						'titleColor' : 'gray',
@@ -1517,6 +1518,10 @@ $("#line1").empty();
 		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#multiAxisChart").show();
+		
+		
+			$(".chartDetails").hide();
+	  $(".multiAxisChartMenu").show();
 
 		var data =  
 			{
