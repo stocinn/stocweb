@@ -966,7 +966,7 @@ ul.nextPreBtnList li a:hover{ color:#fff; background:none; outline:none; }
 ul.nextPreBtnList li a:focus{background:none;  outline:none; }
 
 ul.chartBtn{ margin:0px; padding:0px; float:right;}
-ul.chartBtn li{ display:inline; margin:10px 0 0 10px; padding:0px; float:left; }
+ul.chartBtn li{ display:inline; margin:0px 0 10px 10px; padding:0px; float:left; }
 ul.chartBtn li a{padding:5px 10px; border-radius:3px; background-color: #3d3d3d;    border: 1px solid #555555;}
 ul.chartBtn li a:hover{  text-decoration:none;  border: 1px solid #ffffff;}
 
