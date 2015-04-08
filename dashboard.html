@@ -26,13 +26,11 @@
 <script src="js/chartmenu.js"></script>
 <script src="js/stocChart.js"></script>
 <script src="js/CommonUtil.js"></script>
-<script src="js/canvasHandler.js"></script>
 </head>
 
 <body style="background-color:#eff0f4;" >
-<canvas id="canvas2" width="1300px" height="800px" style="position:fixed;z-index:9999;display:none;width:1300px;height:800px;"></canvas>	
 <a href="#menu" id="toggle"><span></span></a>
-<div class="pullRight" ><img src="img/nav-arrow.png" alt="nav-arrow"/></div>
+<div class="pullRight" ><img src="img/arrow.png" alt="arrow"/></div>
 <div class="chartNavContainor  ">
 
 <div class="container " >
@@ -40,44 +38,44 @@
 <div class="row">
 <div class="col-lg-4 col-md-4 col-sm-12 animation fadeInLeft" ><ul class="chartListGrup animated fadeInLeft" >
 
-<li><a id="basicLineChartMenu" index="1" href="#"> <i class="arrow"></i>  Basic Line Chart </a> </li>
-<li> <a  href="#" index="2" id="scatterPlotChartMenu" ><i class="arrow"></i>
+<li><a id="basicLineChartMenu" href="#"> <i class="arrow"></i>  Basic Line Chart </a> </li>
+<li> <a  href="#" id="scatterPlotChartMenu" ><i class="arrow"></i>
  Scatter Plot Chart </a> </li>
-<li> <a  href="#" index="3" id="drillDownChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="drillDownChartMenu"><i class="arrow"></i>
  Drill Down Chart </a> </li>
 
-<li> <a  href="#" index="4" id="heatmapMenu"><i class="arrow"></i>
+<li> <a  href="#" id="heatmapMenu"><i class="arrow"></i>
  Heatmap </a> </li>
 
-<li> <a  href="#" index="5" id="transitPieMenu"><i class="arrow"></i>
+<li> <a  href="#" id="transitPieMenu"><i class="arrow"></i>
  Transit Pie Chart </a> </li>
 
-  <li> <a  href="#" index="6" id="dountChartWithLegendMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="dountChartWithLegendMenu"><i class="arrow"></i>
 Donut Chart with Legend</a>  </li> 
  
-  <li> <a  href="#" index="7" id="dountWithBarChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="dountWithBarChartMenu"><i class="arrow"></i>
 Donut Chart with Bars</a>  </li> 
  
  
  
-<li> <a  href="#" index="8" id="radarChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="radarChartMenu"><i class="arrow"></i>
  Radar Chart </a>  </li>
 
-<li> <a  href="#" index="9" id="multiAxisMenu"><i class="arrow"></i>
+<li> <a  href="#" id="multiAxisMenu"><i class="arrow"></i>
  Multi Axis Chart </a> </li> 
 
-<li> <a  href="#" index="10" id="groupedBarMenu"><i class="arrow"></i>
+<li> <a  href="#" id="groupedBarMenu"><i class="arrow"></i>
  Grouped Bar Menu </a>  </li>
  
-<li> <a  href="#" index="11" id="groupedBar2DMenu"><i class="arrow"></i>
+<li> <a  href="#" id="groupedBar2DMenu"><i class="arrow"></i>
  Grouped Bars with Negative Values </a>  </li>
  
- <li> <a  href="#" index="12" id="3DBarChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="3DBarChartMenu"><i class="arrow"></i>
  3D Bar Chart</a>  </li> 
  
-  <li> <a  href="#" index="13" id="3DGroupedBarChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="3DGroupedBarChartMenu"><i class="arrow"></i>
  3D Grouped Bar Chart</a>  </li>
-   <li> <a  href="#" index="14" id="3DStackedBarChartMenu"><i class="arrow"></i>
+   <li> <a  href="#" id="3DStackedBarChartMenu"><i class="arrow"></i>
  3D Stacked Bar Chart</a>  </li> 
  
 
@@ -88,44 +86,44 @@ Donut Chart with Bars</a>  </li>
 
 
  
- <li> <a  href="#" index="15" id="BulletBarChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="BulletBarChartMenu"><i class="arrow"></i>
  Bullet Bar Chart</a>  </li> 
  
- <li> <a  href="#" index="16" id="CricketAnalChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="CricketAnalChartMenu"><i class="arrow"></i>
  Rounded Bar with special labels</a>  </li> 
 
  
- <li> <a  href="#" index="17" id="stackedAreaChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="stackedAreaChartMenu"><i class="arrow"></i>
 Stacked Area Chart</a>  </li> 
 
-  <li> <a  href="#" index="18" id="stackedBarChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="stackedBarChartMenu"><i class="arrow"></i>
 Stacked Bar Chart</a>  </li> 
-  <li> <a  href="#" index="19" id="funnelChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="funnelChartMenu"><i class="arrow"></i>
 Funnel Chart</a>  </li> 
-  <li> <a  href="#" index="20" id="guageGraphMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="guageGraphMenu"><i class="arrow"></i>
 Guage Graph </a>  </li> 
 
-  <li> <a  href="#" index="21" id="areaChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="areaChartMenu"><i class="arrow"></i>
 Zoomable Area Chart </a>  </li> 
 
-  <li> <a  href="#" index="22" id="pyramidChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="pyramidChartMenu"><i class="arrow"></i>
 Pyramid Chart </a>  </li> 
 
- <li> <a  href="#" index="23" id="3DPyramidChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="3DPyramidChartMenu"><i class="arrow"></i>
 3D Pyramid Chart </a>  </li> 
 
- <li> <a  href="#" index="24" id="3DPyramidSliceChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="3DPyramidSliceChartMenu"><i class="arrow"></i>
 3D Pyramid Slice Chart </a>  </li> 
 
-  <li> <a  href="#" index="25" id="invertPyramidMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="invertPyramidMenu"><i class="arrow"></i>
 Invert Pyramid </a>  </li> 
 
-  <li> <a  href="#" index="26" id="meterChartMenu"><i class="arrow"></i>
+  <li> <a  href="#" id="meterChartMenu"><i class="arrow"></i>
 Meter Chart</a>  </li> 
-<li> <a  href="#" index="27" id="CombinationalChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="CombinationalChartMenu"><i class="arrow"></i>
 Combinational Chart</a>  </li> 
  
-<li> <a  href="#" index="28" id="variationChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="variationChartMenu"><i class="arrow"></i>
 Variation Chart</a>  </li> 
 
 
@@ -134,44 +132,44 @@ Variation Chart</a>  </li>
 <div class="col-lg-4 col-md-4 col-sm-12  animation fadeInLeft" >   <ul class="chartListGrup animated fadeInLeft">
 
 
-<li> <a  href="#" index="29" id="globChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="globChartMenu"><i class="arrow"></i>
 Network Chart</a>  </li> 
  
  
- <li> <a  href="#" index="30" id="barWithLogoMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="barWithLogoMenu"><i class="arrow"></i>
 Bar With Logo</a>  </li> 
- <li> <a  href="#" index="31" id="detailChartMenu"><i class="arrow"></i>
+ <li> <a  href="#" id="detailChartMenu"><i class="arrow"></i>
 Detail Chart</a>  </li>
 
-<li> <a  href="#" index="32" id="3DbubbleChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="3DbubbleChartMenu"><i class="arrow"></i>
 3D Bubble Chart </a>  </li> 
 
-<li> <a  href="#" index="33" id="treeChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="treeChartMenu"><i class="arrow"></i>
 Tree Chart </a>  </li> 
 
-<li> <a  href="#" index="34" id="areaChartWithVaryColorMenu"><i class="arrow"></i>
+<li> <a  href="#" id="areaChartWithVaryColorMenu"><i class="arrow"></i>
 Area Chart With Vary Color </a>  </li> 
 
-<li> <a  href="#" index="35" id="areaChartWithNegativeValueMenu"><i class="arrow"></i>
+<li> <a  href="#" id="areaChartWithNegativeValueMenu"><i class="arrow"></i>
 Area chart With negative value </a> </li>  
 
-<li> <a  href="#" index="36" id="musicSpikesMenu"><i class="arrow"></i>
+<li> <a  href="#" id="musicSpikesMenu"><i class="arrow"></i>
 Music Spikes </a></li> 
 
-<li> <a  href="#" index="37" id="comparisonChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="comparisonChartMenu"><i class="arrow"></i>
 Comparison Chart </a></li>  
 
-<li> <a  href="#" index="38" id="multipleDountChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="multipleDountChartMenu"><i class="arrow"></i>
 Multiple Dount Chart </a></li>
 
-<li> <a  href="#" index="39" id="barWithLabelChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="barWithLabelChartMenu"><i class="arrow"></i>
 Bar With Label Chart </a></li>
 
-<li> <a  href="#" index="40" id="logoChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="logoChartMenu"><i class="arrow"></i>
 Logo Chart </a>
 </li>
 
-<li> <a  href="#" index="41" id="multiAxisChartMenu"><i class="arrow"></i>
+<li> <a  href="#" id="multiAxisChartMenu"><i class="arrow"></i>
 Multiple Axis </a>
 </li> </ul></div></div></div>
 </div>
@@ -223,9 +221,9 @@ Multiple Axis </a>
      <li><a href="#"> <i class="fa fa-chevron-right"></i>                        </a>                    </li>                </ul></div>
       <div class="col-lg-6 col-md-6 col-sm-6">
       <ul class="chartBtn">
-      <li><a href="#" class="play-again-btn" ><i class="fa fa-caret-right"></i>
+      <li><a href="#"><i class="fa fa-caret-right"></i>
  Play Again</a></li>
-      <li><a href="#" class="download-graph"><i class="fa fa-long-arrow-down"></i>
+      <li><a href="#"><i class="fa fa-long-arrow-down"></i>
  Download</a></li>
       <li><a href="#"><i class="fa fa-share-alt"></i>
  Share</a></li>
@@ -4369,8 +4367,9 @@ $("#minmize" ).click(function(){
 
 $(".chartList ul li a" ).click(function(){
     $(".chartNavContainor").toggleClass("pullLeft");
+	
+	
 });
-
 
 $(".chartList ul li a" ).click(function(){
     $(".chartNavContainor").toggleClass("hideDiv");

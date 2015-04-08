@@ -1,5 +1,4 @@
 
-var selectedChartIndex=1;
 
 
 $(document).ready(function(){
@@ -7,7 +6,6 @@ $(document).ready(function(){
  var textStyleConfg={"font-family":"'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":300,"xLabelColor":"#a7a7a7","yLabelColor":"white","chartTitleColor":"white"};
   $("#basicLineChartMenu").click(function(){
 	
-	 selectedChartIndex=$(this).attr("index");	
 	  //doc detail	
 	  $(".chartDetails").hide();
 	  $(".basicLineChartMenu").show();
@@ -65,7 +63,6 @@ $(document).ready(function(){
   $("#scatterPlotChartMenu").click(function(){
 	//$(".chartBigOuter").hide();
 	
-	selectedChartIndex=$(this).attr("index");
 	$(".chartDetails").hide();
 	  $(".scatterPlotChartMenu").show();
 	  
@@ -119,7 +116,6 @@ $(document).ready(function(){
    $("#drillDownChartMenu").click(function(){
 		$("#line1").empty();
 		
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".drillDownChartMenu").show();
 		
@@ -164,7 +160,6 @@ $(document).ready(function(){
    $(".chartDetails").hide();
 	  $(".heatmapMenu").show();
 	
-	selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 	
 	/*
@@ -232,7 +227,6 @@ $(document).ready(function(){
   
     $("#transitPieMenu").click(function(){
 		$("#line1").empty();
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".transitPieMenu").show();
 		
@@ -255,7 +249,6 @@ $(document).ready(function(){
 	});
   
     $("#radarChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".radarChartMenu").show();
 		$("#line1").empty();
@@ -296,8 +289,6 @@ $(document).ready(function(){
   
     $("#multiAxisMenu").click(function(){
 	
-		selectedChartIndex=$(this).attr("index");
-		
 		$(".chartDetails").hide();
 	  $(".multiAxisMenu").show();
 	  
@@ -316,7 +307,6 @@ $(document).ready(function(){
   
   
     $("#groupedBarMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 	$(".chartDetails").hide();
 	  $(".groupedBarMenu").show();
@@ -345,10 +335,10 @@ $(document).ready(function(){
 	  
 	$("#3DBarChartMenu").click(function(){
 		
-	  selectedChartIndex=$(this).attr("index");	
-	  $("#line1").empty();
 	  $(".chartDetails").hide();
 	  $(".3DBarChartMenu").show();
+	  
+		$("#3DBarChart").find("#line1").empty();
 		$("#3DBarChart").show();
 		
 		var barData = [15, 80, 120, 280, 50, 65, 900, 40, 23, 98];
@@ -373,7 +363,6 @@ $(document).ready(function(){
 	});
 	
 	$("#3DGroupedBarChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
         $("#line1").empty();
 		$("#3DGroupedBarChart").show();
 		
@@ -404,7 +393,6 @@ $(document).ready(function(){
 
 	
 	 $("#3DStackedBarChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		 $(".chartDetails").hide();
 	  $(".3DStackedBarChartMenu").show();
 	  
@@ -460,7 +448,6 @@ $(document).ready(function(){
 	});
 	  
 	$("#stackedAreaChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".stackedAreaChartMenu").show();
 		$("#line1").empty();
@@ -500,7 +487,6 @@ $(document).ready(function(){
 	});
 	  
 	$("#stackedBarChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".stackedBarChartMenu").show();
 		$("#line1").empty();
@@ -528,7 +514,6 @@ $(document).ready(function(){
 	});
 	  
     $("#funnelChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".funnelChartMenu").show();
 		$("#line1").empty();
@@ -550,7 +535,6 @@ $(document).ready(function(){
 	});
 	  
     $("#guageGraphMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".guageGraphMenu").show();
 	$("#line1").empty();
@@ -563,7 +547,6 @@ $(document).ready(function(){
 	});
 	  
 	$("#areaChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".areaChartMenu").show();
 		$("#line1").empty();	
@@ -580,7 +563,6 @@ $(document).ready(function(){
 	  
 	 
 	$("#pyramidChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		console.log("clicked");	
 		
 		$("#line1").empty();
@@ -620,7 +602,6 @@ $(document).ready(function(){
 	});
 	  
 	$("#invertPyramidMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();	
 		$('#invertPyramid').show();
 		
@@ -661,7 +642,6 @@ $(document).ready(function(){
 	  
 	  
 	$("#meterChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$('#meterChart').show();
 		
@@ -684,7 +664,6 @@ $(document).ready(function(){
 	
 	$("#groupedBar2DMenu").click(function(){
 		
-		selectedChartIndex=$(this).attr("index");
        $("#line1").empty();
 	   $(".chartDetails").hide();
 	  $(".groupedBar2DMenu").show();
@@ -712,7 +691,6 @@ $(document).ready(function(){
 	});	
 	
 	$("#3DPyramidChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#3DPyramidChart").show();
 		
@@ -731,7 +709,6 @@ $(document).ready(function(){
 	
 	
 	$("#3DPyramidSliceChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#3DPyramidSliceChart").show();
 		$(".chartDetails").hide();
@@ -748,7 +725,6 @@ $(document).ready(function(){
 	
 	
 	$("#dountChartWithLegendMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$(".chartDetails").hide();
 	  $(".dountChartWithLegendMenu").show();
@@ -770,7 +746,6 @@ $(document).ready(function(){
 	
 	//data consideration
 	$("#dountWithBarChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$(".chartDetails").hide();
 	  $(".dountWithBarChartMenu").show();
@@ -802,7 +777,6 @@ $(document).ready(function(){
 	});	
 	
 	$("#BulletBarChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 	$(".chartDetails").hide();
 	  $(".BulletBarChartMenu").show();
@@ -822,7 +796,6 @@ $(document).ready(function(){
 	
 	
 	$("#CricketAnalChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$(".chartDetails").hide();
 	  $(".CricketAnalChartMenu").show();
 $("#line1").empty();
@@ -864,7 +837,6 @@ $("#line1").empty();
 	
 	
 	$("#CombinationalChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#CombinationalChart").show();
 		
@@ -904,7 +876,6 @@ $("#line1").empty();
 	});	
 	
 	$("#variationChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#variationChart").show();
 		
@@ -940,7 +911,6 @@ $("#line1").empty();
 	});	
 	
 	$("#globChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 		$("#globChart").show();
 		
@@ -1008,7 +978,6 @@ $("#line1").empty();
 	});	
 	
 	$("#barWithLogoMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#barWithLogo").show();
 		
@@ -1046,7 +1015,6 @@ $("#line1").empty();
 	})
 	
 	$("#detailChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#detailChart").show();
 		
@@ -1082,7 +1050,6 @@ $("#line1").empty();
 	});	
 
 	$("#3DbubbleChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 	$("#3DBubbleChart").show();
 	
@@ -1136,7 +1103,6 @@ $("#line1").empty();
 });	
 	
 	$("#treeChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 	 $("#treeChartMenu").show();
 	 $(".chartDetails").hide();
@@ -1250,8 +1216,7 @@ $("#line1").empty();
 		stocChart33.treeChart(cfg);
 	});	
 	
-	$("#areaChartWithVaryColorMenu").click(function(){	
-		selectedChartIndex=$(this).attr("index");
+	$("#areaChartWithVaryColorMenu").click(function(){
 		$("#line1").empty();
 		$("#areaChartWithVaryColor").show();
 		
@@ -1278,7 +1243,6 @@ $("#line1").empty();
 	});	
 	
 	$("#areaChartWithNegativeValueMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#areaChartWithNegativeValue").show();
 		
@@ -1306,7 +1270,6 @@ $("#line1").empty();
 	});
 	
 	$("#musicSpikesMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 	$("#line1").empty();
 		$("#musicSpikes").show();
 		
@@ -1330,7 +1293,6 @@ $("#line1").empty();
 	});
 
 	$("#comparisonChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#comparisonChart").show();
 		
@@ -1357,7 +1319,6 @@ $("#line1").empty();
 	});
 	
 	$("#multipleDountChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#multipleDountChart").show();
 		
@@ -1443,7 +1404,6 @@ $("#line1").empty();
 	});
 	
 	$("#barWithLabelChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#barWithLabelChartMenu").show();
 		
@@ -1469,7 +1429,6 @@ $("#line1").empty();
 	});
 	
 	$("#logoChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#logoChart").show();
 		
@@ -1514,7 +1473,6 @@ $("#line1").empty();
 	});
 	
 	$("#multiAxisChartMenu").click(function(){
-		selectedChartIndex=$(this).attr("index");
 		$("#line1").empty();
 		$("#multiAxisChart").show();
 
@@ -1561,81 +1519,6 @@ $("#line1").empty();
 		$('.multiplechart').addClass('addopacity');
 		
 	});
-	
-	
-	//show next and previous chart binding
-	
-	$(".nextPreBtnList .fa-chevron-right").on("click",function(event){
-		event.stopPropagation();
-		selectedChartIndex=parseInt(selectedChartIndex);
-		//add one step up
-		var maxUpperLimit=$(".chartListGrup").find("li").length;
-		
-		if(maxUpperLimit >= (selectedChartIndex+1)){
-			
-			selectedChartIndex=selectedChartIndex+1;
-			
-			var nextCharttoBeShown=$('a[index='+selectedChartIndex+']');
-			$(nextCharttoBeShown).trigger("click");
-		}
-		
-		$(".chartNavContainor").removeClass("hideDiv");
-		$(".chartNavContainor").addClass("pullLeft");
-	});
-	
-	$(".nextPreBtnList .fa-chevron-left").on("click",function(event){
-		event.stopPropagation();
-		selectedChartIndex=parseInt(selectedChartIndex);
-		//add one step prev
-		
-		if(!((selectedChartIndex-1)<=0 ) ){
-			selectedChartIndex=selectedChartIndex-1;
-			var previousCharttoBeShown=$('a[index='+selectedChartIndex+']');
-			$(previousCharttoBeShown).trigger("click");
-		}
-		$(".chartNavContainor").removeClass("hideDiv");
-		$(".chartNavContainor").addClass("pullLeft");
-		
-	});
-	
-	$(".nextPreBtnList .fa-th").click(function(event){
-		
-		$(".chartNavContainor").removeClass("pullLeft");
-		$(".chartNavContainor").addClass("hideDiv");
-	})
-	
-	//play again
-	$(".chartBtn .play-again-btn").click(function(event){
-		
-		
-		var charttoBeShown=$('a[index='+selectedChartIndex+']');
-		$(charttoBeShown).trigger("click");
-		
-		$(".chartNavContainor").removeClass("hideDiv");
-		$(".chartNavContainor").addClass("pullLeft");
-	})
-	
-	//download graph as image
-	$(".chartBtn .download-graph").click(function(){
-		
-		var chartContainerId="line1";
-		var canvasId="canvas2";
-		
-		var width=$("#line1").width()+50;
-		var height=$("#line1").outerHeight();
-		
-		$("#"+canvasId).show();
-		
-		var canvasObj=document.getElementById("canvas2");
-		canvasObj.width=width;
-		canvasObj.height=height;	
-			
-		
-		copyChartToCanvas(chartContainerId,canvasId);
-		$("#"+canvasId).hide();
-		
-	})
-	
 	
 });
 

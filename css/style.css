@@ -788,22 +788,19 @@ font-weight: 300; }
 .chartNavContainor{ position:absolute; min-height:100%;  width:100%; background-image:
 url(../img/deshboard-bg.png) ; background-repeat:no-repeat ; background-size:100% 100%;   z-index:99999999;  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
     transition: width 2s; margin-left:0;
-	background-color:#13141e; -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;}
+	background-color:#13141e; -webkit-transition: all 3s ease-in-out;
+  -moz-transition: all 3s ease-in-out;
+  -o-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;}
 	
 .chartNavContainor.pullLeft{   margin-left:-100%;  
--webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;}
+-webkit-transition: all 3s ease-in-out;
+  -moz-transition: all 3s ease-in-out;
+  -o-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;}
   
-.pullRight{position: fixed; left:0; z-index:9999;  padding:0px 15px 5px 15px; top:68px;border-bottom-right-radius:5px; border-top-right-radius:5px;  background-color:#090b14; color:#cccccc; font-size:25px; cursor:pointer; opacity:0.3; -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;}
-  .pullRight:hover{ opacity:1; }
+.pullRight{position: fixed; left:0; z-index:9999;  padding:0px 15px 5px 15px; top:68px;border-bottom-right-radius:5px; border-top-right-radius:5px;  background-color:#090b14; color:#cccccc; font-size:25px; cursor:pointer;}
+  
   
 	
 .chartNavContainor.pullLeft .chartList{  visibility: hidden;
@@ -982,10 +979,10 @@ ul.minMaxBtn li a:hover{ background:none; font-size:20px; color:#fff;}
 
 .chartDocumation  .documationContent .docCode{ padding:10px;}
 
-.cssAnimation{-webkit-transition: width 1s ease, height 1s ease;
-	-moz-transition: width 1s ease, height 1s ease;
-	-o-transition: width 1s ease, height 1s ease;
-	transition: width 1s ease, height 1s ease;}
+.cssAnimation{-webkit-transition: width 2s ease, height 2s ease;
+	-moz-transition: width 2s ease, height 2s ease;
+	-o-transition: width 2s ease, height 2s ease;
+	transition: width 2s ease, height 2s ease;}
 	.cssAnimation a:hover{ background:none;}
 .cssAnimation a:focus{ background:none;}
 
