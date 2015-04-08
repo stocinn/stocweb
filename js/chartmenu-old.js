@@ -346,9 +346,10 @@ $(document).ready(function(){
 	$("#3DBarChartMenu").click(function(){
 		
 	  selectedChartIndex=$(this).attr("index");	
-	  $("#line1").empty();
 	  $(".chartDetails").hide();
 	  $(".3DBarChartMenu").show();
+	  
+		$("#3DBarChart").find("#line1").empty();
 		$("#3DBarChart").show();
 		
 		var barData = [15, 80, 120, 280, 50, 65, 900, 40, 23, 98];
@@ -1566,12 +1567,12 @@ $("#line1").empty();
 	//show next and previous chart binding
 	
 	$(".nextPreBtnList .fa-chevron-right").on("click",function(event){
-		event.stopPropagation();
+		//event.stopPropagation();
 		selectedChartIndex=parseInt(selectedChartIndex);
 		//add one step up
 		var maxUpperLimit=$(".chartListGrup").find("li").length;
 		
-		if(maxUpperLimit >= (selectedChartIndex+1)){
+		if(maxUpperLimit != (selectedChartIndex+1)){
 			
 			selectedChartIndex=selectedChartIndex+1;
 			
@@ -1584,7 +1585,7 @@ $("#line1").empty();
 	});
 	
 	$(".nextPreBtnList .fa-chevron-left").on("click",function(event){
-		event.stopPropagation();
+		//event.stopPropagation();
 		selectedChartIndex=parseInt(selectedChartIndex);
 		//add one step prev
 		
@@ -1598,15 +1599,13 @@ $("#line1").empty();
 		
 	});
 	
-	$(".nextPreBtnList .fa-th").click(function(event){
-		
+	$(".nextPreBtnList .fa-th").click(function(){
 		$(".chartNavContainor").removeClass("pullLeft");
 		$(".chartNavContainor").addClass("hideDiv");
 	})
 	
 	//play again
-	$(".chartBtn .play-again-btn").click(function(event){
-		
+	$(".chartBtn .play-again-btn").click(function(){
 		
 		var charttoBeShown=$('a[index='+selectedChartIndex+']');
 		$(charttoBeShown).trigger("click");

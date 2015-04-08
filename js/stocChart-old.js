@@ -4654,8 +4654,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
                 } else {
                     data = options.data;
                 }
-				
-				
+
                 var differenceSlab = 10;
                 var widthOfEachBar = Math.floor((width - margin.scale) / (data.length));
                 var elementId = $(selectorElement).attr("id");
@@ -7730,10 +7729,10 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 											  .enter()
 											  .append('text')
 											  .attr('x',function(d,i){return xScale(lowValue[i])-((lowValue[i].toString().length+xAxisLabel.length)*(pixcelPerChar))})
-											  .attr('y',function(d,i){return yScale(i)+pixcelPerChar})
+											  .attr('y',function(d,i){return yScale(i)+6})
 											  .attr('font-size',rectangleTextSize)
 							                  .attr('font-family',fontFamily)
-											  .attr('fill',textStyleConfg.yLabelColor)
+											  .attr('font-weight','500')
 											  .text(function(d,i){return lowValue[i]+" "+xAxisLabel});
 								
 				var rectangleTextRightSide = variationMainGroup.append("g")
@@ -7746,10 +7745,10 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 											  .enter()
 											  .append('text')
 											  .attr('x',function(d,i){return xScale(highValue[i])+5})
-											  .attr('y',function(d,i){return yScale(i)+pixcelPerChar})
+											  .attr('y',function(d,i){return yScale(i)+6})
 											  .attr('font-size',rectangleTextSize)
 							                  .attr('font-family',fontFamily)
-											  .attr('fill',textStyleConfg.yLabelColor)
+											  .attr('font-weight','500')
 											  .text(function(d,i){return highValue[i]+" "+xAxisLabel});			  
 											  //(lowValue[i].toString().length)*fontSize)
 				
@@ -11341,8 +11340,8 @@ for(var index = 0;index<funnelData.length;index++)
 				var resetBtnWidth=70;
 				var resetBtnHeight=30;
 				var resetBtnGrouping=d3.select("#"+selectedElementId).append("div")
-									  .style("left",(width*0.8)+"px")
-									  .style("top",(height*0.1)+"px")
+									  .style("left",(width*0.8))
+									  .style("top",(height*0.1))
 									  .attr("class",'resetAreaBtn')
 									  .on("mouseover",function(){
 										d3.select('.resetAreaBtn').style("background",'#7F7FFF');
@@ -11350,8 +11349,8 @@ for(var index = 0;index<funnelData.length;index++)
 									  .on("mouseout",function(){
 										d3.select(this).style("background",'blue');
 									  })
-									  .style("width",resetBtnWidth+"px")
-									  .style("height",resetBtnHeight+"px")
+									  .style("width",resetBtnWidth)
+									  .style("height",resetBtnHeight)
 									  .style('background','blue')
 									  .style('display','inline-block')
 									  .style("z-index","999")
@@ -11396,7 +11395,7 @@ for(var index = 0;index<funnelData.length;index++)
 							$(selectorElement).find('svg g').empty();
 							$(selectorElement).find(".brushedArea").remove();
 							drawAreaChart.areaChart({'xFieldName':xFieldName,'yFieldName':yFieldName,'axisColor':'#222222','attachBrushEvent':true,'xAxisIndicationLabel':options.xAxisIndicationLabel,'yAxisIndicationLabel':options.yAxisIndicationLabel,data:chartData});
-							drawCircle.circleChart({'color':"#fff953",'r':3,'data':chartData});
+							drawCircle.circleChart({'color':"black",'r':3,'data':chartData});
 			});
 				
 			if(!redrawAreaChart){
@@ -11709,7 +11708,7 @@ for(var index = 0;index<funnelData.length;index++)
 					$(selectorElement).find(".brushedArea").remove();		
 					
 					drawAreaChart.areaChart({'axisColor':'#222222','attachBrushEvent':true,'data':brushedData,'xAxisIndicationLabel':options.xAxisIndicationLabel,'yAxisIndicationLabel':options.yAxisIndicationLabel});
-					drawCircle.circleChart({'color':"#fff953",'r':3,'data':brushedData});
+					drawCircle.circleChart({'color':"black",'r':3,'data':brushedData});
 				});
 					
 				//hide all axis path
@@ -15365,7 +15364,7 @@ for(var index = 0;index<funnelData.length;index++)
 								//	.style('display','none')
 									.call(leftYAxis)
 									.selectAll('text')
-									.style('fill',leftYAxisColor,'important');
+									.attr('fill',leftYAxisColor);
 				//right y scale
 				var rightYScale = d3.scale.linear()
 									 .domain([d3.min(rightYAxisData)*.8,d3.max(rightYAxisData)*1.1])
@@ -15382,7 +15381,7 @@ for(var index = 0;index<funnelData.length;index++)
 								//	.style('display','none')
 									.call(rightYAxis)
 									.selectAll('text')
-									.style('fill',rightYAxisColor,'important');
+									.attr('fill',rightYAxisColor);
 				
 				var xAxisTimeIndex = [];
 			    for(var counter = 0;counter<xAxisData.length ;counter++)
