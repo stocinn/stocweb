@@ -144,10 +144,10 @@ background: -webkit-linear-gradient(top, rgba(50,56,61,1) 0%,rgba(29,32,35,1) 10
 background: -o-linear-gradient(top, rgba(50,56,61,1) 0%,rgba(29,32,35,1) 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, rgba(50,56,61,1) 0%,rgba(29,32,35,1) 100%); /* IE10+ */
 background: linear-gradient(to bottom, rgba(50,56,61,1) 0%,rgba(29,32,35,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32383d', endColorstr='#1d2023',GradientType=0 ); /* IE6-9 */  height:40px; position:fixed; z-index:9999999999999999; top:0;}
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32383d', endColorstr='#1d2023',GradientType=0 ); /* IE6-9 */  height:41px; position:fixed; z-index:9999999999999999; top:0;}
 
 header .navbar-default{ background:none; border:none;}
-header .navbar-brand, .navbar-nav > li > a{ text-shadow:none; color:#FFF; padding:10px 15px;}
+header .navbar-brand, .navbar-nav > li > a{ text-shadow:none; color:#FFF; padding:10px 15px 11px 15px;}
 header .navbar-nav > li:hover{ background-color: #1d1d22;}
 header .navbar-nav > li:hover a{ color:#FFF;}
 header .navbar-default .navbar-nav > li > a{ color:#FFF;}
