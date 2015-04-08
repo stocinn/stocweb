@@ -383,24 +383,24 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 			
 			appendToolTip:function(){
 				var tootTipTemplate ='<div id="tooltipChart" style="z-index:999999;float:none;display:none; margin:0px; padding:0px; position:absolute; width:150px;">'+
-						'<div id="textContainer" style="width:150px; background-color:#c4c5c4; border:solid 1px #666666; border-radius:5px; font-family:calibri; float:left; font-size:11px; padding:10px;">'+
-						'	<div class="xVal" style="text-align:center; font-size:13px;border-bottom : solid 1px #a7a7a7;background: rgb(254,254,254); / Old browsers /'+
-						'background: -moz-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(202,203,203,1) 100%); / FF3.6+ /'+
-						'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,254,254,1)), color-stop(100%,rgba(202,203,203,1))); / Chrome,Safari4+ /'+
-						'background: -webkit-linear-gradient(top, rgba(254,254,254,1) 0%,rgba(202,203,203,1) 100%); / Chrome10+,Safari5.1+ /'+
-						'background: -o-linear-gradient(top, rgba(254,254,254,1) 0%,rgba(202,203,203,1) 100%); / Opera 11.10+ /'+
-						'background: -ms-linear-gradient(top, rgba(254,254,254,1) 0%,rgba(202,203,203,1) 100%); / IE10+ /'+
-						'background: linear-gradient(to bottom, rgba(254,254,254,1) 0%,rgba(202,203,203,1) 100%); / W3C /'+
-						'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fefefe", endColorstr="#cacbcb",GradientType=0 ); / IE6-9 /; border-top-left-radius:5px; margin-top:-10px; margin-left:-10px;  margin-right:-10px;border-top-right-radius:7px; padding:5px 10px;">14 jan</div>'+
-							'<div id="y-label" class="y-label label1" style="width:60%;display:none; float:left; text-align:left; padding:3px 0;">Auto Loans</div>'+
+						'<div id="textContainer" style="width:150px; background-color:rgba(197,198,197,0.7); border:solid 1px #666666; border-radius:5px; font-family:calibri; float:left; font-size:11px; padding:10px;">'+
+						'	<div class="xVal" style="text-align:center; font-size:13px;border-bottom:solid 1px #7b7b7b;background:url(http://stocinn.github.io/stocweb/img/tooltip-heading-bg.jpg) repeat-x;'+
+						'border-top-left-radius:5px; margin-top:-10px; margin-left:-10px;  margin-right:-10px;border-top-right-radius:7px; padding:5px 10px;">14 jan</div>'+
+							'<div id="y-label" class="y-label label1" style="width:60%;display:none; font-weight:bold; float:left; text-align:left; padding:3px 0;">Auto Loans</div>'+
 							'<div  class="yVal label1" style="width:40%; float:right;display:none; text-align:right;  padding:3px 0;">$ 400</div>'+
-					'		<div class="y-label label2" style="width:60%; float:left;display:none; text-align:left; padding:3px 0;">Auto Loans</div>'+
+					'		<div class="y-label label2" style="width:60%; float:left;display:none;font-weight:bold; text-align:left; padding:3px 0;">Auto Loans</div>'+
 					'		<div class="yVal label2" style="width:40%;display:none; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
-					'		<div class="y-label label3" style="width:60%; float:left; text-align:left; padding:3px 0;">Auto Loans</div>'+
+					'		<div class="y-label label3" style="width:60%; float:left;font-weight:bold; text-align:left; padding:3px 0;">Auto Loans</div>'+
 					'		<div class="yVal label3" style="width:40%; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
+					'		<div class="y-label label4" style="width:60%; float:left;font-weight:bold; text-align:left; padding:3px 0;">Auto Loans</div>'+
+					'		<div class="yVal label4" style="width:40%; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
+					'		<div class="y-label label5" style="width:60%; float:left;font-weight:bold; text-align:left; padding:3px 0;">Auto Loans</div>'+
+					'		<div class="yVal label5" style="width:40%; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
+					'		<div class="y-label label6" style="width:60%; float:left; font-weight:bold;text-align:left; padding:3px 0;">Auto Loans</div>'+
+					'		<div class="yVal label6" style="width:40%; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
 					'	</div>'+
-					'	<div id="handIcon" style="position: relative; bottom:1px; height:40px; width:36px; '+
-					'	 background:url(http://stocinn.github.io/stocweb/img/toolTips-arrow.png) no-repeat; clear:both; float:right; margin-bottom:-2px; right:-2px;">'+
+					'	<div id="handIcon" style="position: relative; bottom:1px; height:38px; width:52px; '+
+					'	 background:url(http://stocinn.github.io/stocweb/img/toolTips-arrow.png) no-repeat;opacity:0.9; clear:both; float:right; bottom:12px; right:8px;">'+
 					'	 </div>'+
 					'</div>';
 					
@@ -6674,18 +6674,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 		var combinationalGroup = svgSelection.append("g")
 						   .attr('id','combinationalGroup')
 						   .attr("transform", "translate(" +margin.left + "," +margin.top + ")")
-						   /*
-							  .on("mouseover", function() {
-									
-									//d3.select("#toolTipChart").css("display","block");
-									
-									drawLine.style("visibility", "visible");tooltip.style("visibility", "visible");  
-									mouseOverOnLine(d3.event);
-								})
-						 .on("mouseout",  function(){drawLine.style("visibility", "hidden");tooltip.style("visibility", "hidden"); })
-						 */
-						//.on("mousemove", mouseOverOnLine);
-
+						   
 		//show grid view
 		gridManager.init(svgElement, scaleHeight, scaleWidth, margin.left, margin.top);
 		
@@ -11767,7 +11756,6 @@ for(var index = 0;index<funnelData.length;index++)
 			  var plot = svg
 			  .append("g")
 			  .attr("class", "arc");
-			
 			  var imageElement=svg.append("g").attr("transform", "translate( "+ (width/2-radius)+" , "+ (height/4) +")");	
 			  drawMeter.image =imageElement.append("svg:image")
 			  .attr('x',0)
@@ -14976,10 +14964,49 @@ for(var index = 0;index<funnelData.length;index++)
 				var scaleWidth=(width)-multiAxisAnalChart.left-multiAxisAnalChart.right;
 				var scaleHeight=height-multiAxisAnalChart.top-multiAxisAnalChart.bottom;
 				
+				
+				var leftMarginOfSvg = $(selectorElement).offset().left;
+				
 				var multiAxisMAinGroup = svgElement.append("g")
 					.attr('class','scoredMainGroup')
                     .attr("transform", "translate(" + multiAxisAnalChart.left + "," + multiAxisAnalChart.top + ")")
-				
+					.on("mouseover",function()
+									{
+										var x = d3.event.pageX;
+										var y = d3.event.pageY;
+										x=x-(leftMarginOfSvg+multiAxisAnalChart.left);
+										x = Math.round(xScale.invert(x));
+										if(x>=0 && x<xAxisData.length)
+										{
+										console.log(x);
+										var heading=xAxisData[x];
+										var yHeadingValueMap=[{"headingName":legend[0],"headingVal":yObject[0].yAxisData[x]},
+															  {"headingName":legend[1],"headingVal":yObject[0].yAixsAvgData[x]},
+															  {"headingName":legend[2],"headingVal":yObject[1].yAxisData[x]},
+															  {"headingName":legend[3],"headingVal":yObject[1].yAixsAvgData[x]},
+															  {"headingName":legend[4],"headingVal":yObject[2].yAxisData[x]},
+															  {"headingName":legend[5],"headingVal":yObject[2].yAixsAvgData[x]}						  
+															  ];
+										
+										toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY,scaleHeight/2);	
+										}
+										
+							      verticalLineRef.attr('display','block')
+												 .attr('x1',xScale(x))
+										         .attr('x2',xScale(x));
+									})
+									.on("mouseleave",function(){
+										verticalLineRef.attr('display','none')
+										toolTipManager.hideTooTip();
+									});
+			
+				//vertical line here	
+
+			var verticalLineRef = multiAxisMAinGroup.append('line')
+										  .attr('y1',10)
+										  .attr('y2',scaleHeight)
+										  .attr('stroke','#a7a7a7')
+										  .attr('display','none');
 			
 	
 				var yScale = [];
@@ -16046,7 +16073,7 @@ var meterChart={
 						.attr('y',0)
 						.attr('width', 300-20)
 						.attr('height', 250)
-						.attr("xlink:href","img\\gauge_skin.jpg")
+						.attr("xlink:href","http://stocinn.github.io/stocweb/img/gauge_skin.jpg")
 						.attr("id", "fillImage")
 						//.on("click", turnNeedle);
 						
