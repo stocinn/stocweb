@@ -400,7 +400,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 					'		<div class="yVal label3" style="width:40%; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
 					'	</div>'+
 					'	<div id="handIcon" style="position: relative; bottom:1px; height:40px; width:36px; '+
-					'	 background:url(https://github.com/stocinn/stocweb/blob/master/img/toolTips-arrow.png) no-repeat; clear:both; float:right; margin-bottom:-2px; right:-2px;">'+
+					'	 background:url(http://stocinn.github.io/stocweb/img/toolTips-arrow.png) no-repeat; clear:both; float:right; margin-bottom:-2px; right:-2px;">'+
 					'	 </div>'+
 					'</div>';
 					
