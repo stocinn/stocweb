@@ -383,7 +383,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 			
 			appendToolTip:function(){
 				var tootTipTemplate ='<div id="tooltipChart" style="z-index:999999;float:none;display:none; margin:0px; padding:0px; position:absolute; width:150px;">'+
-						'<div id="textContainer" style="width:150px; background-color:rgba(197,198,197,0.7); border:solid 1px #666666; border-radius:5px; font-family:calibri; float:left; font-size:11px; padding:10px;">'+
+						'<div id="textContainer" style="width:150px; background-color:rgba(197,198,197,0.7); border-radius:5px; font-family:calibri; float:left; font-size:11px; padding:10px;">'+
 						'	<div class="xVal" style="text-align:center; font-size:13px;border-bottom:solid 1px #7b7b7b;background:url(http://stocinn.github.io/stocweb/img/tooltip-heading-bg.jpg) repeat-x;'+
 						'border-top-left-radius:5px; margin-top:-10px; margin-left:-10px;  margin-right:-10px;border-top-right-radius:7px; padding:5px 10px;">14 jan</div>'+
 							'<div id="y-label" class="y-label label1" style="width:60%;display:none; font-weight:bold; float:left; text-align:left; padding:3px 0;">Auto Loans</div>'+
@@ -399,8 +399,8 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 					'		<div class="y-label label6" style="width:60%; float:left; font-weight:bold;text-align:left; padding:3px 0;">Auto Loans</div>'+
 					'		<div class="yVal label6" style="width:40%; float:right; text-align:right;  padding:3px 0;">$ 400</div>'+
 					'	</div>'+
-					'	<div id="handIcon" style="position: relative; bottom:1px; height:38px; width:52px; '+
-					'	 background:url(http://stocinn.github.io/stocweb/img/toolTips-arrow.png) no-repeat;opacity:0.9; clear:both; float:right; bottom:12px; right:8px;">'+
+					'	<div id="handIcon" style="position: relative; bottom:1px; height:31px; width:52px; '+
+					'	 background:url(http://stocinn.github.io/stocweb/img/toolTips-arrow.png) no-repeat;opacity:0.7; clear:both; float:right; bottom:0px; right:8px;">'+
 					'	 </div>'+
 					'</div>';
 					
