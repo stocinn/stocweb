@@ -1,4 +1,4 @@
-
+var isTriggeringClick=false;
 var selectedChartIndex=1;
 
 var jsFiddleLinkMap={
@@ -1663,6 +1663,7 @@ $("#line1").empty();
 	//show next and previous chart binding
 	
 	$(".nextPreBtnList .fa-chevron-right").on("click",function(event){
+		isTriggeringClick=true;
 		event.stopPropagation();
 		selectedChartIndex=parseInt(selectedChartIndex);
 		//add one step up
@@ -1681,6 +1682,7 @@ $("#line1").empty();
 	});
 	
 	$(".nextPreBtnList .fa-chevron-left").on("click",function(event){
+		isTriggeringClick=true;
 		event.stopPropagation();
 		selectedChartIndex=parseInt(selectedChartIndex);
 		//add one step prev
@@ -1703,8 +1705,7 @@ $("#line1").empty();
 	
 	//play again
 	$(".chartBtn .play-again-btn").click(function(event){
-		
-		
+		isTriggeringClick=true;
 		var charttoBeShown=$('a[index='+selectedChartIndex+']');
 		$(charttoBeShown).trigger("click");
 		

@@ -9151,7 +9151,7 @@ function sweep(d) {
 						
                 svgMeter.append("g").append("svg:image")
                     .attr("id", "img")
-                    .attr("xlink:href", "http://www.stocinn.com/stoccharts/img/pointer.png")
+                   .attr("xlink:href", "http://stocinn.github.io/stocweb/img/pointer.png")
                     .attr("width", width / 30)
                     .attr("height", width / 30)
                     .style('display', 'none');

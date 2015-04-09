@@ -144,7 +144,7 @@ Bar With Logo</a>  </li>
 Detail Chart</a>  </li>
 
 <li> <a  href="#" index="32" id="3DbubbleChartMenu"><i class="arrow"></i>
-3D Bubble Chart </a>  </li> 
+3D Bubbles Chart </a>  </li> 
 
 <li> <a  href="#" index="33" id="treeChartMenu"><i class="arrow"></i>
 Tree Chart </a>  </li> 
@@ -216,12 +216,12 @@ Multiple Axis </a>
     <div class="chartMainContainor">
     <div class="row" >
    
-    <div class="col-lg-6 col-md-6 col-sm-6 " >
+    <div class="col-lg-6 col-md-6 col-sm-3 col-xs-12 " >
     <ul class="nextPreBtnList"> 
      <li> <a href="#"> <i class="fa fa-chevron-left"></i></a></li>
      <li> <a href="#"><i class="fa fa-th"></i></a></li> 
      <li><a href="#"> <i class="fa fa-chevron-right"></i>                        </a>                    </li>                </ul></div>
-      <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="col-lg-6 col-md-6 col-sm-9 col-xs-12 ">
       <ul class="chartBtn">
      
       <li><a href="#" class="play-again-btn" ><i class="fa fa-caret-right"></i>
@@ -238,7 +238,7 @@ Multiple Axis </a>
 </a></li> <li><a href="#" id="maxmize" title="Maximize"><i class="fa fa-arrows-h"></i>
 </a></li></ul>
     <div  class=" documationContent mCustomScrollbar  "> <div class="docCode"> 
-      <div class=" chartDetails basicLineChartMenu" > <h2> Basic Line Chart
+      <div class=" chartDetails basicLineChartMenu" > <h2> Basic Line Chart :
 </h2>
  <p><strong>Introduction</strong>: <br>
 
@@ -361,10 +361,10 @@ var basicLineData =<br>
 
 
 </div>
- <div class="chartDetails scatterPlotChartMenu"><h2> Scatter Plot Chart</h2>
+ <div class="chartDetails scatterPlotChartMenu"><h2> Scatter Plot Chart :</h2>
 <p><strong>Introduction: </strong><br>
 
-A scatter plot, scatterplot, or scattergraph is a type of mathematical diagram using Cartesian coordinates to display values for two variables for a set of data.
+A scatter plot, scatterplot, or scatter graph is a type of mathematical diagram using Cartesian coordinates to display values for two variables from a set of data.
 </p>
 
 
@@ -471,18 +471,19 @@ var scatterPlotData = {			</p>
 </p>
 					
 				</div>
-            <h3>3) Calling draw scatter plot chart function
+            <h3>3) Calling draw scatter plot chart function 
 
-Pass scatterPlotData and div id where this chart to be made as argument to function.
+
 </h3>
-<div class="chartCode"><p class="padding-xs">eg)</p>
+<div class="chartCode">
+<p> <strong>Pass scatterPlotData and div id where this chart to be made as argument to function.</strong></p><p class="padding-xs">eg)</p>
 
 	<p class="padding-sm">var stocChart2=$("#line2").stocCharts(textStyleConfg);<br>
 
 	stocChart2.drawScatterPlotChart('#line2', scatterPlotData);
 </p></div>
 </div> 
-<div class="chartDetails drillDownChartMenu"><h2>Drill Down Chart</h2>
+<div class="chartDetails drillDownChartMenu"><h2>Drill Down Chart :</h2>
 <p><strong>Introduction: </strong><br>
 
 Drill-down from yearly data to quarterly, quarterly to monthly (in a chart showing sales figures) or from categories to individual.
@@ -663,16 +664,17 @@ eg) </p><p>
         
 </div> 
 <h3>3) Calling draw drill down chart function
-Pass div id, cfgDrillDown, barData, Chrome, Firefox, cfgDrillDown and button id which is responsible to bring back previous chart.
+
 </h3>
-<div class="chartCode"><p class="padding-xs">eg)</p>
+<div class="chartCode">
+<p><strong>Pass div id, cfgDrillDown, barData, Chrome, Firefox, cfgDrillDown and button id which is responsible to bring back previous chart.</strong></p><p class="padding-xs">eg)</p>
 
 <p class="padding-sm"> var stocChart7=$("#line3").stocCharts();<br>
 
  stocChart7.drawDrillDownChart("#line3", barData, Chrome, Firefox, cfgDrillDown, "#backData");
 </p></div></div>
  <div class="chartDetails heatmapMenu">
- <h2> Heat Map Chart
+ <h2> Heat Map Chart :
 </h2>
  <p><strong>Introduction:</strong> <br>
 
@@ -732,11 +734,11 @@ xLabel:"Employee Name",<br>
 
  </div> 
  <div class="chartDetails transitPieMenu">
- <h2> Transit Pie Chart
+ <h2> Transit Pie Chart :
 </h2>
  <p><strong>Introduction:</strong> <br>
 
-A type of graph in which a circle is divided into sectors that each represent a proportion of the whole
+It is a type of graph in which a circle is divided into sectors, and each sector represents a some fraction of the whole.
 </p>
 <h3> <strong>Steps of making Transit Pie Chart:
 </strong></h3>
@@ -784,12 +786,12 @@ stocChart5.drawPieChartWithTransition(dataSet);
 
 </div>    
  <div class="chartDetails dountChartWithLegendMenu"><h2>
-Donut Chart with Legend
+Donut Chart with Legend :
 
 </h2>
 <p><strong>Introduction: </strong><br>
 
- A doughnut chart displays value data as percentages of the whole. Categories are represented by individual slices. Doughnut charts are functionally identical to pie charts.
+A doughnut chart displays data as percentage of the whole. Categories are represented by every slice. Doughnut charts are functionally identical to pie charts.
 
 
 </p>
@@ -839,10 +841,9 @@ var cnfg={"data":data,"divId":"line22"}<br>
 				stocChart21.dountChartWithLegend(cnfg);
 
 </p></div></div> 
- <div class="chartDetails dountWithBarChartMenu"><h2>  Donut Chart with Bars
+ <div class="chartDetails dountWithBarChartMenu"><h2>  Donut Chart with Bars :
 </h2>
-<p >A doughnut chart displays value data as percentages of the whole. Categories are represented by individual slices. Doughnut charts are functionally identical to pie charts.
- Additionally, bar chart is also embed to show data.
+<p >A doughnut chart displays data as percentage of the whole. Categories are represented by every slice. Doughnut charts are functionally identical to pie charts. Additionally, the bar chart is also embedded to show data.
 </p>
 <h3><strong>Steps of making Donut Chart with Legend:-</strong><br>
 <br>
@@ -925,7 +926,7 @@ var cnfg={"data":data,"divId":"line22"}<br>
 			stocChart23.drawDountWithBarChart(cnfg);
 </p></div>
        </div>      
- <div class="chartDetails radarChartMenu"><h2> Radar Chart</h2>
+ <div class="chartDetails radarChartMenu"><h2> Radar Chart  :</h2>
 <p><strong>Introduction:</strong><br>
  
 A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point. The relative position and angle of the axes is typically uninformative.
@@ -965,7 +966,7 @@ stocChart8.drawPieChartWithTransition({'data':dataset,'legends':legendSet,"color
 
 </p></div></div> 
  <div class="chartDetails multiAxisMenu">
-<h2>Multiple Axis Chart
+<h2>Multiple Axis Chart :
 </h2>
 <p><strong>Introduction:</strong><br>
 
@@ -1070,7 +1071,7 @@ stocChart8.drawPieChartWithTransition({'data':dataset,'legends':legendSet,"color
 </div>
  </div> 
  <div class="chartDetails groupedBarMenu">
-<h2>Grouped Bar Chart
+<h2>Grouped Bar Chart :
 
 </h2>
 <p><strong>Introduction:</strong><br>
@@ -1137,7 +1138,7 @@ A bar chart or bar graph is a chart with rectangular bars with lengths proportio
 </div>
  </div> 
  <div class="chartDetails groupedBar2DMenu">
-<h2>GroupedBar2DMenu Chart
+<h2>GroupedBar2DMenu Chart :
 
 </h2>
 <p><strong>Introduction:</strong><br>
@@ -1207,7 +1208,7 @@ A bar chart or bar graph is a chart with rectangular bars with lengths proportio
 </div>
  </div> 
  <div class="chartDetails 3DBarChartMenu">
-<h2>3D Bar Chart
+<h2>3D Bar Chart :
 
 
 </h2>
@@ -1316,7 +1317,7 @@ A bar chart or bar graph is a chart with rectangular bars with lengths proportio
 </div>
  </div> 
  <div class="chartDetails 3DStackedBarChartMenu">
-<h2>3D Stacked Bar Chart
+<h2>3D Stacked Bar Chart :
 
 
 
@@ -1526,7 +1527,7 @@ stocChart27=$("#line27").stocCharts(textStyleConfg);<br>
 
  </div> 
  <div class="chartDetails BulletBarChartMenu">
-<h2>Bullet Bar Chart
+<h2>Bullet Bar Chart :
 
 
 
@@ -1651,7 +1652,7 @@ var data2=[{"population":200,'year':2014},{"population":50,'year':2015},{"popula
  </div> 
  
  <div class="chartDetails CricketAnalChartMenu">
-<h2>Cricket Analysis Chart
+<h2>Cricket Analysis Chart :
 
 
 
@@ -1659,7 +1660,7 @@ var data2=[{"population":200,'year':2014},{"population":50,'year':2015},{"popula
 
 </h2>
 <p><strong>Introduction:</strong><br>
-This chart will going to show run scored in each of cricket using bar chart.
+This chart will show run scored in each over in a cricket match using bar chart.
 
 
 
@@ -1841,7 +1842,7 @@ var
 
  </div> 
  <div class="chartDetails stackedAreaChartMenu">
-<h2>Stacked Area Chart
+<h2>Stacked Area Chart :
 
 
 
@@ -1849,7 +1850,7 @@ var
 
 </h2>
 <p><strong>Introduction:</strong><br>
-This chart will going to show data in area stacked on top of each other.
+This chart will show data in area stacked on top of each other.
 
 
 
@@ -2013,7 +2014,7 @@ stackedAreaData, cfgStackedAreaChart);
 
  </div> 
  <div class="chartDetails stackedBarChartMenu">
-<h2>Stacked Bar Chart
+<h2>Stacked Bar Chart :
 
 
 
@@ -2197,7 +2198,7 @@ A bar chart or bar graph is a chart with rectangular bars with lengths proportio
 
  </div> 
  <div class="chartDetails funnelChartMenu">
-<h2>Funnel Chart
+<h2>Funnel Chart :
 
 
 
@@ -2257,7 +2258,7 @@ Funnel charts are a type of chart, often used to represent stages in a sales pro
 </div>
  </div> 
  <div class="chartDetails guageGraphMenu">
-<h2>Gauge Graph</h2>
+<h2>Gauge Graph :</h2>
 <p><strong>Introduction:</strong><br>
 A gauge chart (or speedometer chart) combines a Doughnut chart and a Pie chart in a single chart.	</p>
  <h3>
@@ -2403,7 +2404,7 @@ An area chart or area graph displays graphically quantitative data.
 </div>
  </div> 
  <div class="chartDetails pyramidChartMenu">
-<h2>Pyramid Chart</h2>
+<h2>Pyramid Chart :</h2>
 <p><strong>Introduction:</strong><br>
 A pyramid chart is an inverted funnel chart. Similar to a funnel chart, the pyramid chart is a single series chart which does not use an axis. It represents data as portions of a 100% (the individual segments add up to represent a whole).
 
@@ -2446,7 +2447,7 @@ A pyramid chart is an inverted funnel chart. Similar to a funnel chart, the pyra
 </p></div>
  </div> 
  <div class="chartDetails 3DPyramidChartMenu">
-<h2>3D Pyramid Chart
+<h2>3D Pyramid Chart :
 </h2>
 <p><strong>Introduction:</strong><br>
 A pyramid chart is an inverted funnel chart. Similar to a funnel chart, the pyramid chart is a single series chart which does not use an axis. It represents data as portions of a 100% (the individual segments add up to represent a whole).
@@ -2514,7 +2515,7 @@ A pyramid chart is an inverted funnel chart. Similar to a funnel chart, the pyra
 </p></div>
  </div> 
  <div class="chartDetails 3DPyramidSliceChartMenu">
-<h2>3D Pyramid Slice Chart
+<h2>3D Pyramid Slice Chart :
 
 </h2>
 <p><strong>Introduction:</strong><br>
@@ -2595,7 +2596,7 @@ A pyramid chart is an inverted funnel chart. Similar to a funnel chart, the pyra
 </p></div>
  </div> 
  <div class="chartDetails invertPyramidMenu">
-<h2>Invert Pyramid
+<h2>Invert Pyramid :
 
 
 </h2>
@@ -2653,7 +2654,7 @@ A pyramid chart is an inverted funnel chart. Similar to a funnel chart, the pyra
 </p></div>
  </div> 
  <div class="chartDetails meterChartMenu">
-<h2>Meter Chart
+<h2>Meter Chart :
 
 
 
@@ -2699,13 +2700,13 @@ It is a type of chart which display a gauge and a needle to show the value.
 
 </div> 
  <div class="chartDetails CombinationalChartMenu">
-<h2>Combinational Chart
+<h2>Combinational Chart :
 
 
 
 </h2>
 <p><strong>Introduction:</strong><br>
-It's a chart which displays the data of combination of pie and area chart.
+It's a chart which displays the data using combination of pie and area chart.
 
 
 
@@ -2839,7 +2840,7 @@ It's a chart which displays the data of combination of pie and area chart.
 
 </div> 
  <div class="chartDetails variationChartMenu">
-<h2>Variation Chart
+<h2>Variation Chart :
 
 
 
@@ -2960,7 +2961,7 @@ It's a type of chart which shows the variation in two data using bar chart.
 
 </div> 
  <div class="chartDetails 3DbubbleChartMenu">
-<h2>3D Bubble Chart
+<h2>3D Bubbles Chart :
 
 
 
@@ -2970,7 +2971,7 @@ It's a type of chart which shows the variation in two data using bar chart.
 It's a type of chart which shows the data in bubble. 
 	</p>
  <h3>
-<strong>Steps of making 3D Bubble Chart:
+<strong>Steps of making 3D Bubbles Chart:
 
 
 
@@ -3085,7 +3086,7 @@ It's a type of chart which shows the data in bubble.
             
  </div>
 
-<h3>2) Calling draw 3D Bubble Chart function</h3>
+<h3>2) Calling draw 3D Bubbles Chart function</h3>
 <div class="chartCode">
 
 <p >
@@ -3111,7 +3112,7 @@ It's a type of chart which shows the data in bubble.
 
 </div> 
  <div class="chartDetails 3DGroupedBarChartMenu">
-<h2>3D Grouped Bar Chart
+<h2>3D Grouped Bar Chart :
 
 
 
@@ -3119,7 +3120,7 @@ It's a type of chart which shows the data in bubble.
 
 </h2>
 <p><strong>Introduction:</strong><br>
-A bar chart or bar graph is a chart with rectangular bars with lengths proportional to the values that they represent and multiple bars grouped with each other. Bars are represented in 3D view
+A bar chart or bar graph is a chart with rectangular bars with lengths proportional to the values that they represent and multiple bars grouped with each other. Bars are grouped and are represented in 3D view.
 
 	</p>
  <h3>
@@ -3228,7 +3229,7 @@ A bar chart or bar graph is a chart with rectangular bars with lengths proportio
 
 </div> 
  <div class="chartDetails treeChartMenu">
-<h2>Tree Chart</h2>
+<h2>Tree Chart :</h2>
 <p><strong>Introduction:</strong><br>
 A diagram used in strategic decision making, valuation or probability calculations. The diagram starts at a single node, with branches emanating to additional nodes, which represent mutually exclusive decisions or events.
 
@@ -3325,7 +3326,7 @@ var data = { "Name": "Product",<br>
 
 </div> 
  <div class="chartDetails comparisonChartMenu">
-<h2>Comparison Chart</h2>
+<h2>Comparison Chart :</h2>
 <p><strong>Introduction:</strong><br>
 A comparison chart is a simple bullet chart . It is used for comparison between the estimated value and actual result(for e.g it can be used for checking last decade trend of actual profit and estimated profit yearly).
 
@@ -3408,7 +3409,7 @@ stocChart37.comparisonAnalysis(cnfg);</p>
   </div>
 </div> 
  <div class="chartDetails musicSpikesMenu">
-<h2>Music Spikes</h2>
+<h2>Music Spikes :</h2>
 <p><strong>Introduction:</strong><br>
 A music spikes chart is simple bar chart , with different colors in different domains.
 It is used for checking the intensity of a result and in which particular domains it falls in.(for e.g it can be used to check everyday temperature and in which domains it falls).
@@ -3474,9 +3475,9 @@ stocChart36.musicSpikesAnalysis(cnfg);</p>
   </div>
 </div> 
  <div class="chartDetails areaChartWithNegativeValueMenu">
-<h2>Negative Area Chart</h2>
+<h2>Negative Area Chart :</h2>
 <p><strong>Introduction:</strong><br>
-It is used to visualise the results , along the median(or any value) and visualising the intensity of that negative/positive results.It is used to visualise results with continuousl value change along X-axis.
+It is used to visualise the results , along the median(or any value) and visualising the intensity of that negative/positive results.It is used to visualise results with continuously changing value along X-axis.
 </p>
  <h3><strong>Steps of making Negative Area Chart:</strong><br><br>
  1) Setting user input in configuration</h3>
@@ -3527,9 +3528,9 @@ stocChart35.areaChartWithNegativeValueAnalysis(cnfg);</p>
   </div>
 </div> 
 <div class="chartDetails areaChartWithVaryColorMenu">
-<h2>AREA CHART WITH VARY COLOR</h2>
+<h2>Area Chart With Vary Color :</h2>
 <p><strong>Introduction:</strong><br>
-An <strong>area chart</strong> or <strong>area graph</strong> displays graphically quantitive data. It is based on the line chart. The area between axis and line are commonly emphasized with colors, textures and hatchings. Commonly one compares with an area chart two or more quantities.
+An <strong>area chart</strong> or <strong>area graph</strong> displays graphically quantitive data. It is based on the line chart. The area between axis and line are commonly emphasized with colors, textures and hatchings. Commonly area chart is used for comparison between two or more quantities. 
 
 </p>
  <h3><strong>Steps of making Area Chart with Color Analysis:
@@ -3601,7 +3602,7 @@ stocChart35.areaChartWithNegativeValueAnalysis(cnfg);
 </div>
 
 <div class="chartDetails multipleDountChartMenu">
-<h2>Multiple Donut Chart
+<h2>Multiple Donut Chart :
 </h2>
 <p><strong>Introduction:</strong><br>
 Donut or Doughnut chart is just a simple pie chart with a hole inside
@@ -3738,7 +3739,7 @@ stocChart39.multipleDountChartAnalysis(data);
 </div>
 
 <div class="chartDetails barWithLabelChartMenu">
-<h2>MBar with label analysis Chart
+<h2>MBar with label analysis Chart :
 
 </h2>
 <p><strong>Introduction:</strong><br>
@@ -3836,7 +3837,7 @@ stocChart40.barWithLabelAnalysis(data);
 </div>
 
 <div class="chartDetails logoChartMenu">
-<h2>Logo Chart
+<h2>Logo Chart :
 
 </h2>
 <p><strong>Introduction:</strong><br>
@@ -3933,7 +3934,7 @@ stocChart41.logoChart(data);
 </div>
 
 <div class="chartDetails barWithLogoMenu">
-<h2>Bar with logo Chart
+<h2>Bar with logo Chart :
 </h2>
 <p><strong>Introduction:</strong><br>
 
@@ -4010,10 +4011,10 @@ axisColor:- color of axis
  </div>
 
 <h3>2) Calling draw bar with logo chart function <br>
-Pass div id, data using cfg in function.</h3>
+</h3>
 
  <div class="chartCode"> 
-  
+  <p><strong>Pass div id, data using cfg in function.</strong></p>
   <p class="padding-sm">eg)</p>
    <p class="padding-md">
         var cnfg={"data":AdvancedBarData};<br>
@@ -4032,7 +4033,7 @@ Pass div id, data using cfg in function.</h3>
 
 
 <div class="chartDetails detailChartMenu">
-<h2>Detail Menu Chart</h2>
+<h2>Detail Menu Chart :</h2>
 <p><strong>Introduction:</strong><br>
 The Detail Menu Chart illustrates, what happened in the last pre-defined time interval.
 
@@ -4141,11 +4142,11 @@ imageFolderPath:- image folder path
  </div>
 
 <h3>2)  Calling draw detail menu chart function <br>
-Pass div id, data using cfg in function.
+
 			</h3>
 
  <div class="chartCode"> 
-  
+  <p><strong>Pass div id, data using cfg in function.</strong></p>
   <p class="padding-sm">eg)</p>
    <p class="padding-md">
         var cnfg={"data":data};<br>
@@ -4167,7 +4168,7 @@ Pass div id, data using cfg in function.
 </div>
 
 <div class="chartDetails Zoomable">
-<h2>Zoomable Area Chart</h2>
+<h2>Zoomable Area Chart :</h2>
 <p><strong>Introduction:</strong><br>
 
 The Zoomable Area Chart is an advanced version of simple Area Chart, in which user can zoom a particular area for more detailed description of that segment.
@@ -4237,10 +4238,10 @@ stockChart.circleChart({'color':"blue",'r':3,'data':data});</p>
 </div>
 
 <div class="chartDetails globChartMenu">
-<h2>Network Chart</h2>
+<h2>Network Chart :</h2>
 <p><strong>Introduction:</strong><br>
 
-The Network Chart shows, to whom the nodes are linked and how they are linked.
+The Network Chart shows, to which and how the nodes are linked to each other.
 
 
 </p>
@@ -4308,7 +4309,7 @@ stockChart.circleChart({'color':"blue",'r':3,'data':data});</p>
 
 
 <div class="chartDetails multiAxisChartMenu">
-<h2>Multiple Axis Chart</h2>
+<h2>Multiple Axis Chart :</h2>
 <p><strong>Introduction:</strong><br>
 
 The Multi-Axis Line chart is an advanced form of line charts used to contrast a set of entities based on multiple parameters.
@@ -4466,20 +4467,27 @@ $("#minmize" ).click(function(){
 });
 
 
-$(".chartList ul li a" ).click(function(){
-    $(".chartNavContainor").toggleClass("pullLeft");
+$(".chartList ul li" ).click(function(){
+ 
+ if(!isTriggeringClick){
+  $(".chartNavContainor").toggleClass("pullLeft");
+ 
+ }else{
+  isTriggeringClick=false;
+ }
+    
 });
 
 
-$(".chartList ul li a" ).click(function(){
+/*$(".chartList ul li a" ).click(function(){
     $(".chartNavContainor").toggleClass("hideDiv");
 	
 	
-});
+}); */
 
 $(".pullRight" ).click(function(){
     $(".chartNavContainor").toggleClass("pullLeft");
-	 $(".chartNavContainor").toggleClass("hideDiv");
+	
 	
 	
 });
