@@ -4863,9 +4863,9 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 
         var pyramidChart={
 			drawPyramidChart:function(percent,textLabelsJson,isInvertPyramid,yLabel){
+				
 				//Increase the value for increasing width
 				var widthFactor = -20;
-
 				//Moving to left 
 				//Note: It will decrease the width also
 				var movingLeftFactor = 200;
@@ -4892,7 +4892,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 			
 			}else{
 				groping=svgElement.append("g")
-					  .attr('transform',"translate(" + (width/4) + "," + (margin.scale) + ")")	;
+					  .attr('transform',"translate(" + (width/6) + "," + (0) + ")")	;
 			}
 			
 			
@@ -4903,8 +4903,8 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 									return [scaleX(d.x), scaleY(d.y)].join(",");
 									}).join(" ");
 					})
-				.attr("fill", function (d) {
-				return color(d.name)
+				.attr("fill", function (d,i) {
+				return textLabelsJson[i].color;
 			}).attr("stroke-width", 0)
 			.data(value)
 			 .on("mouseover", function (d,i) {
@@ -4930,33 +4930,38 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				toolTipManager.hideTooTip();	
 			});
 					
-			var legendGrouping=svgElement.selectAll(".pyramidLegendGrouping")
-						  .data(color.domain().slice())
-						  .enter()
-						  .append("g")
-						  .attr("class","pyramidLegendGrouping")
-						  .attr("transform", function(d, i) { return "translate(" + (width*0.05) + "," + (10+(i*22)) + ")" });
+			var legendGrouping=svgElement.append("g")
+						  .attr("class","legend")
+						  .attr("transform", function(d, i) { return "translate(" + (width*0.01) + "," + 10 + ")" });
 			
 			var rectWidth=20;
 			var textGap=10;
 			var xRectLegend=0;
 			var xTextLegend=xRectLegend+rectWidth+textGap;
 				
-			legendGrouping.append("rect")
-						.attr("class","pyramidLegend")
-						.attr("width",rectWidth)
-						.attr("height",20)
-						.attr("x",xRectLegend)
-					    .attr("fill",color);
+			legendGrouping.selectAll('.rect')
+						  .data(textLabelsJson)
+						  .enter()
+						  .append("g").append("rect")
+						  .attr("class","pyramidLegend")
+						  .attr("width",rectWidth)
+						  .attr("height",rectWidth)
+						  .attr('y',function(d,i){return i*1.5*rectWidth})
+					     .attr("fill",function(d,i){return textLabelsJson[i].color});
 					  	
-			legendGrouping.append("text")
+			legendGrouping
+				  .selectAll('.text')
+				  .data(textLabelsJson)
+				  .enter()
+				  .append("text")
 				  .attr("x",xTextLegend)
-				  .attr("y", 9)
+				  .attr('y',function(d,i){return (i*1.5*rectWidth)+(rectWidth/2)})
 				  .attr("dy", ".35em")
-				  .style("text-anchor", "start")
+				 // .style("text-anchor", "start")
 				  .attr("class",function(d,i){
 					return "legend-text "+" "+d;
 				  })
+				  .attr('fill','white')
 				  .text(function(d,i) { return textLabelsJson[i].accountName; });  
 	
 				
@@ -6671,12 +6676,14 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 		
 		
 		
+		//show grid view
+		gridManager.init(svgElement, scaleHeight, scaleWidth, margin.left, margin.top);
+		
+		
 		var combinationalGroup = svgSelection.append("g")
 						   .attr('id','combinationalGroup')
 						   .attr("transform", "translate(" +margin.left + "," +margin.top + ")")
 						   
-		//show grid view
-		gridManager.init(svgElement, scaleHeight, scaleWidth, margin.left, margin.top);
 		
 		radius = margin.top;
 		innerRadius = radius - radius*.6;
@@ -9151,7 +9158,7 @@ function sweep(d) {
 						
                 svgMeter.append("g").append("svg:image")
                     .attr("id", "img")
-                   .attr("xlink:href", "http://stocinn.github.io/stocweb/img/pointer.png")
+                    .attr("xlink:href", "http://stocinn.github.io/stocweb/img/pointer.png")
                     .attr("width", width / 30)
                     .attr("height", width / 30)
                     .style('display', 'none');
@@ -9776,7 +9783,6 @@ var threeDBarChart = {
                     color: d3.scale.category20(),
 					toolTipLabelForYAxis: "Profit(in Crores)"
                 };
-
                 if ('undefined' !== typeof options) {
                     for (var i in options) {
                         if ('undefined' !== typeof options[i]) {
@@ -9903,8 +9909,8 @@ var threeDBarChart = {
 			
 				var lineGraph = svgContainer.append("path")
 									.attr("d", lineFunction(drawHorizontalLines(startX, startY, widthOfBars, maxHeight, heightOfBars, nextY)))
-									//.attr("stroke", "blue")
-									.attr("stroke-width", 0.5)
+									.attr("stroke", "#353b37")
+									.attr("stroke-width", 0.3)
 									.attr("fill", "none");	
 				
 				var lineGraphLength= lineGraph.node().getTotalLength();
@@ -9916,8 +9922,8 @@ var threeDBarChart = {
 									  .duration(2000)
 									  .ease("linear")
 									  .attr("stroke-dashoffset", 1)
-									  .attr("stroke", "blue")
-									  .attr("stroke-width", 0.5)
+									  .attr("stroke", "#353b37")
+									  .attr("stroke-width", 0.3)
 									  .attr("fill", "none");
 			
 						
@@ -9942,7 +9948,7 @@ var threeDBarChart = {
 									return cordinateArray[0].height;
 								})
 								.attr("xVal",xAxisTicksArray[j])	
-								.attr("fill", "white")
+								.attr("fill", "#9cffe9")
 								.on("mouseover",function(){
 									var yHeadingValueMap=[{"headingName":cfg.toolTipLabelForYAxis,"headingVal":d3.select(this).attr('val')}];
 									toolTipManager.showToolTip(d3.event,"",(options.xLabel+" "+d3.select(this).attr('xVal')), false,yHeadingValueMap);
@@ -9962,7 +9968,7 @@ var threeDBarChart = {
 									  .duration(2000)
 									  .ease("linear")
 									  .attr("stroke-dashoffset", 1)
-									  .attr("stroke", "blue")
+									  .attr("stroke", "white")
 									  .attr("stroke-width", 1)
 									  .attr("fill", cfg.color);
 				
@@ -9974,7 +9980,7 @@ var threeDBarChart = {
 										return cordinateArray[0].height;
 									})
 								.attr("xVal",xAxisTicksArray[j])	
-								.attr("fill", "white")
+								.attr("fill", "#9cffe9")
 								.on("mouseover",function(){
 									var yHeadingValueMap=[{"headingName":cfg.toolTipLabelForYAxis,"headingVal":d3.select(this).attr('val')}];
 									toolTipManager.showToolTip(d3.event,"",(options.xLabel+" "+d3.select(this).attr('xVal')), false,yHeadingValueMap);
@@ -9995,7 +10001,7 @@ var threeDBarChart = {
 									  .duration(2000)
 									  .ease("linear")
 									  .attr("stroke-dashoffset", 1)
-									  .attr("stroke", "blue")
+									  .attr("stroke", "white")
 									  .attr("stroke-width", 1)
 									  .attr("fill",cfg.color);
 									  
@@ -10006,7 +10012,7 @@ var threeDBarChart = {
 										return cordinateArray[0].height;
 									})
 								.attr("xVal",xAxisTicksArray[j])	
-								.attr("fill", "white")
+								.attr("fill", "#9cffe9")
 								.on("mouseover",function(){
 									var yHeadingValueMap=[{"headingName":cfg.toolTipLabelForYAxis,"headingVal":d3.select(this).attr('val')}];
 									toolTipManager.showToolTip(d3.event,"",(options.xLabel+" "+d3.select(this).attr('xVal')), false,yHeadingValueMap);
@@ -10027,7 +10033,7 @@ var threeDBarChart = {
 									  .duration(2000)
 									  .ease("linear")
 									  .attr("stroke-dashoffset", 1)
-									  .attr("stroke", "blue")
+									  .attr("stroke", "white")
 									  .attr("stroke-width", 1)
 									  .attr("fill", cfg.color);
 									  
@@ -11348,7 +11354,7 @@ for(var index = 0;index<funnelData.length;index++)
 										d3.select('.resetAreaBtn').style("background",'#7F7FFF');
 									  })
 									  .on("mouseout",function(){
-										d3.select(this).style("background",'blue');
+										d3.select(this).style("background",'#19a586');
 									  })
 									  .style("width",resetBtnWidth+"px")
 									  .style("height",resetBtnHeight+"px")
@@ -14057,7 +14063,7 @@ for(var index = 0;index<funnelData.length;index++)
 			
 				var lineGraph = svgContainer.append("path")
 									.attr("d", lineFunction(drawHorizontalLines(startX, startY, widthOfBars, maxHeight, heightOfBarOne, nextY)))
-									//.attr("stroke", "blue")
+									.attr("stroke", "#353b37")
 									.attr("stroke-width", 0.3)
 									.attr("fill", "none");	
 				
@@ -14070,7 +14076,7 @@ for(var index = 0;index<funnelData.length;index++)
 									  .duration(2000)
 									  .ease("linear")
 									  .attr("stroke-dashoffset", 1)
-									  .attr("stroke", "#00ffc4")
+									  .attr("stroke", "#353b37")
 									  .attr("stroke-width", 0.3)
 									  .attr("fill", "none");
 			
@@ -14553,7 +14559,7 @@ for(var index = 0;index<funnelData.length;index++)
 													if(d>averageValue){return yScale(d)-5;}
 													else{return yScale(d)+15;}
 											   })
-											   .attr('fill',function(d){if(d>averageValue){return "green";}else{return "red";}})
+											   .attr('fill','white')
 											   .text(function(d)
 											   {
 												if(d>averageValue){return "+"+d+" "+unit;}
@@ -15003,7 +15009,7 @@ for(var index = 0;index<funnelData.length;index++)
 				//vertical line here	
 
 			var verticalLineRef = multiAxisMAinGroup.append('line')
-										  .attr('y1',10)
+										  .attr('y1',multiAxisAnalChart.top)
 										  .attr('y2',scaleHeight)
 										  .attr('stroke','#a7a7a7')
 										  .attr('display','none');
