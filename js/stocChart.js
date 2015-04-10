@@ -3613,8 +3613,8 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 									}
 								}	
 							tooltip.style("visibility", "visible")
-						   .style("top", (event.pageY-10)+"px")
-					       .style("left",(event.pageX+10)+"px")
+						   .style("top", (d3.event.pageY-10)+"px")
+					       .style("left",(d3.event.pageX+10)+"px")
 						   .text(d3.select(this).attr('value')+" "+specialData[key][nestedKey][batsman]);
 					//	tooltip.style("visibility", "visible");
 					//	getToolTipForShowWicketStatus(d3.select(this).attr('value'))
@@ -7033,8 +7033,8 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 					text = selectedYear+"=>"+data.labelLine2+" "+data.pieDataFactor+" "+clickedYear[1];
 			}
 							tooltip.style("z-index", 1)
-								   .style("top", (event.pageY-10)+"px")
-								   .style("left",(event.pageX+10)+"px")
+								   .style("top", (d3.event.pageY-10)+"px")
+								   .style("left",(d3.event.pageX+10)+"px")
 								   .text(text);
 		}
 
@@ -7108,8 +7108,8 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 				{
 					d3.select('#innerDiv').text(data.clickedInfo[keyName]);
 					message.style("visibility", "visible");
-					message.style("top", (event.pageY-10)+"px")
-										   .style("left",(event.pageX+10)+"px");
+					message.style("top", (d3.event.pageY-10)+"px")
+										   .style("left",(d3.event.pageX+10)+"px");
 										   
 					tooltip.style("visibility", "hidden");
 				}
@@ -8496,8 +8496,8 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 					
 					var keyIndex=getIndex(keyName);	
 					//alert(event.pageY );
-					console.log("*****event pagey "+event.pageY +" ****spae "+marginSpace.top);
-					event.pageY=event.pageY;//-marginSpace.top;
+					console.log("*****event pagey "+d3.event.pageY +" ****spae "+marginSpace.top);
+					d3.event.pageY=d3.event.pageY;//-marginSpace.top;
 					/*	
 					tooltip.style("top", (event.pageY-10)+"px")
 						   .style("left",(event.pageX+10)+"px")
@@ -12934,8 +12934,8 @@ for(var index = 0;index<funnelData.length;index++)
 						var leftMarginOfSvg = $(selectorElement).offset().left;
 						svgElement.on("mouseover",function()
 									{
-										var x = event.pageX;
-										var y = event.pageY;
+										var x = d3.event.pageX;
+										var y = d3.event.pageY;
 										x=x-(leftMarginOfSvg+areaAnalChart.left);
 										x = Math.round(xScale.invert(x));
 										
@@ -13316,8 +13316,8 @@ for(var index = 0;index<funnelData.length;index++)
 								   .attr("transform", "translate(" + areaAnalChart.left + "," + areaAnalChart.top + ")")
 								   .on("mouseover",function()
 									{
-										var x = event.pageX;
-										var y = event.pageY;
+										var x = d3.event.pageX;
+										var y = d3.event.pageY;
 										x=x-(leftMarginOfSvg+areaAnalChart.left);
 										x = Math.round(xScale.invert(x));
 										var heading="XYZ";
@@ -13635,8 +13635,8 @@ for(var index = 0;index<funnelData.length;index++)
 											.attr("opacity",0.2)
 											.on("mousemove",function()
 											{
-												var x = event.pageX;
-												var y = event.pageY;
+												var x = d3.event.pageX;
+												var y = d3.event.pageY;
 												x=x-(leftMarginOfSvg+compareAnalChart.left);
 												x = Math.round(xScale.invert(x));
 												
@@ -13703,8 +13703,8 @@ for(var index = 0;index<funnelData.length;index++)
 											})
 											.on("mousemove",function()
 											{
-												var x = event.pageX;
-												var y = event.pageY;
+												var x = d3.event.pageX;
+												var y = d3.event.pageY;
 												x=x-(leftMarginOfSvg+compareAnalChart.left);
 												x = Math.round(xScale.invert(x));
 												
@@ -13769,8 +13769,8 @@ for(var index = 0;index<funnelData.length;index++)
 								   .on("mouseover",function()
 								   {
 			
-										var x = event.pageX;
-										var y = event.pageY;
+										var x = d3.event.pageX;
+										var y = d3.event.pageY;
 										x=x-(leftMarginOfSvg+spikesAnalChart.left);
 										x = Math.round(xScale.invert(x));
 										if(x>=0 && x<xAxisData.length)
@@ -15970,8 +15970,8 @@ for(var index = 0;index<funnelData.length;index++)
 											.attr("opacity",0.6)
 											.on("mousemove",function()
 											{
-												var x = event.pageX;
-												var y = event.pageY;
+												var x = d3.event.pageX;
+												var y = d3.event.pageY;
 												x=x-(leftMarginOfSvg+threeDAnalChart.left);
 												x = Math.round(xScale.invert(x));
 												var heading=barData[x].country;
@@ -16099,8 +16099,8 @@ for(var index = 0;index<funnelData.length;index++)
                     .attr("transform", "translate(" + detailAnalChart.left + "," + detailAnalChart.top + ")")
 					.on("mouseover",function()
 					{
-						var x = event.pageX;
-						var y = event.pageY;
+						var x = d3.event.pageX;
+						var y = d3.event.pageY;
 						console.log("x = "+x+" y = "+y);
 						x=x-(leftMarginOfSvg+detailAnalChart.left);
 						x = Math.round(xScale.invert(x));
@@ -17018,7 +17018,7 @@ StockMarketChartManager={
 			var xScale=StockMarketChartManager.xScaleHistoricChart;	
 			var marginLeft=margin.left-margin.left*0.08;
 			
-			var pageX=event.pageX-$("#"+containerId).offset().left;
+			var pageX=d3.event.pageX-$("#"+containerId).offset().left;
 			var lineXPos=Math.round(xScale.invert(pageX));
 			
 			if(lineXPos<0 || lineXPos>(dateArray.length-1)){
