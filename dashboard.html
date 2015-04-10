@@ -80,6 +80,9 @@ Donut Chart with Bars</a>  </li>
    <li> <a  href="#" index="14" id="3DStackedBarChartMenu"><i class="arrow"></i>
  3D Stacked Bar Chart</a>  </li> 
  
+  <li> <a  href="#" index="15" id="BulletBarChartMenu"><i class="arrow"></i>
+ Bullet Bar Chart</a>  </li> 
+ 
 
  
 
@@ -88,8 +91,7 @@ Donut Chart with Bars</a>  </li>
 
 
  
- <li> <a  href="#" index="15" id="BulletBarChartMenu"><i class="arrow"></i>
- Bullet Bar Chart</a>  </li> 
+
  
  <li> <a  href="#" index="16" id="CricketAnalChartMenu"><i class="arrow"></i>
  Rounded Bar with special labels</a>  </li> 
@@ -128,18 +130,20 @@ Combinational Chart</a>  </li>
 <li> <a  href="#" index="28" id="variationChartMenu"><i class="arrow"></i>
 Variation Chart</a>  </li> 
 
-
-    </ul>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-12  animation fadeInLeft" >   <ul class="chartListGrup animated fadeInLeft">
-
-
 <li> <a  href="#" index="29" id="globChartMenu"><i class="arrow"></i>
 Network Chart</a>  </li> 
  
  
  <li> <a  href="#" index="30" id="barWithLogoMenu"><i class="arrow"></i>
 Bar With Logo</a>  </li> 
+
+
+    </ul>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12  animation fadeInLeft" >   <ul class="chartListGrup animated fadeInLeft">
+
+
+
  <li> <a  href="#" index="31" id="detailChartMenu"><i class="arrow"></i>
 Detail Chart</a>  </li>
 
@@ -173,7 +177,23 @@ Logo Chart </a>
 
 <li> <a  href="#" index="41" id="multiAxisChartMenu"><i class="arrow"></i>
 Multiple Axis </a>
-</li> </ul></div></div></div>
+</li>
+
+<li> <a  href="#" index="42" id="roundedThreeDBarMenu"><i class="arrow"></i>
+Rounded 3 D Bar
+</li>
+
+<li> <a  href="#" index="43" id="threeDDountChartMenu"><i class="arrow"></i>
+3 D Dount Chart
+</li>
+
+
+<li> <a  href="#" index="44" id="threeDPieChartMenu"><i class="arrow"></i>
+3 D Pie Chart
+</li>
+
+
+ </ul></div></div></div>
 </div>
 
 
@@ -4402,6 +4422,205 @@ legendColor:- array of legend color<br>
 
  
 </div>
+
+<div class="chartDetails roundedThreeDBarMenu">
+<h2>3D Cylinder bar Chart : :</h2>
+<p><strong>Introduction:</strong><br>
+
+A bar chart or bar graph is a chart with rectangular bars with lengths proportional to the values that they represent. Bars are represented in 3D cylindrical view.
+
+
+
+
+</p>
+ <h3><strong>Steps of making Rounded Three D Bar:
+
+
+
+</strong><br><br>
+ 1) Data format to be used: Json Array
+
+
+
+
+</h3>
+ <div class="chartCode">
+  <p class="padding-xs">
+yAxisData:- y axis data<br>
+
+yAxisColor:- y axis color<br>
+
+xAxisData:- x axis data<br>
+
+unit:- label unit<br>			
+
+
+</p> 
+
+<p class="padding-sm">eg) </p> 
+
+<p class="padding-md">var data =  
+			{
+			yObject:
+			 [</p>
+             <p class="padding-lg">{
+							yAxisData : [210,280,270,320,350,260,325],<br>
+
+							yAixsAvgData : [80,37,40,100,75,45,30],<br>
+
+							yAxisColor : "orange"<br>
+
+				},<br>
+<br>
+
+				{
+						
+							yAxisData : [240,250,160,295,160,180,170],<br>
+
+							yAixsAvgData : [35,25,20,45,30,20,55],<br>
+
+							yAxisColor : "blue"<br>
+
+				},<br>
+<br>
+
+				{
+						
+							yAxisData : [100,150,50,200,125,75,230],<br>
+
+							yAixsAvgData : [135,125,120,150,130,120,155],<br>
+
+							yAxisColor : "green"<br>
+
+				}
+			],</p>
+            
+            <p class="padding-md">xAxisData : ["Jan","Feb","Mar","Apr","May","June","July"],<br>
+
+			unit:"Student's",<br>
+
+			legend : ["Student Login","Class Avg.Login","Student Interaction","Class.Avg Interaction","Student Time Spent","Class Time Spent"],<br>
+
+			legendColor: ['orange','orange','blue','blue','green','green']
+			}</p>
+      
+ </div>
+
+
+
+ 
+</div>
+
+<div class="chartDetails threeDPieChartMenu">
+<h2>Three D Pie Chart :</h2>
+<p><strong>Introduction:</strong><br>
+
+It is a type of graph in which a circle/pie is divided into sectors, and each sector represents a some fraction of the whole. Here, pie is shown in 3D.
+
+
+</p>
+ <h3><strong>Steps of making Three D Pie Chart:
+
+
+
+</strong><br><br>
+ 1) Data format to be used: Json Array
+
+
+
+
+</h3>
+ <div class="chartCode">
+  <p class="padding-xs">
+dountData:- dount data array<br>
+
+dountKey:- dount key array<br>
+
+colorArray:- dount color array<br>
+
+unit:- label unit<br>
+			
+
+
+</p> 
+
+<p class="padding-sm">eg) </p> 
+
+<p class="padding-md">var data =  
+			{
+			 </p>
+             <p class="padding-lg">
+				dountData : [231,123,184,155,55],
+				dountKey : ["Excellent","Above Avg.","Average","Below Avg.","Poor"],
+				colorArray : ['pink','#95d7bb','#fcb322','#e67a77','#aec785'],
+				unit : "%"
+			 </p>
+<p class="padding-lg">   
+			    }</p>
+            
+ </div>
+
+
+
+ 
+</div>
+
+<div class="chartDetails threeDDountChartMenu">
+<h2>Three D Dount Chart :</h2>
+<p><strong>Introduction:</strong><br>
+
+A doughnut chart displays data as percentage of the whole. Categories are represented by every slice. Doughnut charts are functionally identical to pie charts.
+Donut is represented in 3D view here.
+
+
+
+</p>
+ <h3><strong>Steps of making Three D Dount Chart:
+
+
+
+</strong><br><br>
+ 1) Data format to be used: Json Array
+
+
+
+
+</h3>
+ <div class="chartCode">
+  <p class="padding-xs">
+dountData:- dount data array<br>
+
+dountKey:- dount key array<br>
+
+colorArray:- dount color array<br>
+
+unit:- label unit<br>
+
+
+</p> 
+
+<p class="padding-sm">eg) </p> 
+
+<p class="padding-md">var data =  
+			{
+			 </p>
+             <p class="padding-lg">
+				dountData : [231,123,184,155,55],
+				dountKey : ["Excellent","Above Avg.","Average","Below Avg.","Poor"],
+				colorArray : ['pink','#95d7bb','#fcb322','#e67a77','#aec785'],
+				unit : "%"
+			 </p>
+<p class="padding-lg">   
+			    }</p>
+      
+ </div>
+
+
+
+ 
+</div>
+
+
 
 </div>
   </div></div></div>

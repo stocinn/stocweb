@@ -1609,7 +1609,7 @@ $("#line1").empty();
 		selectedChartIndex=$(this).attr("index");
 		updateJsfiddleLink(selectedChartIndex);
 		$("#line1").empty();
-		$("#multiAxisChart").show();
+	//	$("#multiAxisChart").show();
 		
 		
 			$(".chartDetails").hide();
@@ -1646,6 +1646,136 @@ $("#line1").empty();
 		var stocChart42=$("#line1").stocCharts(textStyleConfg);
 		stocChart42.multiAxisChartAnalysis(data);
 	});
+	
+	$("#roundedThreeDBarMenu").click(function(){
+		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
+		$("#line1").empty();
+//		$("#multiAxisChart").show();	
+			$(".chartDetails").hide();
+	    $(".roundedThreeDBarMenu").show();
+
+		var data =
+			{
+					title : "Country Growth Rate",
+					barData: [{
+						"country": "USA",
+						"visits": 4250,
+						"color": "#FF0F00"
+						}, {
+						"country": "China",
+						"visits": 3882,
+						"color": "#FF6600"
+						}, {
+						"country": "Japan",
+						"visits": 3409,
+						"color": "#FF9E01"
+						}, {
+						"country": "Germany",
+						"visits": 3022,
+						"color": "#FCD202"
+						}, {
+						"country": "pakistan",
+						"visits": 2622,
+						"color": "#F8FF01"
+						}, {
+						"country": "France",
+						"visits": 2214,
+						"color": "#B0DE09"
+						}, {
+						"country": "India",
+						"visits": 1984,
+						"color": "#04D215"
+						}, {
+						"country": "Spain",
+						"visits": 1511,
+						"color": "#0D8ECF"
+						}, {
+						"country": "England",
+						"visits": 1165,
+						"color": "#0D52D1"
+						}, {
+						"country": "Russia",
+						"visits": 980,
+						"color": "#2A0CD0"
+						}, {
+						"country": "UK",
+						"visits": 743,
+						"color": "#8A0CCF"
+						}, {
+						"country": "Canada",
+						"visits": 641,
+						"color": "#CD0D74"
+						}, {
+						"country": "Brazil",
+						"visits": 595,
+						"color": "#754DEB"
+						}, {
+						"country": "Italy",
+						"visits": 516,
+						"color": "#999999"
+						},/* {
+						"country": "Australia",
+						"visits": 484,
+						"color": "#DDDDDD"
+						}, {
+						"country": "Taiwan",
+						"visits": 458,
+						"color": "#333333"
+						}, {
+						"country": "Poland",
+						"visits": 408,
+						"color": "#000000"
+						}*/],  
+				
+				xAxisLabel : "Country",
+				yAxisLabel :"Visits",
+				unit : ""		
+			}
+		
+	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var stocChart43=$("#line1").stocCharts(textStyleConfg);
+		stocChart43.roundedThreeDBarAnalysis(data);
+	});
+	
+	$("#threeDDountChartMenu").click(function(){
+		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
+		$("#line1").empty();
+			$(".chartDetails").hide();
+	    $(".threeDDountChartMenu").show();
+		var data = 
+		{
+			dountData : [231,123,184,155,55],
+			dountKey : ["Excellent","Above Avg.","Average","Below Avg.","Poor"],
+		    colorArray : ['pink','#95d7bb','#fcb322','#e67a77','#aec785'],
+			unit : "%",
+			factor :"Students"
+		}
+	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var stocChart43=$("#line1").stocCharts(textStyleConfg);
+		stocChart43.threeDDountChartAnalysis(data);
+	});
+	
+	$("#threeDPieChartMenu").click(function(){
+		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
+		$("#line1").empty();	
+			$(".chartDetails").hide();
+	    $(".threeDPieChartMenu").show();
+		var data = 
+		{
+			dountData : [231,123,184,155,55],
+			dountKey : ["Excellent","Above Avg.","Average","Below Avg.","Poor"],
+		    colorArray : ['pink','#95d7bb','#fcb322','#e67a77','#aec785'],
+			unit : "%",
+			factor :"Students"
+		}
+	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var stocChart44=$("#line1").stocCharts(textStyleConfg);
+		stocChart44.threeDPieChartAnalysis(data);
+	});
+	
 	
 	$('.chartMenuList ul li a').click(function() {
 		$('.chartMenuList ul li.active').removeClass('active');

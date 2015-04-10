@@ -3677,7 +3677,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
                     .attr("transform", "translate(" + (-marginCrickedAnalChart.yScalePaddingLeft*2) + "," + 2*marginCrickedAnalChart.bottom + ")");
 				yAxisLabel.append("text")
 						  .attr("x",(0))
-						  .attr("y",(scaleHeight/2))
+						  .attr("y",(scaleHeight/2.25))
 						  .text(yLabel)
 						  .style("font-size",'20')
 						  .attr("transform","rotate(-90)")
@@ -13539,27 +13539,7 @@ for(var index = 0;index<funnelData.length;index++)
 				var compareChartMainGroup = svgElement.append("g")
 								   .attr('class','main-group')
 								   .attr("transform", "translate(" + compareAnalChart.left + "," + compareAnalChart.top + ")")
-								   .on("mouseover",function()
-									{
-										var x = event.pageX;
-										var y = event.pageY;
-										x=x-(leftMarginOfSvg+compareAnalChart.left);
-										x = Math.round(xScale.invert(x));
-										if(x>=0 && x<xAxisData.length)
-										{
-										var heading=xAxisData[x];
-										var yAxisEstimateVal = yAxisEstimateData[x] + " "+yAxisUnit;
-										var yAxisActualVal = yAxisActualData[x] + " "+yAxisUnit;
-										var yHeadingValueMap=[{"headingName":yAxisEstimateDataUnit+" "+yAxisLabel,"headingVal":yAxisEstimateVal},
-															  {"headingName":yAxisActualDataUnit+" "+yAxisLabel,"headingVal":yAxisActualVal}
-															  ];
-										
-										toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.90);	
-										}
-									})
-									.on("mouseleave",function(){
-										toolTipManager.hideTooTip();
-									});
+								   
 				
 	
 			// title label here
@@ -13652,7 +13632,27 @@ for(var index = 0;index<funnelData.length;index++)
 											.attr('x',function(d,i){return xScale(i)-(estimateDataBarWidth/2)})
 											.attr('y',scaleHeight)
 											.attr('fill','#000000')
-											.attr("opacity",0.2);
+											.attr("opacity",0.2)
+											.on("mousemove",function()
+											{
+												var x = event.pageX;
+												var y = event.pageY;
+												x=x-(leftMarginOfSvg+compareAnalChart.left);
+												x = Math.round(xScale.invert(x));
+												
+												var heading=xAxisData[x];
+												var yAxisEstimateVal = yAxisEstimateData[x] + " "+yAxisUnit;
+												var yAxisActualVal = yAxisActualData[x] + " "+yAxisUnit;
+												var yHeadingValueMap=[{"headingName":yAxisEstimateDataUnit+" "+yAxisLabel,"headingVal":yAxisEstimateVal},
+																	  {"headingName":yAxisActualDataUnit+" "+yAxisLabel,"headingVal":yAxisActualVal}
+																	  ];
+												
+												toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.90);	
+												
+											})
+											.on("mouseleave",function(){
+												toolTipManager.hideTooTip();
+											});
 						estimateRectGroupRef
 								.transition()
 								.duration(1500)
@@ -13701,8 +13701,26 @@ for(var index = 0;index<funnelData.length;index++)
 											{
 												d3.select(this).attr('fill',"#3e9ad9");
 											})
+											.on("mousemove",function()
+											{
+												var x = event.pageX;
+												var y = event.pageY;
+												x=x-(leftMarginOfSvg+compareAnalChart.left);
+												x = Math.round(xScale.invert(x));
+												
+												var heading=xAxisData[x];
+												var yAxisEstimateVal = yAxisEstimateData[x] + " "+yAxisUnit;
+												var yAxisActualVal = yAxisActualData[x] + " "+yAxisUnit;
+												var yHeadingValueMap=[{"headingName":yAxisEstimateDataUnit+" "+yAxisLabel,"headingVal":yAxisEstimateVal},
+																	  {"headingName":yAxisActualDataUnit+" "+yAxisLabel,"headingVal":yAxisActualVal}
+																	  ];
+												
+												toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.90);	
+												
+											})
 											.on("mouseleave",function()
 											{
+												toolTipManager.hideTooTip();
 												d3.select(this).attr('fill',"url(#gradient)");
 											});
 											
@@ -15296,6 +15314,744 @@ for(var index = 0;index<funnelData.length;index++)
 			
 		}
 	}
+	var threeDPieChartGraph = 
+	{
+		threeDPieChartAnalysis:function(data)
+		{
+				var dountData = data.dountData;
+				var dountKey = data.dountKey;
+				var colorArray = data.colorArray;
+				var unit = data.unit;
+				var factor = data.factor;
+				var pieAnalChart={left:width*0.1,right:width*0.1,bottom:height*0.15,top:height*0.1,chartSeparator:5,xScalePaddingTop:height*0.2,yScalePaddingLeft:width*0.1};
+				var scaleWidth=width-pieAnalChart.left-pieAnalChart.right;
+				var scaleHeight=height-pieAnalChart.top-pieAnalChart.bottom;
+				
+				var  pieMainGroup = svgElement.append("g")
+										   .attr('class','main-group')
+										   .attr("transform", "translate(" + pieAnalChart.left + "," + pieAnalChart.top + ")");
+										   
+				var dountPieGroup = 	pieMainGroup.append("g")
+											.attr('class','dountPie')
+											.attr("transform", "translate(" + (scaleWidth/2) + "," + (scaleHeight/2) + ")");
+
+				var grad = Math.PI/180;							
+				var dist = 0;
+				var pixcelPerChar=8;
+				
+				var dountDataSum = 0
+				for(var index = 0;index<dountData.length;index++)
+				{
+					dountDataSum = dountDataSum+dountData[index];
+				}
+						
+				var radiusX = scaleHeight < scaleWidth ? scaleHeight : scaleWidth;
+							 radiusX = radiusX *.45;
+				
+				var radiusY = radiusX*.75;
+				
+				var h=25,innerRadius=0;
+											
+				var pie = d3.layout.pie().sort(null).value(function(d) {return d;})
+										
+				
+				
+				dountPieGroup.selectAll(".innerSlice").data(pie(dountData)).enter().append("path").attr("class", "innerSlice")
+					.style("fill", function(d,i) { return colorArray[i]; })
+					.attr("d",function(d){ return pieInner(d, radiusX,radiusY, h, innerRadius);})
+					.attr('transform', function (d,i) 
+					{
+						d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+						var x = Math.cos(d.midAngle) * dist;
+						var y = Math.sin(d.midAngle) * dist;
+						return 'translate(' + x + ',' + y + ')';
+					})
+					.transition().duration(1500).attrTween("d",arcTweenInner)
+					
+				dountPieGroup.selectAll(".topSlice").data(pie(dountData)).enter().append("g").attr("class", "topSlice")  
+					.style("fill", function(d,i) { return colorArray[i]; })
+					.style("stroke", function(d,i) {return colorArray[i]; })
+					.append('path')
+					.attr('value',function(d,i){return i})
+					.attr("d",function(d){return pieTop(d, radiusX, radiusY, innerRadius);})
+					.attr('transform', function (d,i) 
+					{
+						d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+						var x = Math.cos(d.midAngle) * dist;
+						var y = Math.sin(d.midAngle) * dist;
+						return 'translate(' + x + ',' + y + ')';
+					})
+					.on("mouseover",function()
+					{
+						var index = d3.select(this).attr('value');
+						var xPosition = d3.select("#text"+index).attr('x');
+						d3.select("#text"+index).attr('x',function(){
+							if(xPosition>0){ return xPosition-10+20}
+							else{ return xPosition-10}	
+						})
+						.style('font-weight',600)
+					})
+					.on("mouseout",function()
+					{
+						var index = d3.select(this).attr('value');
+						var xPosition = d3.select("#text"+index).attr('x');
+						d3.select("#text"+index).attr('x',function(){
+							if(xPosition>0){ return xPosition-10}
+							else{ return xPosition-10+20}	
+						})
+						.style('font-weight','normal')
+					})
+					.on("mousemove",function(d,i)
+					{
+						
+						var index = d3.select(this).attr('value');
+						var heading=dountKey[index];
+						var dountValue = getpercentageForToolTip(index);
+						var yHeadingValueMap=[{"headingName":factor,"headingVal":dountValue}
+											  
+											  ];
+						
+						toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.96);	
+						
+					})
+					.on("mouseleave",function(){
+						toolTipManager.hideTooTip();
+					})
+					.transition().duration(1500).attrTween("d",arcTweenTop);	
+					
+				dountPieGroup.selectAll(".outerSlice").data(pie(dountData)).enter().append("path").attr("class", "outerSlice")
+					.style("fill", function(d,i) { return colorArray[i]; })
+					.attr("d",function(d){ return pieOuter(d, radiusX,radiusY, h);})
+					.attr('transform', function (d,i) 
+					{
+						
+						d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+						var x = Math.cos(d.midAngle) * dist;
+						var y = Math.sin(d.midAngle) * dist;
+						return 'translate(' + x + ',' + y + ')';
+					})
+					.transition().duration(1500).attrTween("d",arcTweenOuter);
+
+							
+				dountPieGroup.selectAll(".percent").data(pie(dountData)).enter().append("text").attr("class", "percent")
+					.attr("x",function(d){ return 0.6*radiusX*Math.cos(0.5*(d.startAngle+d.endAngle));})
+					.attr("y",function(d){ return 0.6*radiusY*Math.sin(0.5*(d.startAngle+d.endAngle));})
+					.text(function(d,i){ return getpercentage(d,i)});		
+					
+				var x1,y1;
+				//	text here
+				
+				var lineFunction = d3.svg.line()
+									.x(function(d,i) {return xCoordinate[i]; })
+									.y(function(d,i) {return yCoordinate[i]; })
+							
+				
+				var xCoordinate = [];
+				var yCoordinate = [];
+				
+
+				var theta , totalTheta = 0 , tempTheta;
+				for(var index = 0 ; index<dountData.length;index++)
+				{
+											
+					theta = ((dountData[index])/dountDataSum)*360;
+					tempTheta = totalTheta;
+					totalTheta = totalTheta + theta;
+					tempTheta = (tempTheta + totalTheta)/2;
+					
+					
+					xCoordinate[0] = ((radiusX*.98) * (Math.cos(tempTheta * (Math.PI / 180))));		
+					yCoordinate[0] = ((radiusY*.98) * (Math.sin(tempTheta * (Math.PI / 180))));
+				
+					xCoordinate[1] = ((radiusX*1.4) * (Math.cos(tempTheta * (Math.PI / 180))));
+					yCoordinate[1] = ((radiusY*1.4) * (Math.sin(tempTheta * (Math.PI / 180))));
+					
+					xCoordinate[2] = xCoordinate[1] + ((radiusX*.2) * (Math.cos(tempTheta * (Math.PI / 180))));
+					yCoordinate[2] = yCoordinate[1];
+				
+					dountPieGroup.selectAll(".path")
+									 .data([xCoordinate])
+									 .enter()
+									 .append("path")
+									 .attr("d", lineFunction)	  
+									 .attr("stroke-width", 1)
+									 .attr("fill",'none')
+									 .attr('stroke',colorArray[index])
+				
+					dountPieGroup.append('text')
+								 .attr('id',function(){return "text"+index})
+								 .attr('x',function()
+								 { if(xCoordinate[2]>0){return xCoordinate[2]}
+									else{return xCoordinate[2]-(dountKey[index].length*pixcelPerChar)}
+								 })
+								 .attr('y',yCoordinate[2]+3)
+								 .attr('fill',colorArray[index])
+								 .text(function(){ return dountKey[index];})
+					
+				}
+				
+				function pieTop(d, rx, ry, ir )
+				{
+				//	alert(JSON.stringify(d))
+				//	alert("top  "+ d +"   "+ rx+"   " +ry+"   "+ ir)
+				
+				if(d.endAngle - d.startAngle == 0 )
+				{	
+					return "M 0 0";
+				}
+			//	alert(d.startAngle)
+				var sx = rx*Math.cos(d.startAngle),
+					sy = ry*Math.sin(d.startAngle),
+					ex = rx*Math.cos(d.endAngle),
+					ey = ry*Math.sin(d.endAngle);
+					
+		//		alert(sx + "   " + sy+"  " + ex+"  "+ey)	
+					
+				var ret =[];
+				ret.push("M",sx,sy,"A",rx,ry,"0",(d.endAngle-d.startAngle > Math.PI? 1: 0),"1",ex,ey,"L",ir*ex,ir*ey);
+				ret.push("A",ir*rx,ir*ry,"0",(d.endAngle-d.startAngle > Math.PI? 1: 0), "0",ir*sx,ir*sy,"z");
+				return ret.join(" ");
+
+			}
+
+			function pieOuter(d, rx, ry, h ){
+				var startAngle = (d.startAngle > Math.PI ? Math.PI : d.startAngle);
+				var endAngle = (d.endAngle > Math.PI ? Math.PI : d.endAngle);
+				
+				var sx = rx*Math.cos(startAngle),
+					sy = ry*Math.sin(startAngle),
+					ex = rx*Math.cos(endAngle),
+					ey = ry*Math.sin(endAngle);
+					
+					var ret =[];
+					ret.push("M",sx,h+sy,"A",rx,ry,"0 0 1",ex,h+ey,"L",ex,ey,"A",rx,ry,"0 0 0",sx,sy,"z");
+					return ret.join(" ");
+			}
+
+			function pieInner(d, rx, ry, h, ir ){
+				var startAngle = (d.startAngle < Math.PI ? Math.PI : d.startAngle);
+				var endAngle = (d.endAngle < Math.PI ? Math.PI : d.endAngle);
+				
+				var sx = ir*rx*Math.cos(startAngle),
+					sy = ir*ry*Math.sin(startAngle),
+					ex = ir*rx*Math.cos(endAngle),
+					ey = ir*ry*Math.sin(endAngle);
+
+					var ret =[];
+					ret.push("M",sx, sy,"A",ir*rx,ir*ry,"0 0 1",ex,ey, "L",ex,h+ey,"A",ir*rx, ir*ry,"0 0 0",sx,h+sy,"z");
+					return ret.join(" ");
+			}
+			
+			function getpercentage(d,index)
+			{
+				return (d.endAngle-d.startAngle > 0.2 ? 
+					Math.round((dountData[index]/dountDataSum)*100)+unit : '');
+			}
+			getpercentageForToolTip
+			
+			function getpercentageForToolTip(index)
+			{
+				return  Math.round((dountData[index]/dountDataSum)*100)+unit;
+			}
+			
+			function arcTweenInner(d) 
+			{
+				 var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+				 return function (call) {
+				  return pieInner(i(call),radiusX,radiusY,h,innerRadius);
+			 };
+			}		
+			
+			function arcTweenTop(d) 
+			{
+				var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+				return function (call) {
+				return pieTop(i(call),radiusX,radiusY,innerRadius);
+			 };
+			}		
+			
+			function arcTweenOuter(d) {
+			   var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+			 return function (call) 
+			 {
+			  return pieOuter(i(call),radiusX,radiusY,h);
+			 };
+			}
+		}
+	}
+	
+	var threeDDountChartGraph = 
+	{
+		threeDDountChartAnalysis:function(data)
+		{
+				var dountData = data.dountData;
+				var dountKey = data.dountKey;
+				var colorArray = data.colorArray;
+				var unit = data.unit;
+				var factor = data.factor;
+				
+				var pieAnalChart={left:width*0.1,right:width*0.1,bottom:height*0.15,top:height*0.1,chartSeparator:5,xScalePaddingTop:height*0.2,yScalePaddingLeft:width*0.1};
+				var scaleWidth=width-pieAnalChart.left-pieAnalChart.right;
+				var scaleHeight=height-pieAnalChart.top-pieAnalChart.bottom;
+				
+				var  pieMainGroup = svgElement.append("g")
+										   .attr('class','main-group')
+										   .attr("transform", "translate(" + pieAnalChart.left + "," + pieAnalChart.top + ")");
+										   
+				var dountPieGroup = 	pieMainGroup.append("g")
+											.attr('class','dountPie')
+											.attr("transform", "translate(" + (scaleWidth/2) + "," + (scaleHeight/2) + ")");
+
+				var leftMarginOfSvg = $(selectorElement).offset().left;
+				var grad = Math.PI/180;							
+				var dist = 0;
+				var pixcelPerChar=8;
+				
+				var dountDataSum = 0
+				for(var index = 0;index<dountData.length;index++)
+				{
+					dountDataSum = dountDataSum+dountData[index];
+				}
+						
+				var radiusX = scaleHeight < scaleWidth ? scaleHeight : scaleWidth;
+							 radiusX = radiusX *.45;
+				
+				var radiusY = radiusX*.75;
+				
+				var h=25,innerRadius=0.75;
+											
+				var pie = d3.layout.pie().sort(null).value(function(d) {return d;})
+										
+				
+				
+				dountPieGroup.selectAll(".innerSlice").data(pie(dountData)).enter().append("path").attr("class", "innerSlice")
+					.style("fill", function(d,i) { return colorArray[i]; })
+					.attr("d",function(d){ return pieInner(d, radiusX,radiusY, h, innerRadius);})
+					.attr('transform', function (d,i) 
+					{
+						d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+						var x = Math.cos(d.midAngle) * dist;
+						var y = Math.sin(d.midAngle) * dist;
+						return 'translate(' + x + ',' + y + ')';
+					})
+					.transition().duration(1500).attrTween("d",arcTweenInner)
+					
+				dountPieGroup.selectAll(".topSlice").data(pie(dountData)).enter().append("g").attr("class", "topSlice")  
+					.style("fill", function(d,i) { return colorArray[i]; })
+					.style("stroke", function(d,i) {return colorArray[i]; })
+					.append('path')
+					.attr('value',function(d,i){return i})
+					.attr("d",function(d){return pieTop(d, radiusX, radiusY, innerRadius);})
+					.attr('transform', function (d,i) 
+					{
+						d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+						var x = Math.cos(d.midAngle) * dist;
+						var y = Math.sin(d.midAngle) * dist;
+						return 'translate(' + x + ',' + y + ')';
+					})
+					.on("mouseover",function()
+					{
+						var index = d3.select(this).attr('value');
+						var xPosition = d3.select("#text"+index).attr('x');
+						d3.select("#text"+index).attr('x',function(){
+							if(xPosition>0){ return xPosition-10+20}
+							else{ return xPosition-10}	
+						})
+						.style('font-weight',600)
+						
+					})
+					.on("mouseout",function()
+					{
+						var index = d3.select(this).attr('value');
+						var xPosition = d3.select("#text"+index).attr('x');
+						d3.select("#text"+index).attr('x',function(){
+							if(xPosition>0){ return xPosition-10}
+							else{ return xPosition-10+20}	
+						})
+						.style('font-weight','normal')
+					})
+					.on("mousemove",function()
+					{
+						var index = d3.select(this).attr('value');
+						var heading=dountKey[index];
+						var dountValue = getpercentage(index);
+						var yHeadingValueMap=[{"headingName":factor,"headingVal":dountValue}
+											  
+											  ];
+						
+						toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.96);	
+						
+					})
+					.on("mouseleave",function(){
+						toolTipManager.hideTooTip();
+					})
+					.transition().duration(1500).attrTween("d",arcTweenTop);	
+					
+				dountPieGroup.selectAll(".outerSlice").data(pie(dountData)).enter().append("path").attr("class", "outerSlice")
+					.style("fill", function(d,i) { return colorArray[i]; })
+					.attr("d",function(d){ return pieOuter(d, radiusX,radiusY, h);})
+					.attr('transform', function (d,i) 
+					{
+						
+						d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+						var x = Math.cos(d.midAngle) * dist;
+						var y = Math.sin(d.midAngle) * dist;
+						return 'translate(' + x + ',' + y + ')';
+					})
+					.transition().duration(1500).attrTween("d",arcTweenOuter);
+
+					/*		
+				dountPieGroup.selectAll(".percent").data(pie(dountData)).enter().append("text").attr("class", "percent")
+					.attr("x",function(d){ return 0.6*radiusX*Math.cos(0.5*(d.startAngle+d.endAngle));})
+					.attr("y",function(d){ return 0.6*radiusY*Math.sin(0.5*(d.startAngle+d.endAngle));})
+					.text(function(d,i){ return getpercentage(d,i)});		
+					*/
+				var x1,y1;
+				//	text here
+				
+				var lineFunction = d3.svg.line()
+									.x(function(d,i) {return xCoordinate[i]; })
+									.y(function(d,i) {return yCoordinate[i]; })
+							
+				
+				var xCoordinate = [];
+				var yCoordinate = [];
+				
+
+				var theta , totalTheta = 0 , tempTheta;
+				for(var index = 0 ; index<dountData.length;index++)
+				{
+											
+					theta = ((dountData[index])/dountDataSum)*360;
+					tempTheta = totalTheta;
+					totalTheta = totalTheta + theta;
+					tempTheta = (tempTheta + totalTheta)/2;
+					
+					
+					xCoordinate[0] = ((radiusX*.98) * (Math.cos(tempTheta * (Math.PI / 180))));		
+					yCoordinate[0] = ((radiusY*.98) * (Math.sin(tempTheta * (Math.PI / 180))));
+				
+					xCoordinate[1] = ((radiusX*1.4) * (Math.cos(tempTheta * (Math.PI / 180))));
+					yCoordinate[1] = ((radiusY*1.4) * (Math.sin(tempTheta * (Math.PI / 180))));
+					
+					xCoordinate[2] = xCoordinate[1] + ((radiusX*.2) * (Math.cos(tempTheta * (Math.PI / 180))));
+					yCoordinate[2] = yCoordinate[1];
+				
+					dountPieGroup.selectAll(".path")
+									 .data([xCoordinate])
+									 .enter()
+									 .append("path")
+									 .attr("d", lineFunction)	  
+									 .attr("stroke-width", 1)
+									 .attr("fill",'none')
+									 .attr('stroke',colorArray[index])
+				
+					dountPieGroup.append('text')
+								 .attr('id',function(){return "text"+index})
+								 .attr('x',function()
+								 { if(xCoordinate[2]>0){return xCoordinate[2]}
+									else{return xCoordinate[2]-((dountKey[index].length+getpercentage(index).length+1)*pixcelPerChar)}
+								 })
+								 .attr('y',yCoordinate[2]+3)
+								 .attr('fill',colorArray[index])
+								 .text(function(){ return getpercentage(index)+" "+dountKey[index];})
+					
+				}
+				
+				function pieTop(d, rx, ry, ir )
+				{
+				//	alert(JSON.stringify(d))
+				//	alert("top  "+ d +"   "+ rx+"   " +ry+"   "+ ir)
+				
+				if(d.endAngle - d.startAngle == 0 )
+				{	
+					return "M 0 0";
+				}
+			//	alert(d.startAngle)
+				var sx = rx*Math.cos(d.startAngle),
+					sy = ry*Math.sin(d.startAngle),
+					ex = rx*Math.cos(d.endAngle),
+					ey = ry*Math.sin(d.endAngle);
+					
+		//		alert(sx + "   " + sy+"  " + ex+"  "+ey)	
+					
+				var ret =[];
+				ret.push("M",sx,sy,"A",rx,ry,"0",(d.endAngle-d.startAngle > Math.PI? 1: 0),"1",ex,ey,"L",ir*ex,ir*ey);
+				ret.push("A",ir*rx,ir*ry,"0",(d.endAngle-d.startAngle > Math.PI? 1: 0), "0",ir*sx,ir*sy,"z");
+				return ret.join(" ");
+
+			}
+
+			function pieOuter(d, rx, ry, h ){
+				var startAngle = (d.startAngle > Math.PI ? Math.PI : d.startAngle);
+				var endAngle = (d.endAngle > Math.PI ? Math.PI : d.endAngle);
+				
+				var sx = rx*Math.cos(startAngle),
+					sy = ry*Math.sin(startAngle),
+					ex = rx*Math.cos(endAngle),
+					ey = ry*Math.sin(endAngle);
+					
+					var ret =[];
+					ret.push("M",sx,h+sy,"A",rx,ry,"0 0 1",ex,h+ey,"L",ex,ey,"A",rx,ry,"0 0 0",sx,sy,"z");
+					return ret.join(" ");
+			}
+
+			function pieInner(d, rx, ry, h, ir ){
+				var startAngle = (d.startAngle < Math.PI ? Math.PI : d.startAngle);
+				var endAngle = (d.endAngle < Math.PI ? Math.PI : d.endAngle);
+				
+				var sx = ir*rx*Math.cos(startAngle),
+					sy = ir*ry*Math.sin(startAngle),
+					ex = ir*rx*Math.cos(endAngle),
+					ey = ir*ry*Math.sin(endAngle);
+
+					var ret =[];
+					ret.push("M",sx, sy,"A",ir*rx,ir*ry,"0 0 1",ex,ey, "L",ex,h+ey,"A",ir*rx, ir*ry,"0 0 0",sx,h+sy,"z");
+					return ret.join(" ");
+			}
+			
+			function getpercentage(index)
+			{
+				return Math.round((dountData[index]/dountDataSum)*100)+unit;
+			}
+			
+			function arcTweenInner(d) 
+			{
+				 var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+				 return function (call) {
+				  return pieInner(i(call),radiusX,radiusY,h,innerRadius);
+			 };
+			}		
+			
+			function arcTweenTop(d) 
+			{
+				var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+				return function (call) {
+				return pieTop(i(call),radiusX,radiusY,innerRadius);
+			 };
+			}		
+			
+			function arcTweenOuter(d) {
+			   var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+			 return function (call) 
+			 {
+			  return pieOuter(i(call),radiusX,radiusY,h);
+			 };
+			}
+		}
+	}
+	var roundedThreeDBarGraph = 
+		{
+			roundedThreeDBarAnalysis:function(data)
+			{
+
+				var barData = data.barData;
+				var xAxisLabel = data.xAxisLabel;
+				var yAxisLabel = data.yAxisLabel;
+				var title = data.title;
+				var unit = data.unit;
+
+				var threeDAnalChart={left:width*0.1,right:width*0.1,bottom:height*0.15,top:height*0.1,chartSeparator:5,xScalePaddingTop:height*0.2,yScalePaddingLeft:width*0.1};
+				var scaleWidth=width-threeDAnalChart.left-threeDAnalChart.right;
+				var scaleHeight=height-threeDAnalChart.top-threeDAnalChart.bottom;
+					
+				var estimateDataBarWidth =  (scaleWidth/(1.5*barData.length));
+				var radiusY = 7;
+				var gradient;
+				var xAxisTimeIndex = [];
+				var yAxisValues = [];
+			    for(var counter = 0;counter<barData.length ;counter++)
+				{
+					xAxisTimeIndex[counter] = counter;
+					yAxisValues[counter] = barData[counter].visits;
+				}
+			
+				
+				var threeDBarMainGroup = svgElement.append("g")
+								   .attr('class','main-group')
+								   .attr("transform", "translate(" + threeDAnalChart.left + "," + threeDAnalChart.top + ")")
+		
+				// title label here
+				axisLabelController.appendLabel(title,threeDAnalChart.left,(-threeDAnalChart.top/3),0,threeDBarMainGroup,textStyleConfg.chartTitleColor,700);			   
+				
+				//xAxis label here			
+				var pixcelPerChar=7;
+				var totalXLabelPixcel=xAxisLabel.toString().length*pixcelPerChar;
+				var xIndicationLabelTop=scaleHeight+(scaleHeight*0.13);
+				var xIndicationLabelLeft=scaleWidth/2-totalXLabelPixcel/2;
+				axisLabelController.appendLabel(xAxisLabel,xIndicationLabelLeft,xIndicationLabelTop,0,threeDBarMainGroup,textStyleConfg.xLabelColor,600);			   							
+							
+				//yAxis label here					
+				var totalYLabelPixcel=yAxisLabel.toString().length*pixcelPerChar;			
+				var yIndicationLabelTop=scaleHeight/2+totalYLabelPixcel/2;
+				var yIndicationLabelLeft=(-threeDAnalChart.left/1.3);
+				axisLabelController.appendLabel(yAxisLabel,yIndicationLabelLeft,yIndicationLabelTop,-90,threeDBarMainGroup,textStyleConfg.yLabelColor,600);			   													   
+				
+				
+				
+				var xScale = d3.scale.linear()
+                                     .domain([0,barData.length])
+                                     .range([0,scaleWidth]); 
+				var yMin = d3.min(yAxisValues);
+				var yMax = d3.max(yAxisValues);
+				
+				if(yMax == 0){
+					yMax =yMax +  2;
+				}
+				else{
+					if(yMax>0){
+						yMax =yMax* 1.2;
+					}else{
+						yMax =yMax * 0.8;
+					}
+				}
+					
+				if(yMin == 0){
+					yMin =yMin - 2;
+				}
+				else{
+					if(yMin<0){
+						yMin =yMin* 1.5;
+					}else{
+						yMin =yMin * 0.1;
+					}
+				}
+				
+				var yScale = d3.scale.linear()
+								.domain([yMin,yMax])
+								.range([scaleHeight,0]);
+						
+		//x axis
+				var xAxis = d3.svg.axis()
+							.scale(xScale)
+							.orient("bottom")
+							.tickValues(xAxisTimeIndex);
+				var xAxisTextRef = threeDBarMainGroup.append("g")
+										.attr('id','xAxis')
+										.attr("class", "x axis")
+										.attr('fill',"none")
+										.attr("transform", "translate("+0+"," + scaleHeight + ")")
+										.call(xAxis);
+				         xAxisTextRef.selectAll('text')
+							             .text(function(d){return barData[d].country;});
+										
+						
+						
+				var yAxis = d3.svg.axis()
+								.scale(yScale)
+								.orient("left")
+								.tickValues(tickController.getTickArray(yMin,yMax,9));
+				
+				
+				
+				
+				threeDBarMainGroup.append("g")
+								.attr('id','yAxis')
+								.attr("class", "y axis")
+								.attr('fill',"none")
+								.attr("transform", "translate("+(-estimateDataBarWidth/2)+"," + 0 + ")")
+								.call(yAxis)
+								.selectAll('text');
+								
+               					
+				var leftMarginOfSvg = $(selectorElement).offset().left;
+								
+				var rectGroupRef = threeDBarMainGroup
+											.selectAll('.rect')
+											.data(yAxisValues)
+						    				.enter()
+											.append('rect')
+											.attr('width',estimateDataBarWidth)
+											.attr('height',0)
+											.attr('x',function(d,i){return xScale(i)-(estimateDataBarWidth/2)})
+											.attr('y',scaleHeight  - radiusY)
+									//		.attr('fill',function(d,i){getGradient(barData[i].color,xScale(i)-(estimateDataBarWidth/2),yScale(d) + radiusY,xScale(i)-(estimateDataBarWidth/2),yScale(yMin)-yScale(d) - (2*radiusY)); return "url(#gradient)"})
+											.attr('fill',function(d,i){ return barData[i].color})
+											.attr("opacity",0.6)
+											.on("mousemove",function()
+											{
+												var x = event.pageX;
+												var y = event.pageY;
+												x=x-(leftMarginOfSvg+threeDAnalChart.left);
+												x = Math.round(xScale.invert(x));
+												var heading=barData[x].country;
+												var yAxisVal = yAxisValues[x];
+												var yHeadingValueMap=[{"headingName":yAxisLabel,"headingVal":yAxisVal+" "+unit}
+																	  ];
+												
+												toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.96);	
+												
+											})
+											.on("mouseleave",function(){
+												toolTipManager.hideTooTip();
+											});
+						rectGroupRef
+								.transition()
+								.duration(1500)
+								.ease('bounce')
+								.attr('height',function(d,i){return yScale(yMin)-yScale(d) - (2*radiusY)})
+								.attr('y',function(d,i){return yScale(d) + radiusY});
+								
+				var upperEllipseRef = threeDBarMainGroup
+											.selectAll('.ellipse')
+											.data(yAxisValues)
+						    				.enter()
+											.append("ellipse")      
+											.attr("cx", function(d,i){return xScale(i)})           
+											.attr("cy",scaleHeight - radiusY)         
+											.attr("rx",	estimateDataBarWidth/2 )           
+											.attr("ry", radiusY)
+											.attr('fill',function(d,i){ return barData[i].color});  
+									
+							upperEllipseRef.transition()
+										   .duration(1500)
+										   .ease('bounce')
+										   .attr("cy",function(d,i){return yScale(d) + radiusY})         
+				
+				var lowerEllipseRef = threeDBarMainGroup
+											.selectAll('.ellipse')
+											.data(yAxisValues)
+						    				.enter()
+											.append("ellipse")      
+											.attr("cx", function(d,i){return xScale(i)})           
+											.attr("cy", scaleHeight - radiusY)         
+											.attr("rx",	estimateDataBarWidth/2 )           
+											.attr("ry", radiusY)
+											.attr('fill',function(d,i){ return barData[i].color});				
+				
+					function getGradient(color,x1,y1,x2,y2)
+					{
+					//	alert(color)
+					gradient = threeDBarMainGroup.append("svg:defs")
+							.append("svg:linearGradient")
+							.attr("gradientUnits", "userSpaceOnUse")
+							.attr("id", "gradient")
+							.attr("x1", x1)
+							.attr("y1", y1)
+							.attr("x2", x2)
+							.attr("y2", y2)
+							.attr("spreadMethod", "pad")
+							.attr("gradientTransform","rotate(0)");
+
+							gradient.append("svg:stop")
+							.attr("offset", "0%")
+							.attr("stop-color", color)
+							.attr("stop-opacity", .9);
+
+							gradient.append("svg:stop")
+							.attr("offset", "100%")
+							.attr("stop-color", color)
+							.attr("stop-opacity", 0.5);
+					}
+				
+				
+
+				//hide axis path
+				hideAxisPath(svgElement);
+				//set font here
+					setTextStyleAndSvgBackGround(svgElement);
+			}
+		}
 	
 		
 		var detailAnalysisGraph = 
@@ -16017,7 +16773,10 @@ for(var index = 0;index<funnelData.length;index++)
 			treeChart:drawTreeChart.treeChart,
 			barWithLabelAnalysis:barWithLabelGraph.barWithLabelAnalysis,
 			logoChart:drawLogoChart.logoChart,
-			multiAxisChartAnalysis:multiAxisChartGraph.multiAxisChartAnalysis
+			multiAxisChartAnalysis:multiAxisChartGraph.multiAxisChartAnalysis,
+			roundedThreeDBarAnalysis:roundedThreeDBarGraph.roundedThreeDBarAnalysis,
+			threeDDountChartAnalysis:threeDDountChartGraph.threeDDountChartAnalysis,
+			threeDPieChartAnalysis:threeDPieChartGraph.threeDPieChartAnalysis
 			
 			
 		
