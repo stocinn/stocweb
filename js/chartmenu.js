@@ -42,7 +42,10 @@ var jsFiddleLinkMap={
 "38" : "http://jsfiddle.net/PAXCEL/fzp00bg3/1/",
 "39" : "http://jsfiddle.net/PAXCEL/6njfewoy/1/",
 "40" : "http://jsfiddle.net/PAXCEL/4o9cku73/2/",
-"41" :"http://jsfiddle.net/PAXCEL/d7nvk1ub/1/"
+"41" :"http://jsfiddle.net/PAXCEL/d7nvk1ub/1/",
+"42" :"http://jsfiddle.net/PAXCEL/fkd4af81/",
+"43" :"http://jsfiddle.net/PAXCEL/856jwvvw/",
+"44" :"http://jsfiddle.net/PAXCEL/09cefcuo/"
 
 }
 
