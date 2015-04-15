@@ -152,7 +152,7 @@ header .navbar-nav > li:hover{ background-color: #1d1d22;}
 header .navbar-nav > li:hover a{ color:#FFF;}
 header .navbar-default .navbar-nav > li > a{ color:#FFF;}
 header .navbar-default .navbar-nav > li > a:hover{ color:#FFF;}
-header .navbar-brand{ height:auto; padding:5px 0 0 0; }
+header .navbar-brand{ height:auto; padding:2px 0 0 0; }
 header .navbar-default{ box-shadow:none !important;}
 
 .deshBoardNav .navbar-brand, .navbar-nav > li > a{ font-family: 'Open Sans', sans-serif; text-shadow:none; color:#FFF; font-size:13px; }
@@ -193,7 +193,8 @@ url(../img/slider.jpg) no-repeat;  background-size:100% 100%;
   background-position:center;  height:830px;  width:100%;  position: relative; }
   
 .javaIcon{ position:absolute; z-index:9; top:260px;}
-.watchIcon{ position:absolute; right:350px; z-index:9; top:280px;}
+.javaIcon img{  opacity:0.3;}
+.watchIcon{ position:absolute; right:150px; z-index:9; top:280px;}
 .inchesRuler{ position:absolute; right:0px; top:190px; z-index:9; }
   .btnDownload{ margin:20px auto;  color:#FFF; width:270px; font-family: 'folks-lightregular'; font-size:25px; color:#FFF;  } 
     .btnDownload a{ color:#FFF; text-decoration:none; background-color:#35aa47; padding:10px 15px; text-align:center; border-radius:5px; }
