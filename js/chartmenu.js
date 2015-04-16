@@ -45,7 +45,8 @@ var jsFiddleLinkMap={
 "41" :"http://jsfiddle.net/PAXCEL/d7nvk1ub/1/",
 "42" :"http://jsfiddle.net/PAXCEL/fkd4af81/",
 "43" :"http://jsfiddle.net/PAXCEL/856jwvvw/",
-"44" :"http://jsfiddle.net/PAXCEL/09cefcuo/"
+"44" :"http://jsfiddle.net/PAXCEL/09cefcuo/",
+"45" :"http://jsfiddle.net/PAXCEL/3w4f6zmz/"
 
 }
 
