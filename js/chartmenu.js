@@ -72,8 +72,9 @@ $(document).ready(function(){
 	  
 	  var basicLineData =
 		{
+				title : "Sold Quantity in Last 10 Month ",
 				xAxisTickArray:["Jan'14","Feb'14","Mar'14","Apr'14","May'14","Jun'14","Jul'14","Aug'14","Sept'14","Oct'14"],
-				yAxisfactor : "Sold Quantity(last 10 days)",
+				yAxisfactor : "Sold Quantity",
 				yLabelColor:"red",
 				xAxisfactor : "Indexes(in whole number)",
 				xLabelColor:"green"	,
@@ -110,7 +111,7 @@ $(document).ready(function(){
 		$("#basicLineChart").show();
 		
 		setTimeout(function(){
-			var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+			var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 			var stocChart1=$("#line1").stocCharts(textStyleConfg);
 			stocChart1.drawBasicLineChart('#line1', basicLineData);	
 		},50);
@@ -128,11 +129,10 @@ $(document).ready(function(){
 	$("#line1").empty();
 	
 	var scatterPlotData = {
-     
+     chartTitle:"Population Density Analysis",
      xAxisTickArray:["Jan'14","Feb'14","Mar'14","Apr'14","May'14","Jun'14","Jul'14","Aug'14","Sept'14","Oct'14","Nov'14","Dec'14","Jan'15","Feb'15","Mar'15","Apr'15","May'15","Jun'15"],
      xIndicationLabel:"Month",
      yIndicationLabel:"Population",
-     chartTitle:"Population Density Analysis",
      padding:30,
      yAixsData:[
      {
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	var xAxisTickArray=["Jan'14","Feb'14","Mar'14","Apr'14","May'14","Jun'14","Jul'14","Aug'14","Sept'14","Oct'14","Nov'14","Dec'14","Jan'15","Feb'15","Mar'15","Apr'15","May'15","Jun'15"];
 	
 	$("#scatterPlotChart").show();
-	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 	var stocChart2=$("#line1").stocCharts(textStyleConfg);
 	stocChart2.drawScatterPlotChart('#line1', scatterPlotData);	
 	
@@ -181,8 +181,7 @@ $(document).ready(function(){
 	  $(".drillDownChartMenu").show();
 		
 		var barData = {
-					
-					
+				
 					'IE':{data:5,color:"#A8F667","subData":{'v5.0':31,'v6.0':10,'v7.0':20,'v8.0':53,'v9.0':25,'v10.0':35,'v11.0':23},subDataColorArray:['#e67a77','#95d7bb','#fcb322','#6d788e','#aec785','#a48ad4','#fb77d1']},
 					'Firefox':{data:10,color:"#95d7bb","subData":{'v25.0':22,'v26.0':19,'v27.0':25,'v28.0':10,'v29.0':34},subDataColorArray:['#e67a77','#95d7bb','#fcb322','#6d788e','#aec785']},
 					'Safari':{data:30,color:"#fcb322","subData":{},subDataColorArray:[]},
@@ -203,11 +202,12 @@ $(document).ready(function(){
 				color: d3.scale.category20c(),
 				toolTipLabel:'Drilled Chart',
 				xLabel:"Browser",
-				yLabel:"Usage"
+				yLabel:"Usage",
+				title : 'Usage Of Browser in Last Year'
 		}
 		
 		$("#drillDownChart").show();
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart3=$("#line1").stocCharts(textStyleConfg);
 		stocChart3.drawDrillDownChart("#line1", barData,cfgDrillDown);
 	
@@ -368,7 +368,7 @@ $(document).ready(function(){
 		var mulitpleLineBarData={'sea-level':{"color":'#3be5b1','indicationLabel':'Sea Level Pressure','chartType':'line','lineType':'cardinal','isDottedLine':false,'unit':'mb','data':gernerateMultiLineData(40,80)},'temperature':{'color':'#90ed7d','chartType':'line','indicationLabel':'Temperature','lineType':'linear','unit':'C','data':gernerateMultiLineData(60,80),'isDottedLine':true},'rainfall':{'color':'#7cb5ec','chartType':'bar','indicationLabel':'Rain Fall','unit':'mm','data':gernerateMultiLineData(20,100)}};
 		var xAxis={'ticks':generateDate()};
 		
-		var textStyleConfg1={"font-family":"Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif","font-size":"12","background":"none","font-weight":300,"legendTextColor":"#a7a7a7"};
+		var textStyleConfg1={"font-family":"Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif","font-size":"12","background":"none","font-weight":300,"legendTextColor":"#a7a7a7","titleFontSize":16};
 		var stocChartLineBars=$("#line1").stocCharts(textStyleConfg1);
 		stocChartLineBars.drawBarWithMultipleLineAndCircle({'data':mulitpleLineBarData,'marginLeft':50,'marginRight':50,'xAxis':xAxis,'indicationLabel':'Category'});
 		
@@ -387,7 +387,7 @@ $(document).ready(function(){
 		var groupedChartData=generateDataForStackChart();
 		groupedChartData=groupedChartData.slice(0,groupedChartData.length-3);
 		
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var colorJson={"pending":"#00FFFF","approved":"#00FF7E","rejected":"#FFA500","halted":"#4FB6F2"};
 		var stocChart8=$("#line1").stocCharts(textStyleConfg);
 		
@@ -397,7 +397,7 @@ $(document).ready(function(){
 		
 		var colorArray=["#7cb5ec","#434348","#90ed7d","red"];
 		stocChart8.groupedBarChart({'data':groupedChartData,'xFieldName':'doj','widthOfBar':'',
-		'showAllTicks':true,'colors':colorJson,yAxisfactor : "Orders Quantity",
+		'showAllTicks':true,'colors':colorJson,yAxisfactor : "Orders Quantity",title:"Orders Analysis Of Last 11 Month's",
 			yLabelColor:"grey",
 			xAxisfactor : "Month",
 			xLabelColor:"green"});
@@ -426,10 +426,11 @@ $(document).ready(function(){
 			color: "#92e2dd",
 			xAxisTickArray:[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
 			xLabel:"Year",
-			yLabel:"Sales(in Crores)"
+			yLabel:"Sales(in Crores)",
+			title : "Last 10 Year Sales"
 		}
 		
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart10=$("#line1").stocCharts(textStyleConfg);
 	    stocChart10.drawThreeDBarChart("#line1", barData, cfg3DBarChart);
 		
@@ -458,9 +459,10 @@ $(document).ready(function(){
 			xAxisTickArray:[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019, 2020],
 			barColorArray : ['#16ffb5','#869cb3'],
 			xLabel:"Year",
-			yLabel:"Sales(in Crores)"
+			yLabel:"Sales(in Crores)",
+			title : "Comparision Of Sale OF Two Item's in Last 10 years"
 		}
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart38=$("#line1").stocCharts(textStyleConfg);
 	    stocChart38.drawThreeDGroupedBarChart("#line1", barDataOne, barDataTwo, cfg3DBarChart);
 		
@@ -510,6 +512,7 @@ $(document).ready(function(){
 			leftMargin: 40,
 			toolTipLabelForYAxis: "Sales(in Crores)",
 			colorArray: ["#39ec6e","#ff9811","#63deff","#59bde5","#16c54a","#e7969c", "#e7cb94", "#7f7f7f", "#bcbd22"],
+			title:"Sale Comparision Of Companies In Respective Year",
 			xLabel:"Year",
 			yLabel : "Sales(in Crores)",
 			axisTextColor:'purple',
@@ -517,7 +520,7 @@ $(document).ready(function(){
 		}
 		var gridLineColor = "#4d4d4d";
 		var textColor = "Grey";
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart27=$("#line1").stocCharts(textStyleConfg);
 		var xAxisArray = ['1994', '1995', '1996', '1997', '1998', '1999','2000','2001','2002','2003', '2004', '2005', '2006'];
 	    stocChart27.drawThreeDStackedBarChart("#line1", heightOfBarOne, heightOfBarTwo, threeDStackedBarsData, cfg3DBarChart, colorArray, gridLineColor, textColor, xAxisArray);
@@ -640,7 +643,7 @@ $(document).ready(function(){
 		$("#areaChart1").show();
 		
 		var data=generateData(100,500);
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stockChart=$("#line1").stocCharts(textStyleConfg);
 		stockChart.areaChart({'data':data,'xFieldName':'doj',"yFieldName":'id','title':'Profit Analysis Chart','xAxisIndicationLabel':'Time Index','yAxisIndicationLabel':'Money','axisColor':'#222222','attachBrushEvent':true,'redraw':false});
 		stockChart.circleChart({'color':"#fff953",'r':3,'data':data});
@@ -768,7 +771,7 @@ $(document).ready(function(){
 		var groupedChartData=generateDataForStackChart(-20);
 		groupedChartData=groupedChartData.slice(0,groupedChartData.length-3)
 		
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var colorJson={"pending":"#00FFFF","approved":"#00FF7E","rejected":"#FFA500","halted":"#4FB6F2"};
 		
 		var stocChart19=$("#line1").stocCharts(textStyleConfg);
@@ -776,7 +779,7 @@ $(document).ready(function(){
 		//var colorArray=["#7cb5ec","#434348","#90ed7d","#f9b169"];
 		var midVal=0;
 		stocChart19.groupedBar2DChart({'data':groupedChartData,'xFieldName':'doj','widthOfBar':'',
-		'showAllTicks':true,'colors':colorJson,yAxisfactor : "Sales Percentage",
+		'showAllTicks':true,'colors':colorJson,yAxisfactor : "Sales Percentage","title":"Sale Analysis Of Last 11 Month's",
 			yLabelColor:"grey",
 			xAxisfactor : "Indexes(in whole number)",
 			xLabelColor:"green"
@@ -887,14 +890,15 @@ $(document).ready(function(){
 	  $(".BulletBarChartMenu").show();
 		$("#BulletBarChart").show();
 		
-		var data1=[{"population":100,'year':2014},{"population":50,'year':2015},{"population":150,'year':2016},{"population":100,'year':2017},{"population":200,'year':2018},{"population":150,'year':2019},{"population":250,'year':2020},{"population":300,'year':2021}];
-		var data2=[{"population":200,'year':2014},{"population":50,'year':2015},{"population":150,'year':2016},{"population":100,'year':2017},{"population":200,'year':2018},{"population":150,'year':2019},{"population":400,'year':2020},{"population":700,'year':2021}];
+		var data1=[{"population":100,'year':2007},{"population":50,'year':2008},{"population":150,'year':2009},{"population":100,'year':2010},{"population":200,'year':2011},{"population":150,'year':2012},{"population":250,'year':2013},{"population":300,'year':2014}];
+		var data2=[{"population":200,'year':2007},{"population":50,'year':2008},{"population":150,'year':2009},{"population":100,'year':2010},{"population":200,'year':2011},{"population":150,'year':2012},{"population":400,'year':2013},{"population":700,'year':2014}];
 		
 		var colorArray=["#90ed7d","#5fe9e4"];
 		var xFieldName="population";
 		var yFieldName="year";
 		var axisColor="#a7a7a7";
-		var cnfg={"data1":data1,"data2":data2,"colorArray":colorArray,"xFieldName":xFieldName,"yFieldName":yFieldName,"axisColor":axisColor,"xLabel":"Population","yLabel":"Year"};
+		var cnfg={"data1":data1,"data2":data2,"colorArray":colorArray,"xFieldName":xFieldName,"yFieldName":yFieldName,"axisColor":axisColor,"xLabel":"Population","yLabel":"Year","title":"Sales Comparisons Chart Of Last 8 Years"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart24=$("#line1").stocCharts(textStyleConfg);
 		stocChart24.bulletBar(cnfg);
 	});	
@@ -978,7 +982,7 @@ $("#line1").empty();
 								,	
 					clickedSybmol :'./img/N.png'
 	           };
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart26=$("#line1").stocCharts(textStyleConfg);
 		stocChart26.drawCombinationalChart(data);
 		
@@ -1015,7 +1019,7 @@ $("#line1").empty();
 										    [-13.5, 9.8]
 									      ],
 							}
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var cnfg={"data":variationData};
 		var stocChart28=$("#line1").stocCharts(textStyleConfg);
 		stocChart28.variationAnalysis(cnfg);
@@ -1086,7 +1090,7 @@ $("#line1").empty();
 					}
 		
 		var cnfg={"data":globData};
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"gray","titleFontSize":16};
 		var stocChart29=$("#line1").stocCharts(textStyleConfg);
 		stocChart29.globChartAnalysis(cnfg);
 	});	
@@ -1103,12 +1107,12 @@ $("#line1").empty();
 		//var data=[{"over":10,'run':10},{"over":12,'run':5},{"over":15,'run':8},{"over":18,'run':2},{"over":20,'run':0},{"over":22,'run':20}];
 		
 		var AdvancedBarData={
-			
+			 "title":"Company Profit Analysis Graph",
 			 "yData":[3,5,6,2,10,20,10],
 			 'xData':["Volkswagen","Hyundai","Toyota","Ford","porsche","Ebay","Paxcom"],
 			 "imagePathArray":["./img/logos/1.jpg","./img/logos/2.jpg","./img/logos/3.jpg","./img/logos/4.jpg","./img/logos/5.jpg","./img/logos/6.jpg","./img/logos/7.jpg"],
 			 "color":["#e67a77"],
-			 "yIndicationLabel":"Profit",
+			 "yIndicationLabel":"Profit(in Billion $)",
 			 "xIndicationLabel":"Company"
 			 
 			 /*
@@ -1124,7 +1128,7 @@ $("#line1").empty();
 		var yFieldName="run";
 		var axisColor="black";
 
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var cnfg={"data":AdvancedBarData};
 		var stocChart30=$("#line1").stocCharts(textStyleConfg);
 		stocChart30.barWithLogo(cnfg);
@@ -1162,7 +1166,7 @@ $("#line1").empty();
 					}
 		
 		var cnfg={"data":data};
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart31=$("#line1").stocCharts(textStyleConfg);
 		stocChart31.detailAnalysis(cnfg);
 	});	
@@ -1217,7 +1221,7 @@ $("#line1").empty();
 					}
 	
 	var cnfg={"data":bubbleData};
-	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 	var stocChart32=$("#line1").stocCharts(textStyleConfg);
 	stocChart32.threeDBubbleChart(cnfg);
 });	
@@ -1361,7 +1365,7 @@ $("#line1").empty();
 					}
 		
 		var cnfg={"data":data};
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart34=$("#line1").stocCharts(textStyleConfg);
 		stocChart34.areaChartWithVaryColorAnalysis(cnfg);
 	});	
@@ -1390,7 +1394,7 @@ $("#line1").empty();
 					}
 		
 		var cnfg={"data":data};
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart35=$("#line1").stocCharts(textStyleConfg);
 		stocChart35.areaChartWithNegativeValueAnalysis(cnfg);
 	});
@@ -1415,7 +1419,7 @@ $("#line1").empty();
 				   }
 
 		var cnfg={"data":data};
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart36=$("#line1").stocCharts(textStyleConfg);
 		stocChart36.musicSpikesAnalysis(cnfg);
 	});
@@ -1443,7 +1447,7 @@ $("#line1").empty();
 					}
 
 		var cnfg={"data":data};
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart37=$("#line1").stocCharts(textStyleConfg);
 		stocChart37.comparisonAnalysis(cnfg);
 	});
@@ -1524,13 +1528,14 @@ $("#line1").empty();
 				
 				
 			],
+			title : "Represent Data Of Different Classes",
 			unit:"Student's",
 			legend : ["Excellent","Above Avg.","Average","Below Avg.","Poor"],
 			legendColor: ['#e67a77','#95d7bb','#fcb322','#6d788e','#aec785']
 			}
 		
 
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart39=$("#line1").stocCharts(textStyleConfg);
 		stocChart39.multipleDountChartAnalysis(data);
 	});
@@ -1557,7 +1562,7 @@ $("#line1").empty();
 						unit : "%"
 						
 					}
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart40=$("#line1").stocCharts(textStyleConfg);
 		stocChart40.barWithLabelAnalysis(data);
 	});
@@ -1573,7 +1578,7 @@ $("#line1").empty();
 
 		var data =  
 			{
-			
+				title:"Repesent Individual Performance Of Student",
 				nameArray: ['John','Mark','Steev','Hussy','John','John','John','John',],
 				classArray : ['10th','10th','10th','10th','10th','10th','10th','10th'],
 				imageArray:["./img/S3.png","./img/S3.png","./img/S3.png","./img/S3.png","./img/S3.png","./img/S3.png","./img/S3.png","./img/S3.png"],
@@ -1603,7 +1608,7 @@ $("#line1").empty();
 				*/
 			}
 		
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart41=$("#line1").stocCharts(textStyleConfg);
 		stocChart41.logoChart(data);
 	});
@@ -1640,12 +1645,13 @@ $("#line1").empty();
 							yAxisColor : "#ffa500"
 				},
 			],
+			title:"V/S Chart",
 			xAxisData : ["Jan","Feb","Mar","Apr","May","June","July"],
 			unit:"Student's",
 			legend : ["Student Login","Class Avg.Login","Student Interaction","Class.Avg Interaction","Student Time Spent","Class Time Spent"],
 			legendColor: ['#00ffff','#00ffff','#4fb6f2','#4fb6f2','#ffa500','#ffa500']
 			}
-		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart42=$("#line1").stocCharts(textStyleConfg);
 		stocChart42.multiAxisChartAnalysis(data);
 	});
@@ -1660,7 +1666,7 @@ $("#line1").empty();
 
 		var data =
 			{
-					title : "Country Growth Rate",
+					title : "Foreign Visitors Rate",
 					barData: [{
 						"country": "USA",
 						"visits": 4250,
@@ -1732,11 +1738,11 @@ $("#line1").empty();
 						}*/],  
 				
 				xAxisLabel : "Country",
-				yAxisLabel :"Visits",
+				yAxisLabel :"Visit(in Millons)",
 				unit : ""		
 			}
 		
-	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white"};
+	var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
 		var stocChart43=$("#line1").stocCharts(textStyleConfg);
 		stocChart43.roundedThreeDBarAnalysis(data);
 	});
@@ -1779,6 +1785,87 @@ $("#line1").empty();
 		stocChart44.threeDPieChartAnalysis(data);
 	});
 	
+	
+	$("#arcWithCylinderMenu").click(function(){
+		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
+		$("#line1").empty();	
+			$(".chartDetails").hide();
+	    $(".arcWithCylinderMenu").show();
+		var data = 
+		{
+			title : "JAMES ANDERSON",
+			subData:
+			 [
+				{
+							key : "MATCH",
+							barData: [80,30,18,15,10,5],
+							label : ['AUS','PAK','SA','WI','INDIA','ENG']						
+				},
+				{
+							key : "RUN",
+							barData: [575,75,66,56,52,47],
+							label : ['INDIA','ENG','AUS','WI','SA','PAK']
+							
+							
+				},
+				{
+							key : "SR",
+							barData: [77,47,41,34,32,20],
+							label : ['SA','PAK','INDIA','ENG','AUS','WI']
+							
+				},
+				{
+							key : "AVG",
+							barData: [15.6,14,12,11,10,9],
+							label : ['INDIA','WI','ENG','PAK','AUS','SA']
+							
+				},
+				{
+							key : "100s",
+							barData: [90,70,60,50,20,10],
+							label : ['WI','ENG','INDIA','PAK','AUS','SA']
+							
+				}
+			],
+			color :{ "INDIA" : "#e67a77",
+				     "PAK": "#95d7bb",
+					"SA": "#fcb322",
+					"WI": "#6d788e",
+					"AUS": "#aec785",
+					"ENG": "#a48ad4"
+				 }
+					
+		}
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
+		var stocChart45=$("#line1").stocCharts(textStyleConfg);
+		stocChart45.arcWithCylinderChartAnalysis(data);
+	});
+	
+	$("#threeDComparisionChartMenu").click(function(){
+		selectedChartIndex=$(this).attr("index");
+		updateJsfiddleLink(selectedChartIndex);
+		$("#line1").empty();	
+			$(".chartDetails").hide();
+	    $(".threeDComparisionChartMenu").show();
+		
+		var data =  {
+						title : "Last 16 Year Data , Estimated v/s Actual Profit",
+						yAxisLabel : "Profit",
+						yAxisUnit : "Million",
+						yAxisEstimateData : [325,250,340,230,250,290,100,220,350,300],
+						yAxisEstimateDataUnit : 'Estimated',
+						yAxisActualData : [275,300,320,250,230,270,140,190,300,370],
+						yAxisActualDataUnit : 'Actual',
+						xAxisLabel : "Years",
+						xAxisData : [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014],
+						legendArray : ['Estimate Data','Actual Data']
+		    }
+		
+		var textStyleConfg={"font-family":" 'Maven Pro',sans-serif","font-size":"12","background":"none","font-color":"#a7a7a7","tick-font-color":"#a7a7a7","legendTextColor":"white","font-weight":400,"xLabelColor":"white","yLabelColor":"white","chartTitleColor":"white","titleFontSize":16};
+		var stocChart46=$("#line1").stocCharts(textStyleConfg);
+		stocChart46.ThreeDComparisionAnalysis(data);
+	});
 	
 	$('.chartMenuList ul li a').click(function() {
 		$('.chartMenuList ul li.active').removeClass('active');

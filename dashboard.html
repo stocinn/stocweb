@@ -83,7 +83,8 @@ Donut Chart with Bars</a>  </li>
   <li> <a  href="#" index="15" id="BulletBarChartMenu"><i class="arrow"></i>
  Bullet Bar Chart</a>  </li> 
  
-
+ <li> <a  href="#" index="16" id="CricketAnalChartMenu"><i class="arrow"></i>
+ Rounded Bar with special labels</a>  </li> 
  
 
 </ul></div>
@@ -93,8 +94,7 @@ Donut Chart with Bars</a>  </li>
  
 
  
- <li> <a  href="#" index="16" id="CricketAnalChartMenu"><i class="arrow"></i>
- Rounded Bar with special labels</a>  </li> 
+
 
  
  <li> <a  href="#" index="17" id="stackedAreaChartMenu"><i class="arrow"></i>
@@ -136,7 +136,11 @@ Network Chart</a>  </li>
  
  <li> <a  href="#" index="30" id="barWithLogoMenu"><i class="arrow"></i>
 Bar With Logo</a>  </li> 
+ <li> <a  href="#" index="31" id="detailChartMenu"><i class="arrow"></i>
+Detail Chart</a>  </li>
 
+<li> <a  href="#" index="32" id="3DbubbleChartMenu"><i class="arrow"></i>
+3D Bubbles Chart </a>  </li> 
 
     </ul>
 </div>
@@ -144,11 +148,9 @@ Bar With Logo</a>  </li>
 
 
 
- <li> <a  href="#" index="31" id="detailChartMenu"><i class="arrow"></i>
-Detail Chart</a>  </li>
 
-<li> <a  href="#" index="32" id="3DbubbleChartMenu"><i class="arrow"></i>
-3D Bubbles Chart </a>  </li> 
+
+
 
 <li> <a  href="#" index="33" id="treeChartMenu"><i class="arrow"></i>
 Tree Chart </a>  </li> 
@@ -192,6 +194,14 @@ Rounded 3 D Bar
 3 D Pie Chart
 </li>
 
+
+<li> <a  href="#" index="45" id="arcWithCylinderMenu"><i class="arrow"></i>
+Arc With Cylinder
+</li>
+
+<li> <a  href="#" index="46" id="threeDComparisionChartMenu"><i class="arrow"></i>
+Three D Comarison Chart
+</li>
 
  </ul></div></div></div>
 </div>
@@ -4641,6 +4651,184 @@ unit:- label unit<br>
 </div>
 
 
+
+<div class="chartDetails arcWithCylinderMenu">
+<h2>Arc With Cylinder Chart :</h2>
+<p><strong>Introduction:</strong><br>
+
+It is player stats chart,showing his performance in different countries. 
+
+</p>
+ <h3><strong>Steps of making Arc With Cylinder Chart:
+
+
+
+</strong><br><br>
+ 1) Data format to be used: Json Array
+
+
+
+
+</h3>
+ <div class="chartCode">
+  <p class="padding-xs">
+cylinderdata:- cylinderd data array<br>
+
+label data:- label data array<br>
+
+colorArray:-  color array<br>
+
+key:- key <br>
+   
+
+
+</p> 
+
+<p class="padding-sm">eg) </p> 
+
+<p class="padding-md">var data =  
+   {
+    </p>
+             <p class="padding-lg">
+   
+				{
+
+							key : "MATCH",<br>
+
+							barData: [80,30,18,15,10,5],<br>
+
+							label : ['AUS','PAK','SA','WI','INDIA','ENG']	
+					
+				},<br>
+<br>
+
+				{
+
+							key : "RUN",<br>
+
+							barData: [575,75,66,56,52,47],<br>
+
+							label : ['INDIA','ENG','AUS','WI','SA','PAK']
+							
+							
+				},<br>
+<br>
+
+				{
+							key : "SR",<br>
+
+							barData: [77,47,41,34,32,20],<br>
+
+							label : ['SA','PAK','INDIA','ENG','AUS','WI']
+							
+				},<br>
+<br>
+
+				{
+							key : "AVG",<br>
+
+							barData: [15.6,14,12,11,10,9],<br>
+
+							label : ['INDIA','WI','ENG','PAK','AUS','SA']
+							
+				},<br>
+<br>
+
+				{
+							key : "100s",<br>
+
+							barData: [90,70,60,50,20,10],<br>
+
+							label : ['WI','ENG','INDIA','PAK','AUS','SA']
+							
+				}<br>
+
+			],
+    </p>
+<p class="padding-lg">   
+       color :{ "INDIA" : "#e67a77",<br>
+
+				     "PAK": "#95d7bb",<br>
+
+					"SA": "#fcb322",<br>
+
+					"WI": "#6d788e",<br>
+
+					"AUS": "#aec785",<br>
+
+					"ENG": "#a48ad4"				 }
+					
+		}</p>
+            
+ </div>
+
+
+
+ 
+</div>
+
+<div class="chartDetails threeDComparisionChartMenu">
+<h2>Three D Comparison Chart :</h2>
+<p><strong>Introduction:</strong><br>
+
+A 3D comparison chart is a simple bullet chart . It is used for comparison between the estimated value and actual result(for e.g it can be used for checking last decade trend of actual profit and estimated profit yearly).
+
+
+</p>
+ <h3><strong>Steps of making Three D Comparison Chart:
+
+
+
+</strong><br><br>
+ 1) Data format to be used: Json Array
+
+
+
+
+</h3>
+ <div class="chartCode">
+  <p class="padding-xs">
+a) var yAxisEstimateData :- It represents the values in gray color, which are representing estimated value.<br>
+
+b) var yAxisActualData :- It represents the bars in centre of every block , which are representing actual values.<br>
+
+c) var xAxisData :- It represents the value(here it is year).
+</p> 
+
+<p class="padding-sm">eg) </p> 
+
+<p class="padding-md">var data =  {
+    </p>
+             <p class="padding-lg">
+  title : "Last 16 Year Data , Estimated v/s Actual Profit",<br>
+
+						yAxisLabel : "Profit",<br>
+
+						yAxisUnit : "Million",<br>
+
+						yAxisEstimateData : [325,250,340,230,250,290,100,220,350,300],<br>
+
+						yAxisEstimateDataUnit : 'Estimated',<br>
+
+						yAxisActualData : [275,300,320,250,230,270,140,190,300,370],<br>
+
+						yAxisActualDataUnit : 'Actual',<br>
+
+						xAxisLabel : "Years",<br>
+
+						xAxisData : [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014],<br>
+
+						legendArray : ['Estimate Data','Actual Data']
+    </p>
+<p class="padding-lg">   
+       }</p>
+            
+ </div>
+
+
+
+ 
+</div>
 
 </div>
   </div></div></div>

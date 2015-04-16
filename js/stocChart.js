@@ -875,6 +875,9 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
                         'marginTop': 60
                 }, options);
 
+			
+				
+		
 				var xAxisTick = options.xAxis.ticks;
                 toolTipManager.appendToolTipForBarWithMultipleLine();
                 var isRedrawChart = false;
@@ -2465,6 +2468,18 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				
 				axisLabelController.appendLabel(options.xAxisfactor,xLabelLeft,xLabelTop,0,xAxisElem,textStyleConfg.xLabelColor,600);
 				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (width/2) - ((options.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(options.title,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+
+				
+				
+				
+				
 				var groups = svgElement.selectAll("g.bar-grouping")
                     .data(dataset)
                     .enter()
@@ -2956,6 +2971,14 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				var xLabelTop=height*0.15;
 				
 				axisLabelController.appendLabel(options.xAxisfactor,xLabelLeft,xLabelTop,0,xAxisElem,textStyleConfg.xLabelColor,600);
+				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (width/2) - ((options.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(options.title,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);
 				
                 var groups = svgElement.selectAll("g.bar-grouping")
                     .data(dataset)
@@ -3909,7 +3932,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 					//yLabelLeftPer=0.8;
 				}
 				
-				var marginBulletChart={left:left,right:right,bottom:height*0.2,top:height*0.05,chartSeparator:2,xScalePaddingTop:height*0.1,yScalePaddingLeft:left};
+				var marginBulletChart={left:left,right:right,bottom:height*0.1,top:height*0.1,chartSeparator:2,xScalePaddingTop:height*0.1,yScalePaddingLeft:left};
 				
 				var scaleWidth=width-marginBulletChart.left-marginBulletChart.right;
 				var scaleHeight=height-marginBulletChart.top-marginBulletChart.bottom;
@@ -4273,6 +4296,15 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				var xLabelLeft=scaleWidth/2-xLabelLength/2;
 				var xLabelTop=scaleHeight*0.15;
 				axisLabelController.appendLabel(cnfg.xLabel,xLabelLeft,xLabelTop,0,xAxisRef,textStyleConfg.xLabelColor,600);
+				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((cnfg.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(cnfg.title,leftIndicator,marginBulletChart.top*1.5,0,titleGroup,textStyleConfg.chartTitleColor,800);
+				
 				//hide all axis path
 				hideAxisPath(svgElement);
 					
@@ -4344,7 +4376,7 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				var scaleWidth=width-marginCrickedAnalChart.left-marginCrickedAnalChart.right;
 				var scaleHeight=height-marginCrickedAnalChart.top-marginCrickedAnalChart.bottom;
 				
-				var tital = cnfg.data.tital; 
+				var title = cnfg.data.title; 
 				var titalColor = cnfg.data.titalColor;
 				var yData=cnfg.data.yData;
 				var xData=cnfg.data.xData;
@@ -4353,7 +4385,9 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				var color=cnfg.data.color;
 				var xIndicationLabel=cnfg.data.xIndicationLabel;
 				var yIndicationLabel=cnfg.data.yIndicationLabel;
-				//var xDatacolor = cnfg.data.xDatacolor;
+ 	
+				
+     			//var xDatacolor = cnfg.data.xDatacolor;
 				//var specialXData = cnfg.data.specialXData;
 				//var specialDataLabel = cnfg.data.specialDataLabel;
 				//var specialData = cnfg.data.specialData;
@@ -4403,9 +4437,25 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 				
 				yScale.domain([0,maxYScale]);
 				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);
+				
+				
 				svgElement = svgElement.append("g")
                     .attr("transform", "translate(" + marginCrickedAnalChart.left + "," + marginCrickedAnalChart.top + ")");
 
+				
+				//yAxis label here		
+				var pixcelPerChar = 7;
+				var totalYLabelPixcel=yIndicationLabel.toString().length*pixcelPerChar;			
+				var yIndicationLabelTop=scaleHeight/2+totalYLabelPixcel/2;
+				var yIndicationLabelLeft=(-marginCrickedAnalChart.left/2);
+				axisLabelController.appendLabel(yIndicationLabel,yIndicationLabelLeft,yIndicationLabelTop,-90,svgElement,textStyleConfg.yLabelColor,600);			   													   					
+					
 				xAxis = d3.svg.axis().scale(xScale)
                     .orient("bottom").ticks(10);
 
@@ -6699,9 +6749,14 @@ var t=x.length;if(t){x.sort(c);for(var e,r=1,u=x[0],i=[u];t>r;++r)e=x[r],l(e[0],
 		showLegend();				   
 		showClickedSymbol();
 		
-		//title lable here
-		axisLabelController.appendLabel(data.title,margin.left,-margin.top/3,0,combinationalGroup,textStyleConfg.chartTitleColor,700);
-		
+	
+		//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((data.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(data.title,leftIndicator,margin.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);			   		
 		//xAxis label here
 		var pixcelPerChar = 6;
 		var totalXLabelPixcel=data.xAxisLabel.toString().length*pixcelPerChar;
@@ -7132,6 +7187,14 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 					redraw:'false'
 					
                 };
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (width/2) - ((options.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(options.title,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+
 				
 				
                 if ('undefined' !== typeof options) {
@@ -7285,7 +7348,7 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 						d3.select(".resetDrillBtnGroup").style("display","block");
 
                     })
-                    .on("mouseover", function (d) {
+                    .on("mousemove", function (d) {
 							
 							/*
 							d3.select("#drillDownTooltip")
@@ -7303,7 +7366,7 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 							
 							//toolTipManager.showToolTip(d3.event, d.y,"", false, cfg.toolTipLabel );
                     })
-                     .on('mouseout', function (d) {
+                     .on('mouseleave', function (d) {
 						toolTipManager.hideTooTip();
                         //d3.select("#drillDownTooltip").style("opacity", 0);
                     })
@@ -7460,6 +7523,7 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 										.select("#value")
 										.text(d.y);
 									*/
+				
 									var yHeadingValueMap=[{"headingName":(cfg.yLabel) ,"headingVal":d.y}];
 						
 									toolTipManager.showToolTip(d3.event,"",(cfg.xLabel +" "+d.name), false,yHeadingValueMap);
@@ -7500,7 +7564,10 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 						var xIndicationLabelLeft=width/2-totalYLabelPixcel/2;
 						axisLabelController.appendLabel(cfg.xLabel,xIndicationLabelLeft,xIndicationLabelTop,0,xAxisRef,textStyleConfg.yLabelColor,600);
 						
-							d3.select(".resetDrillDownBtn").on("click", function (d) {
+						
+						
+						
+						d3.select(".resetDrillDownBtn").on("click", function (d) {
 
 
                                 //$(selectorElement).find("svg g").remove();
@@ -7599,12 +7666,18 @@ toolTipManager.showToolTip(event,"",(data.xAxisData[keyName]), false,yHeadingVal
 					.attr('class','main-group')
                     .attr("transform", "translate(" + variationAnalChart.left + "," + variationAnalChart.top + ")");
 								
-			
-				//title label here
-				axisLabelController.appendLabel(title,(variationAnalChart.left),((-variationAnalChart.top/1.4)),0,variationMainGroup,textStyleConfg.chartTitleColor,700);
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2);
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(title,leftIndicator,variationAnalChart.top/3,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
 
-				//subTitle label here				
-				 axisLabelController.appendLabel(subTitle,(variationAnalChart.left+10),((-variationAnalChart.top/2.6)),0,variationMainGroup,textStyleConfg.chartTitleColor,600);
+				//subTitle label here	
+
+				 leftIndicator = (scaleWidth/2) - ((subTitle.length*pixcelPerChar)/2)
+				 axisLabelController.appendLabel(subTitle,leftIndicator,((-variationAnalChart.top/2.6)),0,variationMainGroup,textStyleConfg.chartTitleColor,600);
 				 
 				 var gridManager = {
             init: function (svg, height, width, left, top) {
@@ -7857,7 +7930,7 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 					//toolTipManager.showToolTip(d3.event,d.value,legendsArray[i], false,factor );	
                     //toolTipManager.showToolTipForBarWithMultipleLine(d3.event, json, legendsArray[i], false, null, false);
                 })
-                    .on("mouseout", function (d, i) {
+                    .on("mouseleave", function (d, i) {
 					
                     d3.select('#' + legendsArray[i].replace(/ /g, "") + 'text')
                         .transition()
@@ -8174,26 +8247,25 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 								.on("mouseover", function(){
 									d3.select(this).transition().duration(500).ease('bounce')
 									.attr('transform', function (d) 
-									 {
-										var dist = 15;
-										d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
-										var x = Math.sin(d.midAngle) * dist;
-										var y = -Math.cos(d.midAngle) * dist;
-										return 'translate(' + x + ',' + y + ')';
-									 }) ;
-									//return tooltip.style("visibility", "visible");
-									getToolTip(d3.select(this).attr('value'),d3.event);	
+												 {
+													var dist = 10;
+													d.midAngle = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+													var x = Math.sin(d.midAngle) * dist;
+													var y = -Math.cos(d.midAngle) * dist;
+													return 'translate(' + x + ',' + y + ')';
+												 }) ;							 
+												 //return tooltip.style("visibility", "visible");
+										//getToolTip(d3.select(this).attr('value'),d3.event);			 
 								})
-								/*
 								.on("mousemove", function(){ 
-									getToolTip(d3.select(this).attr('value'));	
-									
+										
+										getToolTip(d3.select(this).attr('value'),d3.event);	
 								})
-								*/
-								.on("mouseout", function(){	d3.select(this).transition().duration(500).ease('bounce')
-													  .attr('transform', 'translate(0,0)')
+								.on("mouseleave", function(){	
+											d3.select(this).transition().duration(500).ease('bounce')
+											.attr('transform', 'translate(0,0)')
+											toolTipManager.hideTooTip();
 											//return tooltip.style("visibility", "hidden");
-										toolTipManager.hideTooTip();	
 								});
 								
 				arcs.append("path")
@@ -8544,7 +8616,7 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 									return 'translate(' + x + ',' + y + ')';
 								 }) ;							 
 								 //return tooltip.style("visibility", "visible");
-						getToolTip(d3.select(this).attr('value'),d3.event);			 
+						//getToolTip(d3.select(this).attr('value'),d3.event);			 
 					})
 								 
 					.on("mousemove", function(){ 
@@ -8658,7 +8730,15 @@ var rectangleGradient = rectangleGroup.append("svg:defs")
 				radius = radius*.4;
 				innerRadius = radius * .75;
 							
-							
+				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((data.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(data.title,leftIndicator,dountAnalChart.top,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
+				
 				var pie = d3.layout.pie()
 						    .sort(null)
 							.value(function(d) { return d;});	
@@ -9705,7 +9785,7 @@ function sweep(d) {
 				
 				
 				//y indicaton label
-				var pixcelPerChar=6;
+				var pixcelPerChar=7;
 				var totalPixcel=yIndicationLabel.toString().length*pixcelPerChar;
 				var yLabelTop=height/2+totalPixcel/2;
 				
@@ -9716,12 +9796,16 @@ function sweep(d) {
 				var xLabelLeft=width/2-xLabelPixcel/2;
 				axisLabelController.appendLabel(xIndicationLabel,xLabelLeft,height*0.15,0,xAxisRef,textStyleConfg.xLabelColor,600);
 				
-				/*
-				//chart title
-				var xLabelPixcel=chartTitle.toString().length*pixcelPerChar;
-				var xLabelLeft=width/2-xLabelPixcel/2;
-				axisLabelController.appendLabel(chartTitle,xLabelLeft,height*0.1,0,svgElement);
-				*/
+				
+
+				var pixcelPerChar = 9;
+				var leftIndicator = (width/2) - ((chartTitle.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(chartTitle,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+				
+				
 				
 				//hide all axis path
 				hideAxisPath(svgElement);
@@ -9752,7 +9836,8 @@ function sweep(d) {
 			
 			svgElement.selectAll(".tick").selectAll("text").style("fill",textStyle["tick-font-color"],null);
 			
-			
+			// set title font size 
+			svgElement.selectAll(".title").selectAll("text").style('font-size',textStyle.titleFontSize+'px')
 			//set legend color
 			svgElement.selectAll(".legend").selectAll("text").style("fill",textStyle["legendTextColor"]);
 			
@@ -10227,6 +10312,16 @@ var threeDBarChart = {
 			var xLabelTop=height*0.15;
 			axisLabelController.appendLabel(cfg.xLabel,xLabelLeft,xLabelTop,0,xAxisRef,textStyleConfg.xLabelColor,600);
 			
+			//title here
+			var pixcelPerChar = 9;
+			var leftIndicator = (widthOfBarRegion/2) - ((cfg.title.length*pixcelPerChar)/2)
+			var titleGroup = svgElement.append("g")
+									   .attr('class','title')
+				
+			axisLabelController.appendLabel(cfg.title,leftIndicator,height*0.05,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+
+					
+			
 			//set font here
 				setTextStyleAndSvgBackGround(svgElement);
 				
@@ -10251,7 +10346,7 @@ var threeDBarChart = {
 					xLabelColor:data.xLabelColor
                 };
 				
-				
+				var title = data.title;
 				/*
                 if ('undefined' !== typeof options) {
                     for (var i in options) {
@@ -10308,6 +10403,14 @@ var threeDBarChart = {
                 var svg = svgElement.append("g")
 						  .attr("transform", "translate(" + (width*0.06) + "," + 0 + ")");
 						  
+				// title label here
+				var pixcelPerChar = 10;
+				var leftIndicator = (width/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+		
+				
+				axisLabelController.appendLabel(title,leftIndicator+margin.left,margin.top,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
 				
 				gridManager.init(svg, height, width, margin.left, margin.top);
 
@@ -11634,8 +11737,16 @@ for(var index = 0;index<funnelData.length;index++)
 					.call(yAxis);
 					
 					
-					// title here
-					axisLabelController.appendLabel(options.title,2*margin.areaLeft,(height*0.08),0,svgElement,textStyleConfg.chartTitleColor,700);
+			
+					//title here
+					var pixcelPerChar = 9;
+					var leftIndicator = (width/2.5) - ((options.title.length*pixcelPerChar)/2)
+					var titleGroup = svgElement.append("g")
+											   .attr('class','title')
+						
+					axisLabelController.appendLabel(options.title,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+
+					
 					
 					//xAxis label here	
 					var pixcelPerChar = 6;				
@@ -12337,6 +12448,16 @@ for(var index = 0;index<funnelData.length;index++)
 				var xLabelTop=height*0.1;
 				axisLabelController.appendLabel(cfg.xLabel,xLabelLeft,xLabelTop,0,xAxisRef,textStyleConfg.xLabelColor,600);	
 				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (threeDBarXRegion/2) - ((cfg.title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(cfg.title,leftIndicator,height*0.03,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+
+				
+				
 				var legend = svgContainer.append("g")
                     .attr("class", "legend")
                     .attr("width", width)
@@ -12508,15 +12629,14 @@ for(var index = 0;index<funnelData.length;index++)
 					}
 				}	
 
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (width/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+					
+				axisLabelController.appendLabel(title,leftIndicator,height*0.06,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
 
-				globMainGroup.append('text')
-							 .attr('class','globTitle')
-							 .attr('x',globAnalChart.left*2)
-							 .attr('y',titleSize)
-							 .attr('font-size',titleSize)
-						     .attr('text-family',textFamily)
-							 .attr('fill',titleColor)
-			 			     .text(title);
 				
 				var yScale = d3.scale.linear()
 									 .domain([0,100])
@@ -12707,7 +12827,8 @@ for(var index = 0;index<funnelData.length;index++)
 									.style("stroke",function(){return Data[nodeCounter].pathColor});
 					}
 				}
-				
+					//set font here
+				setTextStyleAndSvgBackGround(svgElement);	
 			},
 		};
 		
@@ -12965,8 +13086,14 @@ for(var index = 0;index<funnelData.length;index++)
 								   .attr('class','main-group')
 								   .attr("transform", "translate(" + areaAnalChart.left + "," + areaAnalChart.top + ")")
 		
-		//title label here
-		axisLabelController.appendLabel(title,(areaAnalChart.left),(-areaAnalChart.top/3),0,areaChartMainGroup,textStyleConfg.chartTitleColor,600);
+			
+		//title here
+		var pixcelPerChar = 9;
+		var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+		var titleGroup = svgElement.append("g")
+								   .attr('class','title')
+		axisLabelController.appendLabel(title,leftIndicator,areaAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
 		var xScale = d3.scale.linear()
 					 .domain([0,xAxisArray.length-1])
 					 .range([0,scaleWidth]); 
@@ -13335,8 +13462,15 @@ for(var index = 0;index<funnelData.length;index++)
 									//	toolTipManager.hideTooTip();
 									});
 
-		//title label here
-		axisLabelController.appendLabel(title,(areaAnalChart.left),(-areaAnalChart.top/3),0,areaChartMainGroup,textStyleConfg.chartTitleColor,700);
+		
+		//title here
+		var pixcelPerChar = 9;
+		var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+		var titleGroup = svgElement.append("g")
+								   .attr('class','title')
+		axisLabelController.appendLabel(title,leftIndicator,areaAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
+		
 		var xScale = d3.scale.linear()
                     .domain([0,xAxisArray.length-1])
                     .range([0,scaleWidth]); 
@@ -13542,11 +13676,13 @@ for(var index = 0;index<funnelData.length;index++)
 								   
 				
 	
-			// title label here
-			axisLabelController.appendLabel(title,compareAnalChart.left,(-compareAnalChart.top/3),0,compareChartMainGroup,textStyleConfg.chartTitleColor,700);			   
-				//	compareChartMainGroup.selectAll(".title").call(textWrapper.wrapText,80);	   
-						   
-								   
+			//title here
+			var pixcelPerChar = 9;
+			var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+			var titleGroup = svgElement.append("g")
+									   .attr('class','title')
+			axisLabelController.appendLabel(title,leftIndicator,compareAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
 			//	titleRef.text(textWrapper.wrapText(title,30));						   
 				
 				var xScale = d3.scale.linear()
@@ -13787,8 +13923,14 @@ for(var index = 0;index<funnelData.length;index++)
 									});
 				
 		
-				// title label here				   
-				axisLabelController.appendLabel(title,spikesAnalChart.left,(-spikesAnalChart.top/3),0,spikesChartMainGroup,textStyleConfg.chartTitleColor,700);
+					
+		//title here
+		var pixcelPerChar = 9;
+		var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+		var titleGroup = svgElement.append("g")
+								   .attr('class','title')
+		axisLabelController.appendLabel(title,leftIndicator,spikesAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
 				var xScale = d3.scale.linear()
                                      .domain([0,xAxisData.length])
                                      .range([0,scaleWidth]); 
@@ -14447,6 +14589,15 @@ for(var index = 0;index<funnelData.length;index++)
 			var xLabelLeft=(scaleWidth)/2-xLabelPixcel/2;
 			axisLabelController.appendLabel(cfg.xLabel,xLabelLeft,xLabelTop,0,xAxisRef,textStyleConfg.xLabelColor,600);
 			
+			//title here
+			var pixcelPerChar = 9;
+			var leftIndicator = (scaleWidth/2) - ((cfg.title.length*pixcelPerChar)/2)
+			var titleGroup = svgElement.append("g")
+									   .attr('class','title')
+				
+			axisLabelController.appendLabel(cfg.title,leftIndicator,height*0.01,0,titleGroup,textStyleConfg.chartTitleColor,800);			   
+
+			
 			//set font here
 			setTextStyleAndSvgBackGround(svgElement);
 			//hide axis path
@@ -14485,8 +14636,12 @@ for(var index = 0;index<funnelData.length;index++)
 					.attr('class','barMainGroup')
                     .attr("transform", "translate(" + (barAnalChart.left) + "," + barAnalChart.top + ")")
 				
-				// title label here
-				axisLabelController.appendLabel(title,barAnalChart.left,(-barAnalChart.top/3),0,barMainGroup,textStyleConfg.chartTitleColor,700);			   
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,barAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
 
 				// xScale here
 				var xScale = d3.scale.linear()
@@ -14636,8 +14791,8 @@ for(var index = 0;index<funnelData.length;index++)
 				var scaleWidth=width-margin.left-margin.right;
 				var scaleHeight=height-margin.top-margin.bottom;
 				
-				var tital = cnfg.tital; 
-				
+				var title = cnfg.title; 
+			
 				var textArray=cnfg.textArray;
 				var imageArray=cnfg.imageArray;
 				var imageFrameColorArray=cnfg.imageFrameColor;
@@ -14651,12 +14806,21 @@ for(var index = 0;index<funnelData.length;index++)
 				var maxRows=3;
 				var elementPerRow=Math.ceil(imageArray.length/maxRows);
 				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,margin.top,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
+				
 				var profilingElem=svgElement
 								  .append("g")
 				                  .attr("transform", "translate(" + (margin.left) + "," + (margin.top) + ")");	
 				
 				xScale =d3.scale.linear()
                     .range([0,scaleWidth-margin.right]);
+				
 				
 				
 				var minX=0;
@@ -14983,11 +15147,19 @@ for(var index = 0;index<funnelData.length;index++)
 				var xAxisData = data.xAxisData;
 				var legendColor = data.legendColor;
 				var legend = data.legend;
+				var title = data.title;
 				
 				var multiAxisAnalChart={left:width*0.05,right:width*0.05,bottom:height*0.1,top:height*0.1,chartSeparator:5,xScalePaddingTop:height*0.2,yScalePaddingLeft:width*0.1};
 				var scaleWidth=(width)-multiAxisAnalChart.left-multiAxisAnalChart.right;
 				var scaleHeight=height-multiAxisAnalChart.top-multiAxisAnalChart.bottom;
 				
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,multiAxisAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
 				
 				var leftMarginOfSvg = $(selectorElement).offset().left;
 				
@@ -15871,8 +16043,12 @@ for(var index = 0;index<funnelData.length;index++)
 								   .attr('class','main-group')
 								   .attr("transform", "translate(" + threeDAnalChart.left + "," + threeDAnalChart.top + ")")
 		
-				// title label here
-				axisLabelController.appendLabel(title,threeDAnalChart.left,(-threeDAnalChart.top/3),0,threeDBarMainGroup,textStyleConfg.chartTitleColor,700);			   
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,threeDAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
 				
 				//xAxis label here			
 				var pixcelPerChar=7;
@@ -16053,6 +16229,760 @@ for(var index = 0;index<funnelData.length;index++)
 			}
 		}
 	
+		var arcWithCylinderGraph =
+		{
+			arcWithCylinderChartAnalysis:function(data)
+			{
+				var color = data.color;
+				var subData = data.subData;
+				var title = data.title;
+						
+				var arcAnalChart={left:width*0.1,right:width*0.1,bottom:height*0.1,top:height*0.1,chartSeparator:5,xScalePaddingTop:height*0.2,yScalePaddingLeft:width*0.1};
+				var scaleWidth=width-arcAnalChart.left-arcAnalChart.right;
+				var scaleHeight=height-arcAnalChart.top-arcAnalChart.bottom;
+				
+				var  mainGroup = svgElement.append("g")
+										   .attr('class','main-group')
+										   .attr("transform", "translate(" + arcAnalChart.left + "," + arcAnalChart.top + ")");
+				
+				// title label here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/1.7) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,arcAnalChart.top/1.5,0,titleGroup,textStyleConfg.chartTitleColor,800);
+				
+				
+				var  arcMainGroup = mainGroup.append("g")
+										   .attr('class','arc-main-group')
+										   .attr("transform", "translate(" + ((scaleWidth*.5)/2-(arcAnalChart.left*.5)) + "," + (scaleHeight/2) + ")");
+										  
+				var estimateDataBarWidth = (scaleWidth*.45)/(2*subData[0].barData.length);
+				var radius = scaleHeight < (scaleWidth*.5) ? scaleHeight : (scaleWidth*.5);
+				radius = radius*.5
+				var innerRadius = radius * .4;
+				var arcSize = (radius-innerRadius)/(2*subData[0].barData.length);
+				var radiusY = estimateDataBarWidth*.2;	
+				var pi = Math.PI;
+				var grad = Math.PI/180;
+				var leftMarginOfSvg = $(selectorElement).offset().left;
+				var xAxisTimeIndex = [];
+				for(var counter = 0;counter<subData[0].barData.length ;counter++)
+				{
+					xAxisTimeIndex[counter] = counter;
+				}
+				
+				
+				var centerCircle = arcMainGroup.append("circle")
+											   .attr('r',innerRadius)
+											   .attr('fill','#454747')
+											   .attr('opacity',0.05)
+											   .attr('stroke','#454747');
+			
+				var arc = d3.svg.arc()
+					.innerRadius(innerRadius)
+					.outerRadius(radius);
+					
+				var pie = d3.layout.pie()
+							.sort(null)
+							.value(function(d) { return 1;});
+				var changeAngle = 0;
+				var arcs = arcMainGroup.selectAll(".arc")
+						.data(pie(subData))
+						.enter()
+						.append("g")
+						.attr("class","pie")
+						.attr('value',function(d,i){ return i})
+						.attr('startAngle',function(d,i){ return (i/subData.length)*360})
+						.attr('endAngle',function(d,i){ return ((i+1)/subData.length)*360})
+						.attr("fill",function(d,i){return '#53565b';} )
+					//	.attr('opacity',0.05)
+						.on("click",function(d)
+						{
+							d3.selectAll(".pie").attr('fill','#53565b').attr('opacity',1);
+							d3.select(this).attr('fill','lightsteelblue').attr('opacity',.5);
+							
+							
+							var startAngle = d3.select(this).attr('startAngle');
+							var endAngle = d3.select(this).attr('endAngle');
+							
+							startAngle = 360 - startAngle;
+							d3.selectAll(".individualArc").transition().ease('bounce').duration(1500).attr('transform','rotate('+(startAngle)+')');
+							d3.selectAll(".pie").attr('transform','rotate('+(startAngle)+')');
+						
+							var index = d3.select(this).attr('value');
+							drawCylender(index);
+						})
+						.on("mouseover",function()
+						{
+						})
+						.on("mouseleave",function()
+						{
+						});
+						
+						arcs.append("path")
+							.attr("d",arc);
+					
+						var  textRef =arcs.append('text')
+										.attr('class','keyOfArc')
+										.attr('id',function(d,i){return 'text'+i})
+					
+			
+					
+				var tempRadius = radius;		
+				var totalTheta = 0 ,tempTheta;
+				var keyArray = [];
+				for(var outerIndex = 0 ; outerIndex<subData.length;outerIndex++)
+				{
+					tempRadius = radius;
+					theta = (1/subData.length)*360;
+					sum = getTotal(subData[outerIndex].barData);
+					for(var innerIndex = 0;innerIndex<subData[outerIndex].barData.length;innerIndex++)
+					{
+						var angle=(subData[outerIndex].barData[innerIndex]/sum)*(360/subData.length);	
+						
+						var innerArc = d3.svg.arc()
+										 .innerRadius(tempRadius-arcSize)
+										 .outerRadius(tempRadius)
+										 .startAngle(totalTheta * (pi/180))
+										 .endAngle((angle+totalTheta) * (pi/180)) 
+										
+						var tempArc = d3.svg.arc()
+										.innerRadius(tempRadius-arcSize)
+										.outerRadius(tempRadius)
+										.startAngle(totalTheta * (pi/180))
+										.endAngle((totalTheta) * (pi/180));
+				
+						
+						var arcRef = arcMainGroup.append("path")
+								 .attr("d", tempArc)
+								 .attr("class","individualArc")
+								 .attr("fill",function(d,i){return color[subData[outerIndex].label[innerIndex]];})
+								 .attr('value',outerIndex+" "+innerIndex)
+								 .on("mousemove",function()
+								 {
+									var value = d3.select(this).attr('value');
+									var valueArray = value.split(" ");
+									
+									var heading=subData[valueArray[0]].label[valueArray[1]];
+									var yAxisVal = subData[valueArray[0]].barData[valueArray[1]];
+									var yHeadingValueMap=[{"headingName":subData[valueArray[0]].key,"headingVal":yAxisVal}
+														  ];
+									
+									toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.96);	
+									
+								 })
+								 .on("mouseleave",function(){
+									toolTipManager.hideTooTip();
+								 });;
+								 
+						arcRef.transition().ease('bounce').duration(1500).attr("d", innerArc);		 
+							 
+						//arc label here	
+						var xx = (tempRadius-arcSize)*Math.sin((angle+(totalTheta))* (Math.PI / 180));
+						var yy = -(tempRadius-arcSize)*Math.cos((angle+(totalTheta))* (Math.PI / 180));
+
+						arcs.append('text')
+									.attr('class','labelOfArc')
+									.attr('transform','translate('+xx+','+yy+')rotate('+(angle+(totalTheta))+')')
+									.style("font-size",arcSize*1.3+"px","important")
+									.text(function(){ return subData[outerIndex].barData[innerIndex]})
+									.attr('fill',textStyleConfg.yLabelColor);
+								
+						tempRadius = tempRadius - (2*arcSize);
+					}
+					
+					
+					tempTheta = totalTheta;
+					totalTheta = totalTheta + theta;
+					tempTheta = (tempTheta + totalTheta)/2;		
+					
+					var x = 1.1*radius*Math.sin(tempTheta* (Math.PI / 180));
+					var y = -1.1*radius*Math.cos(tempTheta* (Math.PI / 180));
+				
+						
+				// outer text of pie here
+						d3.select("#text"+outerIndex)
+						.attr('transform','translate('+x+','+y+')rotate('+tempTheta+')')
+						.text(subData[outerIndex].key)
+						.attr('fill',textStyleConfg.yLabelColor);
+				}
+				
+				//draw bar here
+				drawCylender(0)
+				
+				function drawCylender(index)
+				{
+					d3.select("#bar-main-group").remove();
+					var  mainGroupForBar = svgElement.append("g")
+										   .attr('id','bar-main-group')
+										   .attr("transform", "translate(" + arcAnalChart.left + "," + arcAnalChart.top + ")");
+					
+					var xScale = d3.scale.linear()
+							 .domain([0,xAxisTimeIndex.length])
+							 .range([scaleWidth*.55,scaleWidth]); 
+					
+					var yMin = d3.min(subData[index].barData);
+					var yMax = d3.max(subData[index].barData);
+					
+					if(yMax == 0){
+						yMax =yMax +  2;
+					}
+					else{
+						if(yMax>0){
+							yMax =yMax* 1.2;
+						}else{
+							yMax =yMax * 0.8;
+						}
+					}
+						
+					if(yMin == 0){
+						yMin =yMin - 2;
+					}
+					else{
+						if(yMin<0){
+							yMin =yMin* 1.5;
+						}else{
+							yMin =yMin * 0;
+						}
+					}
+					
+					var yScale = d3.scale.linear()
+								.domain([yMin,yMax])
+								.range([scaleHeight,0]);
+						
+				//x axis
+						var xAxis = d3.svg.axis()
+									.scale(xScale)
+									.orient("bottom")
+									.tickValues(xAxisTimeIndex);
+						var xAxisTextRef = mainGroupForBar.append("g")
+												.attr('id','xAxis')
+												.attr("class", "x axis")
+												.attr('fill',"none")
+												.attr("transform", "translate("+0+"," + scaleHeight + ")")
+												.call(xAxis);
+								 xAxisTextRef.selectAll('text')
+												 .text(function(d){return subData[index].label[d];})
+												 .attr('fill','#a7a7a7');
+												
+							
+				/*				
+						var yAxis = d3.svg.axis()
+										.scale(yScale)
+										.orient("left")
+									//	.tickValues(tickController.getTickArray(yMin,yMax,9));
+
+						mainGroupForBar.append("g")
+										.attr('id','yAxis')
+										.attr("class", "y axis")
+										.attr('fill',"none")
+										.attr("transform", "translate("+(scaleWidth*.55)+"," + 0 + ")")
+										.call(yAxis)
+										.selectAll('text')
+										.attr('fill','black');;
+										
+					  */ 					
+										
+						var rectGroupRef = mainGroupForBar
+													.selectAll('.rect')
+													.data(subData[index].barData)
+													.enter()
+													.append('rect')
+													.attr('class','cylinder'+index)
+													.attr('width',estimateDataBarWidth)
+													.attr('height',0)
+													.attr('x',function(d,i){return xScale(i)-(estimateDataBarWidth/2)})
+													.attr('y',scaleHeight  - radiusY)
+													.attr('fill',function(d,i){ return color[subData[index].label[i]]})
+													.attr("opacity",0.6);
+								rectGroupRef
+										.transition()
+										.duration(1500)
+										.ease('bounce')
+										.attr('height',function(d,i){return yScale(yMin)-yScale(d) - (2*radiusY)})
+										.attr('y',function(d,i){return yScale(d) + radiusY});
+										
+						var upperEllipseRef = mainGroupForBar
+													.selectAll('.ellipse')
+													.data(subData[index].barData)
+													.enter()
+													.append("ellipse")
+													.attr('class','cylinder'+index)
+													.attr("cx", function(d,i){return xScale(i)})           
+													.attr("cy",scaleHeight - radiusY)         
+													.attr("rx",	estimateDataBarWidth/2 )           
+													.attr("ry", radiusY)
+													.attr('fill',function(d,i){ return color[subData[index].label[i]]});  
+											
+									upperEllipseRef.transition()
+												   .duration(1500)
+												   .ease('bounce')
+												   .attr("cy",function(d,i){return yScale(d) + radiusY})         
+						
+						var lowerEllipseRef = mainGroupForBar
+													.selectAll('.ellipse')
+													.data(subData[index].barData)
+													.enter()
+													.append("ellipse")      
+													.attr('class','cylinder'+index)
+													.attr("cx", function(d,i){return xScale(i)})           
+													.attr("cy", scaleHeight - radiusY)         
+													.attr("rx",	estimateDataBarWidth/2 )           
+													.attr("ry", radiusY)
+													.attr('fill',function(d,i){ return color[subData[index].label[i]]});
+					
+						d3.selectAll('.cylinder'+index)
+									.on("mousemove",function()
+									{
+										var x = d3.event.pageX;
+										var y = d3.event.pageY;
+										x=x-(leftMarginOfSvg+arcAnalChart.left);
+										x = Math.round(xScale.invert(x));
+										var heading=subData[index].label[x];
+										var yAxisVal = subData[index].barData[x];
+										var yHeadingValueMap=[{"headingName":subData[index].key,"headingVal":yAxisVal}
+															  ];
+										
+										toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.96);	
+										
+									})
+									.on("mouseleave",function(){
+										toolTipManager.hideTooTip();
+									});
+							
+						var barLabel = 	 mainGroupForBar
+													.selectAll('.text')
+													.data(subData[index].barData)
+													.enter()
+													.append("text")      
+													.attr("x", function(d,i){return xScale(i)-((d.toString().length*7)/2)})           
+													.attr("y", function(d,i){return yScale(d) + radiusY-8;})         
+													.text(function(d,i){return d;})
+													.attr('fill',textStyleConfg.yLabelColor);	
+						
+						//title here
+						var pixcelPerChar = 9;
+						var leftIndicator = (scaleWidth*.7) - ((subData[index].key.toString().length*pixcelPerChar)/2)
+				
+						axisLabelController.appendLabel(subData[index].key,leftIndicator,arcAnalChart.top/2,0,mainGroupForBar,textStyleConfg.chartTitleColor,800);
+						
+				
+				}
+				
+			
+				function getTotal(array)
+				{
+					var sum = 0;
+					for(var i=0;i<array.length;i++)
+					{
+						sum = sum + array[i];
+					}
+					return sum;
+				}	
+				
+			function sweep(d) {
+			   var i = d3.interpolate({startAngle: -180*grad, endAngle: -180*grad},d);
+			 return function (call) {
+			  return arc(i(call));
+			 };
+			}
+				//hide axis path
+				hideAxisPath(svgElement);
+				//set font here
+				setTextStyleAndSvgBackGround(svgElement);
+			}
+		}
+		var ThreeDComparisionGraph = 
+		{
+			ThreeDComparisionAnalysis:function(data)
+			{
+				var yAxisEstimateData = data.yAxisEstimateData;
+				var yAxisActualData = data.yAxisActualData;
+				var xAxisData = data.xAxisData;
+				var yAxisUnit = data.yAxisUnit;
+				var yAxisLabel = data.yAxisLabel;
+				var xAxisLabel = data.xAxisLabel;
+				var title = data.title;
+				var yAxisActualDataUnit = data.yAxisActualDataUnit;
+				var yAxisEstimateDataUnit = data.yAxisEstimateDataUnit;
+				var legendArray = data.legendArray;
+				
+				var compareAnalChart={left:width*0.13,right:width*0.05,bottom:height*0.1,top:height*0.2,chartSeparator:5,xScalePaddingTop:height*0.2,yScalePaddingLeft:width*0.1};
+				var scaleWidth=width-compareAnalChart.left-compareAnalChart.right;
+				var scaleHeight=height-compareAnalChart.top-compareAnalChart.bottom;
+				var leftMarginOfSvg = $(selectorElement).offset().left;	
+				var barWidth =  (scaleWidth/(1.8*xAxisData.length));
+				var upperPath;
+				if(barWidth>60)
+				{upperPath = barWidth*.3}
+				else{upperPath = barWidth*.4};
+				var xCoordinate = [];
+				var yCoordinate = [];
+				var fontSize =12,fontFamily = "calibri";	
+				var xAxisTimeIndex = [];
+			    for(var counter = 0;counter<xAxisData.length ;counter++)
+				{
+					xAxisTimeIndex[counter] = counter;
+				}
+		//		var svgElement = d3.select('body').append('svg').attr('width',980).attr('height',450);			
+				
+				var compareChartMainGroup = svgElement.append("g")
+								   .attr('class','main-group')
+								   .attr("transform", "translate(" + compareAnalChart.left + "," + compareAnalChart.top + ")")
+		
+				// title label here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,compareAnalChart.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+				
+			//	axisLabelController.appendLabel(title,compareAnalChart.left,-compareAnalChart.top/1.5,0,titleGroup,textStyleConfg.chartTitleColor,700);
+				
+				var pixcelPerChar = 7;
+				// YAxis Label here
+				var totalYLabelPixcel=yAxisLabel.toString().length*pixcelPerChar;
+				var yIndicationLabelTop=scaleHeight/2+totalYLabelPixcel/2;
+				var yIndicationLabelLeft=(-compareAnalChart.left/1.3);
+				axisLabelController.appendLabel(yAxisLabel,yIndicationLabelLeft,yIndicationLabelTop,-90,compareChartMainGroup,textStyleConfg.yLabelColor,600);			   
+
+				// xAxis label here
+				var totalXLabelPixcel=xAxisLabel.toString().length*pixcelPerChar;
+				var xIndicationLabelTop=scaleHeight+(scaleHeight*0.13);
+				var xIndicationLabelLeft=scaleWidth/2-totalXLabelPixcel/2;
+				axisLabelController.appendLabel(xAxisLabel,xIndicationLabelLeft,xIndicationLabelTop,0,compareChartMainGroup,textStyleConfg.xLabelColor,600);
+		
+				var horizontalLine = parseInt(scaleHeight/barWidth);
+				
+				var xScale = d3.scale.linear()
+                                     .domain([0,xAxisData.length])
+                                     .range([0,scaleWidth]); 
+				var yMin = d3.min(yAxisEstimateData)<d3.min(yAxisActualData)?d3.min(yAxisEstimateData):d3.min(yAxisActualData);
+				var yMax = d3.max(yAxisEstimateData)>d3.max(yAxisActualData)?d3.max(yAxisEstimateData):d3.max(yAxisActualData);
+				
+				if(yMax == 0){
+					yMax =yMax +  2;
+				}
+				else{
+					if(yMax>0){
+						yMax =yMax* 1.2;
+					}else{
+						yMax =yMax * 0.8;
+					}
+				}
+					
+				if(yMin == 0){
+					yMin =yMin - 2;
+				}
+				else{
+					if(yMin<0){
+						yMin =yMin* 1.5;
+					}else{
+						yMin =yMin * 0;
+					}
+				}
+				
+				var yScale = d3.scale.linear()
+								.domain([yMin,yMax])
+								.range([scaleHeight,0]);
+						
+		//x axis
+				var xAxis = d3.svg.axis()
+							.scale(xScale)
+							.orient("bottom");
+						//	.ticks(10);
+				var xAxisTextRef = compareChartMainGroup.append("g")
+										.attr('id','xAxis')
+										.attr("class", "xAxis")
+										.attr('fill',"none")
+										.attr("transform", "translate("+0+"," + scaleHeight + ")")
+										.call(xAxis);
+							 xAxisTextRef.selectAll('text')
+							             .text(function(d){return xAxisData[d];})
+										 .style('font-size',fontSize)
+										 .attr('font-family',fontFamily)
+										 .attr('fill','black');
+
+				var yTickArray = tickController.getTickArray(yMin,yMax,8);							
+												
+				var yAxis = d3.svg.axis()
+								.scale(yScale)
+								.orient("left")
+								.tickValues(yTickArray);
+				
+				compareChartMainGroup.append("g")
+								.attr('id','yAxis')
+								.attr("class", "yAxis")
+								.attr('fill',"none")
+								.attr("transform", "translate("+(-barWidth/1.3)+"," + 0 + ")")
+								.call(yAxis)
+								.selectAll('text')
+								.style('font-size',fontSize)
+								.style('font-family',fontFamily)
+								.attr('fill','black');
+								
+				var lineFunction = d3.svg.line()
+							.x(function(d,i) {return xCoordinate[i]; })
+							.y(function(d,i) {return yCoordinate[i]; })
+				
+				var temp = d3.svg.line()
+							.x(function(d,i) {return d; })
+							.y(function(d,i) {return scaleHeight; })
+				
+				// grid line here
+				var pathRef;
+	        	
+				for(var i = 0;i<yTickArray.length;i++)
+				{
+					xCoordinate[0] = -2*upperPath;
+					yCoordinate[0] =yScale(yTickArray[i]);
+					
+					xCoordinate[1] = 0;
+					yCoordinate[1] =yScale(yTickArray[i])-upperPath;
+					
+					xCoordinate[2] = scaleWidth;
+					yCoordinate[2] =yCoordinate[1];
+					
+				pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr("d", lineFunction)	  
+							 .attr("fill",'none')
+							 .attr("stroke","gray")
+							 
+					//transition
+				var totalLength = pathRef.node().getTotalLength();
+
+                pathRef.attr("stroke-dasharray", function (d) {
+				
+					
+                        return totalLength + "," + totalLength;
+                })
+                    .attr("stroke-dashoffset", totalLength)
+                    .transition()
+                    .duration(1500)
+                    .ease("linear")
+                    .attr("stroke-dashoffset", 0);		 
+				}
+							
+		
+				for(var counter = 0;counter<yAxisEstimateData.length ; counter++)
+				{
+					
+					xCoordinate[0] = xScale(counter)-(barWidth*.55);
+					yCoordinate[0] = yScale(yMin)-upperPath;
+					
+					xCoordinate[1] = xCoordinate[0];
+					yCoordinate[1] = yScale(yAxisEstimateData[counter])+upperPath;
+					
+					xCoordinate[2] = xCoordinate[1]+barWidth;
+					yCoordinate[2] = yCoordinate[1];
+					
+					xCoordinate[3] = xCoordinate[2];
+					yCoordinate[3] = yCoordinate[0];
+					
+				pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr('class','pathClass')
+							 .attr("d", temp)	  
+							 .attr("fill",'#f6cd03')
+	
+						 pathRef.transition()
+								.duration(2000)
+								.ease('elastic')
+								.attr("d", lineFunction)	   	 
+					//set coordinate for upper path
+					xCoordinate[0] = xScale(counter)-(barWidth*.55);
+					yCoordinate[0] = yScale(yAxisEstimateData[counter])+upperPath;
+					
+					xCoordinate[1] = xCoordinate[0] + (barWidth*.25);
+					yCoordinate[1] = yCoordinate[0] - upperPath;
+					
+					xCoordinate[2] = xCoordinate[1]+barWidth;
+					yCoordinate[2] = yCoordinate[1];
+					
+					xCoordinate[3] = xCoordinate[0]+barWidth;
+					yCoordinate[3] = yCoordinate[0];
+					
+					
+					
+				pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr("d", temp)	 
+							 .attr('class','pathClass')
+							 .attr("fill",'#f9f303')
+							 
+							pathRef.transition()
+								.duration(2000)
+								.ease('elastic')
+								.attr("d", lineFunction)	   	 
+					//set coordinate for side path
+					
+					
+					xCoordinate[0] = xCoordinate[3]; 
+					yCoordinate[0] = yScale(yMin)-upperPath;
+					
+					xCoordinate[1] = xCoordinate[3]+(barWidth*.25); 
+					yCoordinate[1] = yScale(yMin)-(2*upperPath);
+					
+					
+					pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr('class','pathClass')
+							 .attr("d", temp)	  
+							 .attr("fill",'#c9a703')
+							 
+							 pathRef.transition()
+								.duration(2000)
+								.ease('elastic')
+								.attr("d", lineFunction)	   	 
+				
+				}
+				
+				for(var counter = 0;counter<yAxisActualData.length ; counter++)
+				{
+					
+					//set coordinate for upper path
+					xCoordinate[0] = xScale(counter)-(barWidth*.8);
+					yCoordinate[0] = yScale(yAxisActualData[counter])+upperPath;
+					
+					xCoordinate[1] = xCoordinate[0] + (barWidth*.25);
+					yCoordinate[1] = yCoordinate[0] - upperPath;
+					
+				
+					
+					xCoordinate[2] = xCoordinate[1]+barWidth;
+					yCoordinate[2] = yCoordinate[1];
+					
+					xCoordinate[3] = xCoordinate[0]+barWidth;
+					yCoordinate[3] = yCoordinate[0];
+							
+					pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr('class','pathClass')
+							 .attr("d", temp)	  
+							 .attr("fill",'#fa7600');
+					pathRef.transition()
+								.duration(2000)
+								.ease('elastic')
+								.attr("d", lineFunction)
+					//set coordinate for side path
+					
+					xCoordinate[0] = xCoordinate[3]; 
+					yCoordinate[0] = yScale(yMin);
+					
+					xCoordinate[1] = xCoordinate[3]+(barWidth*.25); 
+					yCoordinate[1] = yScale(yMin)-upperPath;
+					
+			//		xCoordinate[4] = xCoordinate[0];
+			//		yCoordinate[4] = yCoordinate[0];
+					
+					pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr('class','pathClass')
+							 .attr("d", temp)	  
+							 .attr("fill",'#cc5200')
+						pathRef.transition()
+								.duration(2000)
+								.ease('elastic')
+								.attr("d", lineFunction)	   	 
+							 
+					xCoordinate[0] = xScale(counter)-(barWidth*.8);
+					yCoordinate[0] = yScale(yMin);
+					
+					xCoordinate[1] = xCoordinate[0];
+					yCoordinate[1] = yScale(yAxisActualData[counter])+upperPath;
+					
+					xCoordinate[2] = xCoordinate[1]+barWidth;
+					yCoordinate[2] = yCoordinate[1];
+					
+					xCoordinate[3] = xCoordinate[2];
+					yCoordinate[3] = yCoordinate[0];
+					
+				pathRef = compareChartMainGroup.selectAll(".path")
+							 .data([xCoordinate])
+							 .enter()
+							 .append("path")
+							 .attr('class','pathClass')
+							 .attr("d", temp)	  
+							 .attr("fill",'#fa6400');	   
+								   
+							pathRef.transition()
+								.duration(2000)
+								.ease('elastic')
+								.attr("d", lineFunction)	   
+				}
+				
+			d3.selectAll('.pathClass')
+				.on("mousemove",function()
+				{
+					var x = event.pageX;
+					var y = event.pageY;
+					x=x-(leftMarginOfSvg+compareAnalChart.left);
+					x = Math.round(xScale.invert(x));
+	
+					var heading=xAxisData[x];
+					var yAxisEstimateVal = yAxisEstimateData[x] + " "+yAxisUnit;
+					var yAxisActualVal = yAxisActualData[x] + " "+yAxisUnit;
+					var yHeadingValueMap=[{"headingName":yAxisEstimateDataUnit+" "+yAxisLabel,"headingVal":yAxisEstimateVal},
+										  {"headingName":yAxisActualDataUnit+" "+yAxisLabel,"headingVal":yAxisActualVal}
+										  ];
+					
+					toolTipManager.showToolTip(d3.event,"",(heading), false,yHeadingValueMap,d3.event.pageY*.90);	
+					
+				})
+				.on("mouseleave",function(){
+					toolTipManager.hideTooTip();
+				});
+							 
+				
+				
+				// draw legend here
+					var legendSize = 10;
+					var yPositionOfLegend = -5;
+					var legendPositionArray = legendController.showHorizontalLegend(scaleWidth,yPositionOfLegend,legendArray,legendSize);
+					
+				var legendGroup = svgElement.append("g")
+								   .attr('class','legend')
+								   .attr("transform", "translate(" + compareAnalChart.left + "," + compareAnalChart.top + ")")
+				
+				var legendRef = legendGroup.selectAll('.rect')
+										    .data(legendPositionArray)
+										    .enter()
+											.append('rect')
+											.attr('width',legendSize)
+											.attr('height',legendSize)
+											.attr('x',function(d,i){ return legendPositionArray[i].x;})
+											.attr('y',function(d,i){return legendPositionArray[i].y;})
+											.attr('fill',function(d,i){if(i==0){return '#f6cd03'}else{return '#fa6400'}});
+				
+				var legendTextRef = legendGroup.selectAll('.text')
+										    .data(legendPositionArray)
+										    .enter()
+											.append('text')
+											.attr('x',function(d,i){return legendPositionArray[i].textXPos;})
+											.attr('y',function(d,i){return legendPositionArray[i].y + legendSize;})
+											.style('font-family','calibri')
+											.text(function(d,i){return legendArray[i];}); 
+				//hide axis path
+				hideAxisPath(svgElement);
+				//set font here
+				setTextStyleAndSvgBackGround(svgElement);
+
+			}
+		}
 		
 		var detailAnalysisGraph = 
 		{
@@ -16127,8 +17057,13 @@ for(var index = 0;index<funnelData.length;index++)
 						toolTipManager.hideTooTip();
 					});
 			
-				// title label here
-				axisLabelController.appendLabel(title,detailAnalChart.left,0,0,scoredMainGroup,textStyleConfg.chartTitleColor,700);
+				//title here
+				var pixcelPerChar = 9;
+				var leftIndicator = (scaleWidth/2) - ((title.length*pixcelPerChar)/2)
+				var titleGroup = svgElement.append("g")
+										   .attr('class','title')
+				axisLabelController.appendLabel(title,leftIndicator,detailAnalChart.top,0,titleGroup,textStyleConfg.chartTitleColor,800);
+				
 				
 				// Right YAxis Label here
 				var pixcelPerChar = 6;
@@ -16464,8 +17399,15 @@ for(var index = 0;index<funnelData.length;index++)
 									 .attr('class','bubble-main-group')
 									 .attr("transform", "translate(" + (0) + "," + 0 + ")");
 						  
-					//title label here
-					axisLabelController.appendLabel(title,margin.left*1.5,margin.top/2,0,vis,textStyleConfg.chartTitleColor,700);
+					
+					//title here
+					var pixcelPerChar = 9;
+					var leftIndicator = (width/2) - ((title.length*pixcelPerChar)/2)
+					var titleGroup = svgElement.append("g")
+											   .attr('class','title')
+					axisLabelController.appendLabel(title,leftIndicator,margin.top/2,0,titleGroup,textStyleConfg.chartTitleColor,800);
+
+						
 					//xAxis Label here
 					var pixcelPerChar = 6;
 					var totalXLabelPixcel=xAxisLabel.toString().length*pixcelPerChar;
@@ -16776,7 +17718,9 @@ for(var index = 0;index<funnelData.length;index++)
 			multiAxisChartAnalysis:multiAxisChartGraph.multiAxisChartAnalysis,
 			roundedThreeDBarAnalysis:roundedThreeDBarGraph.roundedThreeDBarAnalysis,
 			threeDDountChartAnalysis:threeDDountChartGraph.threeDDountChartAnalysis,
-			threeDPieChartAnalysis:threeDPieChartGraph.threeDPieChartAnalysis
+			threeDPieChartAnalysis:threeDPieChartGraph.threeDPieChartAnalysis,
+			arcWithCylinderChartAnalysis:arcWithCylinderGraph.arcWithCylinderChartAnalysis,
+			ThreeDComparisionAnalysis:ThreeDComparisionGraph.ThreeDComparisionAnalysis
 			
 			
 		
